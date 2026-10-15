@@ -1,0 +1,21 @@
+name: Request an icon or improvement
+description: Suggest approved artwork or a workflow improvement.
+title: "[Request]: "
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: What do you need to do?
+    validations:
+      required: true
+  - type: textarea
+    id: reference
+    attributes:
+      label: Artwork or reference
+      description: Include a Figma link and note any existing equivalent icon, when relevant.
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired result
+    validations:
+      required: true

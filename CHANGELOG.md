@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.1.3 — Team preview — 2026-10-15
+
+- Package the compiled plugin with installation/usage guides, release notes, source/version metadata, checksum, and font notices for team distribution.
+- Add a team-first README, preview image, roadmap, contribution guide, feedback forms, and reproducible GitHub pre-release workflow.
+
+### Live editing and design tokens
+
+- Apply size, weight, grade, style, palette, and catalog changes live to the selected Capte icon.
+- Make Insert icon always create an additional icon.
+- Guard live edits with their target root ID and avoid same-root selection echoes resetting newer controls.
+- Commit each insertion/live edit to undo history.
+- Export interface color, spacing, radius, and text-style tokens from the Capte design system; generate shared CSS and validate token references during builds.
+- Bundle Roboto/Roboto Mono and their notices for offline plugin and documentation use.
+- Add regressions for rapid edits, changed canvas selections, all live controls, and resolved interface styling. Figma Desktop confirmation remains pending.
+
+## 0.1.2 — One insert action — 2026-10-15
+
+- Remove the redundant Update selected button and keep a single Insert icon action.
+- Insert icon applies settings to an owned canvas selection or creates an icon when no owned icon is selected.
+- Preserve immediate replacement when choosing another catalog icon.
+- Keep the website’s Download SVG and Copy SVG actions.
+
 ## 0.1.1 — Pilot selection fixes — 2026-10-15
 
 - Accept selection/settings messages from the native host when their Window source is absent.

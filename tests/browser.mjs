@@ -34,6 +34,7 @@ try {
   await page.getByLabel('Style', { exact: true }).selectOption('filled');
   await page.getByLabel('Grade', { exact: true }).selectOption('emphasis');
   await page.getByLabel('Color', { exact: true }).selectOption('dark');
+  assert.equal(await page.evaluate(() => getComputedStyle(document.documentElement).backgroundColor), 'rgb(17, 21, 35)');
   assert.equal(await page.locator('.masthead [aria-label="Color"]').count(), 1);
   assert.deepEqual(await page.getByLabel('Color', { exact: true }).locator('option').allTextContents(), ['Light', 'Dark']);
   assert.equal(await page.locator('.fields [name="theme"]').count(), 0);
@@ -43,6 +44,7 @@ try {
   const download = await downloaded, file = path.join(artifactDir, download.suggestedFilename()); await download.saveAs(file);
   assert.match(await readFile(file, 'utf8'), /width="20" height="20"/);
   await page.reload(); assert.equal(await page.getByLabel('Optical size').inputValue(), '20');
+  await page.evaluate(() => document.fonts.ready);
   await page.screenshot({ path: path.join(artifactDir, 'explorer-desktop.png'), fullPage: true });
   await page.setViewportSize({ width: 390, height: 844 });
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
@@ -51,28 +53,47 @@ try {
   await page.evaluate(() => { window.__messages = []; addEventListener('message', e => { if (e.data?.pluginMessage) window.__messages.push(e.data.pluginMessage); }); });
   const options = { iconId: 'location-check', size: 24, weight: 'medium', grade: 'normal', style: 'duotone', theme: 'light' };
   // Native Figma messages may have source=null, unlike a browser parent window.
-  await page.evaluate(o => dispatchEvent(new MessageEvent('message', { data: { pluginMessage: { type: 'selection', options: o } }, source: null })), options);
-  await page.getByRole('button', { name: 'Update selected' }).waitFor();
-  await page.waitForFunction(() => !document.querySelector('.secondary').disabled);
-  await page.getByRole('button', { name: 'Update selected' }).click();
-  await page.waitForFunction(() => window.__messages.some(m => m.type === 'update'));
-  const updated = await page.evaluate(() => window.__messages.find(m => m.type === 'update')); assert.deepEqual(updated.options, options);
+  await page.evaluate(o => dispatchEvent(new MessageEvent('message', { data: { pluginMessage: { type: 'selection', nodeId: 'icon-a', options: o } }, source: null })), options);
+  await page.waitForFunction(() => document.querySelector('.status').textContent.includes('selected icon'));
+  assert.equal(await page.locator('.actions button').count(), 1);
+  assert.equal(await page.getByRole('button', { name: 'Update selected' }).count(), 0);
+  await page.getByRole('button', { name: 'Insert icon', exact: true }).click();
+  await page.waitForFunction(() => window.__messages.some(m => m.type === 'insert'));
+  const updated = await page.evaluate(() => window.__messages.find(m => m.type === 'insert')); assert.deepEqual(updated.options, options);
   await page.getByRole('button', { name: 'Select Shield Lock', exact: true }).click();
   await page.waitForFunction(() => window.__messages.some(m => m.type === 'update' && m.options.iconId === 'shield-lock'));
   await page.getByLabel('Weight', { exact: true }).selectOption('heavy');
-  await page.getByRole('button', { name: 'Update selected' }).click();
-  await page.waitForFunction(() => window.__messages.some(m => m.type === 'update' && m.options.weight === 'heavy'));
-  await page.getByRole('button', { name: 'Replace icon', exact: true }).click();
-  await page.waitForFunction(() => window.__messages.some(m => m.type === 'insert'));
+  await page.waitForFunction(() => window.__messages.some(m => m.type === 'update' && m.options.weight === 'heavy' && m.targetId === 'icon-a'));
+  for (const [label, value, key] of [['Optical size', '40', 'size'], ['Grade', 'emphasis', 'grade'], ['Style', 'filled', 'style'], ['Color', 'dark', 'theme']]) {
+    await page.getByLabel(label, { exact: true }).selectOption(value);
+    await page.waitForFunction(({ key, value }) => window.__messages.some(m => m.type === 'update' && String(m.options[key]) === value && m.targetId === 'icon-a'), { key, value });
+  }
+  // Rapid changes followed by an old same-root echo must keep the latest draft.
+  await page.evaluate(() => {
+    const weight = document.querySelector('[name=weight]'); weight.value = 'thin'; weight.dispatchEvent(new Event('change'));
+    const size = document.querySelector('[name=size]'); size.value = '20'; size.dispatchEvent(new Event('change'));
+  });
+  await page.evaluate(o => dispatchEvent(new MessageEvent('message', { data: { pluginMessage: { type: 'selection', nodeId: 'icon-a', options: o } } })), options);
+  assert.equal(await page.getByLabel('Weight', { exact: true }).inputValue(), 'thin');
+  assert.equal(await page.getByLabel('Optical size').inputValue(), '20');
+  await page.evaluate(o => dispatchEvent(new MessageEvent('message', { data: { pluginMessage: { type: 'selection', nodeId: 'icon-b', options: o } } })), options);
+  assert.equal(await page.getByLabel('Weight', { exact: true }).inputValue(), 'medium');
+  await page.getByLabel('Weight', { exact: true }).selectOption('heavy');
+  await page.waitForFunction(() => window.__messages.some(m => m.type === 'update' && m.targetId === 'icon-b' && m.options.weight === 'heavy'));
   await page.evaluate(() => postMessage({ pluginMessage: { type: 'selection', options: null } }, '*'));
-  await page.waitForFunction(() => document.querySelector('.secondary').disabled);
+  await page.waitForFunction(() => document.querySelector('.status').textContent === '');
   await page.evaluate(() => { window.__messages = []; });
+  await page.getByLabel('Weight', { exact: true }).selectOption('thin');
   await page.getByRole('button', { name: 'Select Search', exact: true }).click();
   assert.equal(await page.evaluate(() => window.__messages.filter(m => m.type === 'update').length), 0);
   await page.getByRole('button', { name: 'Insert icon', exact: true }).click();
   await page.waitForFunction(() => window.__messages.some(m => m.type === 'insert' && m.options.iconId === 'search'));
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+  await page.mouse.move(0, 0);
+  await page.evaluate(() => document.fonts.ready);
   await page.screenshot({ path: path.join(artifactDir, 'plugin-ui.png'), fullPage: true });
+  assert.equal(await page.evaluate(() => getComputedStyle(document.body).fontFamily.includes('Roboto')), true);
+  assert.equal(await page.evaluate(() => getComputedStyle(document.querySelector('.primary')).backgroundColor), 'rgb(221, 54, 3)');
   assert.deepEqual(errors, []);
   console.log('Browser checks passed: filters, controls, download, storage, plugin bridge and responsive layout.');
 } finally { if (browser) await browser.close(); await new Promise(resolve => server.close(resolve)); }

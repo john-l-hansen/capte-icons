@@ -1,0 +1,41 @@
+name: Report a plugin or icon problem
+description: Help reproduce an issue with Capte Icons.
+title: "[Bug]: "
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Capte Icons version
+      placeholder: "0.1.3"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Figma Desktop version and operating system
+    validations:
+      required: true
+  - type: textarea
+    id: settings
+    attributes:
+      label: Icon, settings, and canvas selection
+      description: Include icon name, size, weight, grade, style, color, and what was selected.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or extra context
+      description: Optional; remove unrelated private information.
