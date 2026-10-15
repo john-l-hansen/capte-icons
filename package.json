@@ -1,0 +1,31 @@
+{
+  "name": "capte-icons",
+  "version": "0.1.1",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/icons",
+    "packages/ui",
+    "apps/figma-plugin",
+    "apps/docs"
+  ],
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/serve.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test tests/*.test.ts",
+    "check": "npm run typecheck && npm test && npm run build",
+    "configure:plugin": "node scripts/configure-plugin.mjs",
+    "test:browser": "npm run build && node tests/browser.mjs"
+  },
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.0.0",
+    "@types/node": "^24.0.0",
+    "esbuild": "^0.28.2",
+    "playwright": "^1.62.1",
+    "typescript": "^5.9.3"
+  }
+}

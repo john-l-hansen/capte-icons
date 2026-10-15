@@ -1,0 +1,4693 @@
+{
+  "profiles": {"icon/stroke/48/medium":{"Normal":2,"Dark theme":1.899999976158142,"Emphasis":2.200000047683716},"icon/stroke/48/medium/detail":{"Normal":1.559999942779541,"Dark theme":1.4819999933242798,"Emphasis":1.715999960899353},"icon/stroke/48/thin":{"Normal":1.5,"Dark theme":1.399999976158142,"Emphasis":1.7000000476837158},"icon/stroke/48/thin/detail":{"Normal":1.1699999570846558,"Dark theme":1.0920000076293945,"Emphasis":1.3259999752044678},"icon/stroke/48/heavy":{"Normal":2.5,"Dark theme":2.4000000953674316,"Emphasis":2.700000047683716},"icon/stroke/48/heavy/detail":{"Normal":1.9500000476837158,"Dark theme":1.871999979019165,"Emphasis":2.1059999465942383},"icon/stroke/40/medium":{"Normal":1.7999999523162842,"Dark theme":1.7000000476837158,"Emphasis":2},"icon/stroke/40/medium/detail":{"Normal":1.4040000438690186,"Dark theme":1.3259999752044678,"Emphasis":1.559999942779541},"icon/stroke/40/thin":{"Normal":1.350000023841858,"Dark theme":1.25,"Emphasis":1.5499999523162842},"icon/stroke/40/thin/detail":{"Normal":1.0529999732971191,"Dark theme":0.9750000238418579,"Emphasis":1.2089999914169312},"icon/stroke/40/heavy":{"Normal":2.25,"Dark theme":2.1500000953674316,"Emphasis":2.450000047683716},"icon/stroke/40/heavy/detail":{"Normal":1.7549999952316284,"Dark theme":1.6770000457763672,"Emphasis":1.9110000133514404},"icon/stroke/24/medium":{"Normal":1.350000023841858,"Dark theme":1.25,"Emphasis":1.5},"icon/stroke/24/medium/detail":{"Normal":1.0529999732971191,"Dark theme":0.9750000238418579,"Emphasis":1.1699999570846558},"icon/stroke/24/thin":{"Normal":1,"Dark theme":0.8999999761581421,"Emphasis":1.149999976158142},"icon/stroke/24/thin/detail":{"Normal":0.7799999713897705,"Dark theme":0.7020000219345093,"Emphasis":0.8970000147819519},"icon/stroke/24/heavy":{"Normal":1.649999976158142,"Dark theme":1.5499999523162842,"Emphasis":1.7999999523162842},"icon/stroke/24/heavy/detail":{"Normal":1.2869999408721924,"Dark theme":1.2089999914169312,"Emphasis":1.4040000438690186},"icon/stroke/20/medium":{"Normal":1.149999976158142,"Dark theme":1.0499999523162842,"Emphasis":1.2999999523162842},"icon/stroke/20/medium/detail":{"Normal":0.8970000147819519,"Dark theme":0.8190000057220459,"Emphasis":1.0140000581741333},"icon/stroke/20/thin":{"Normal":0.8999999761581421,"Dark theme":0.800000011920929,"Emphasis":1.0499999523162842},"icon/stroke/20/thin/detail":{"Normal":0.7020000219345093,"Dark theme":0.6240000128746033,"Emphasis":0.8190000057220459},"icon/stroke/20/heavy":{"Normal":1.399999976158142,"Dark theme":1.2999999523162842,"Emphasis":1.5499999523162842},"icon/stroke/20/heavy/detail":{"Normal":1.0920000076293945,"Dark theme":1.0140000581741333,"Emphasis":1.2089999914169312}},
+  "palettes": {"light":{"stroke":{"r":0.2549019753932953,"g":0.27843138575553894,"b":0.8352941274642944,"a":1},"fill":{"r":0.843137264251709,"g":0.8784313797950745,"b":1,"a":1},"surface":{"r":1,"g":1,"b":1,"a":1},"signal":{"r":0.9098039269447327,"g":0.35686275362968445,"b":0.1568627506494522,"a":1},"container":{"r":0.95686274766922,"g":0.9647058844566345,"b":1,"a":1}},"dark":{"stroke":{"r":0.95686274766922,"g":0.9647058844566345,"b":1,"a":1},"fill":{"r":0.5568627715110779,"g":0.6352941393852234,"b":1,"a":1},"surface":{"r":0.1568627506494522,"g":0.16862745583057404,"b":0.5607843399047852,"a":1},"signal":{"r":0.9098039269447327,"g":0.35686275362968445,"b":0.1568627506494522,"a":1},"container":{"r":0.062745101749897,"g":0.0784313753247261,"b":0.2705882489681244,"a":1}}},
+  "schemaVersion": 1,
+  "version": "0.1.0",
+  "source": {
+    "fileKey": "oFZw7IVtiURZG2x5XhAKyD",
+    "pilotNodeId": "3637:27"
+  },
+  "icons": [
+    {
+      "id": "search",
+      "name": "Search",
+      "category": "General",
+      "tags": [
+        "find",
+        "magnifier",
+        "lookup"
+      ],
+      "templates": [
+        {
+          "size": 48,
+          "style": "duotone",
+          "parts": [
+            {
+              "name": "search.lens",
+              "type": "ELLIPSE",
+              "transform": [
+                [
+                  1,
+                  0,
+                  4
+                ],
+                [
+                  0,
+                  1,
+                  4
+                ]
+              ],
+              "width": 28,
+              "height": 28,
+              "fill": "fill",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "NONE",
+              "join": "MITER",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "search.handle",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  28
+                ],
+                [
+                  0,
+                  1,
+                  28
+                ]
+              ],
+              "width": 16,
+              "height": 16,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 0 0 L 16 16"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 40,
+          "style": "duotone",
+          "parts": [
+            {
+              "name": "search.lens",
+              "type": "ELLIPSE",
+              "transform": [
+                [
+                  1,
+                  0,
+                  3.3333332538604736
+                ],
+                [
+                  0,
+                  1,
+                  3.3333332538604736
+                ]
+              ],
+              "width": 23.33333396911621,
+              "height": 23.33333396911621,
+              "fill": "fill",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "NONE",
+              "join": "MITER",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "search.handle",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  23.33333396911621
+                ],
+                [
+                  0,
+                  1,
+                  23.33333396911621
+                ]
+              ],
+              "width": 13.333333015441895,
+              "height": 13.333333015441895,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 0 0 L 13.333333015441895 13.333333015441895"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 24,
+          "style": "duotone",
+          "parts": [
+            {
+              "name": "search.lens",
+              "type": "ELLIPSE",
+              "transform": [
+                [
+                  1,
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "width": 14,
+              "height": 14,
+              "fill": "fill",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "NONE",
+              "join": "MITER",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "search.handle",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  14
+                ],
+                [
+                  0,
+                  1,
+                  14
+                ]
+              ],
+              "width": 8,
+              "height": 8,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 0 0 L 8 8"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 20,
+          "style": "duotone",
+          "parts": [
+            {
+              "name": "search.lens",
+              "type": "ELLIPSE",
+              "transform": [
+                [
+                  1,
+                  0,
+                  1.6666666269302368
+                ],
+                [
+                  0,
+                  1,
+                  1.6666666269302368
+                ]
+              ],
+              "width": 11.666666984558105,
+              "height": 11.666666984558105,
+              "fill": "fill",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "NONE",
+              "join": "MITER",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "search.handle",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  11.666666984558105
+                ],
+                [
+                  0,
+                  1,
+                  11.666666984558105
+                ]
+              ],
+              "width": 6.666666507720947,
+              "height": 6.666666507720947,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 0 0 L 6.666666507720947 6.666666507720947"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 48,
+          "style": "outline",
+          "parts": [
+            {
+              "name": "search.lens",
+              "type": "ELLIPSE",
+              "transform": [
+                [
+                  1,
+                  0,
+                  4
+                ],
+                [
+                  0,
+                  1,
+                  4
+                ]
+              ],
+              "width": 28,
+              "height": 28,
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "NONE",
+              "join": "MITER",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "search.handle",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  28
+                ],
+                [
+                  0,
+                  1,
+                  28
+                ]
+              ],
+              "width": 16,
+              "height": 16,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 0 0 L 16 16"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 40,
+          "style": "outline",
+          "parts": [
+            {
+              "name": "search.lens",
+              "type": "ELLIPSE",
+              "transform": [
+                [
+                  1,
+                  0,
+                  3.3333332538604736
+                ],
+                [
+                  0,
+                  1,
+                  3.3333332538604736
+                ]
+              ],
+              "width": 23.33333396911621,
+              "height": 23.33333396911621,
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "NONE",
+              "join": "MITER",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "search.handle",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  23.33333396911621
+                ],
+                [
+                  0,
+                  1,
+                  23.33333396911621
+                ]
+              ],
+              "width": 13.333333015441895,
+              "height": 13.333333015441895,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 0 0 L 13.333333015441895 13.333333015441895"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 24,
+          "style": "outline",
+          "parts": [
+            {
+              "name": "search.lens",
+              "type": "ELLIPSE",
+              "transform": [
+                [
+                  1,
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "width": 14,
+              "height": 14,
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "NONE",
+              "join": "MITER",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "search.handle",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  14
+                ],
+                [
+                  0,
+                  1,
+                  14
+                ]
+              ],
+              "width": 8,
+              "height": 8,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 0 0 L 8 8"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 20,
+          "style": "outline",
+          "parts": [
+            {
+              "name": "search.lens",
+              "type": "ELLIPSE",
+              "transform": [
+                [
+                  1,
+                  0,
+                  1.6666666269302368
+                ],
+                [
+                  0,
+                  1,
+                  1.6666666269302368
+                ]
+              ],
+              "width": 11.666666984558105,
+              "height": 11.666666984558105,
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "NONE",
+              "join": "MITER",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "search.handle",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  11.666666984558105
+                ],
+                [
+                  0,
+                  1,
+                  11.666666984558105
+                ]
+              ],
+              "width": 6.666666507720947,
+              "height": 6.666666507720947,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 0 0 L 6.666666507720947 6.666666507720947"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 48,
+          "style": "filled",
+          "parts": [
+            {
+              "name": "search.lens",
+              "type": "ELLIPSE",
+              "transform": [
+                [
+                  1,
+                  0,
+                  4
+                ],
+                [
+                  0,
+                  1,
+                  4
+                ]
+              ],
+              "width": 28,
+              "height": 28,
+              "fill": "stroke",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "NONE",
+              "join": "MITER",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "search.handle",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  28
+                ],
+                [
+                  0,
+                  1,
+                  28
+                ]
+              ],
+              "width": 16,
+              "height": 16,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 0 0 L 16 16"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 40,
+          "style": "filled",
+          "parts": [
+            {
+              "name": "search.lens",
+              "type": "ELLIPSE",
+              "transform": [
+                [
+                  1,
+                  0,
+                  3.3333332538604736
+                ],
+                [
+                  0,
+                  1,
+                  3.3333332538604736
+                ]
+              ],
+              "width": 23.33333396911621,
+              "height": 23.33333396911621,
+              "fill": "stroke",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "NONE",
+              "join": "MITER",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "search.handle",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  23.33333396911621
+                ],
+                [
+                  0,
+                  1,
+                  23.33333396911621
+                ]
+              ],
+              "width": 13.333333015441895,
+              "height": 13.333333015441895,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 0 0 L 13.333333015441895 13.333333015441895"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 24,
+          "style": "filled",
+          "parts": [
+            {
+              "name": "search.lens",
+              "type": "ELLIPSE",
+              "transform": [
+                [
+                  1,
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "width": 14,
+              "height": 14,
+              "fill": "stroke",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "NONE",
+              "join": "MITER",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "search.handle",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  14
+                ],
+                [
+                  0,
+                  1,
+                  14
+                ]
+              ],
+              "width": 8,
+              "height": 8,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 0 0 L 8 8"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 20,
+          "style": "filled",
+          "parts": [
+            {
+              "name": "search.lens",
+              "type": "ELLIPSE",
+              "transform": [
+                [
+                  1,
+                  0,
+                  1.6666666269302368
+                ],
+                [
+                  0,
+                  1,
+                  1.6666666269302368
+                ]
+              ],
+              "width": 11.666666984558105,
+              "height": 11.666666984558105,
+              "fill": "stroke",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "NONE",
+              "join": "MITER",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "search.handle",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  11.666666984558105
+                ],
+                [
+                  0,
+                  1,
+                  11.666666984558105
+                ]
+              ],
+              "width": 6.666666507720947,
+              "height": 6.666666507720947,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 0 0 L 6.666666507720947 6.666666507720947"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shield-lock",
+      "name": "Shield Lock",
+      "category": "Security",
+      "tags": [
+        "secure",
+        "privacy",
+        "protection"
+      ],
+      "templates": [
+        {
+          "size": 48,
+          "style": "duotone",
+          "parts": [
+            {
+              "name": "shield",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  7.255814075469971
+                ],
+                [
+                  0,
+                  1,
+                  4
+                ]
+              ],
+              "width": 33.488372802734375,
+              "height": 40,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 16.744186401367188 0 L 33.488372802734375 6.511627906976744 L 33.488372802734375 20.46511627906977 C 33.488372802734375 29.76744186046512 24.186047024197048 36.27906976744186 16.744186401367188 40 C 9.302325778537327 36.27906976744186 0 29.76744186046512 0 20.46511627906977 L 0 6.511627906976744 L 16.744186401367188 0 Z"
+                }
+              ],
+              "fill": "fill",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.shackle",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  18.418603897094727
+                ],
+                [
+                  0,
+                  1,
+                  10.511628150939941
+                ]
+              ],
+              "width": 11.162790298461914,
+              "height": 10.232558250427246,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 10.232558250427246 L 0 5.581395409323952 C 0 4.101117311609734 0.5880374476363954 2.6814668413708307 1.634752082025443 1.6347521582048845 C 2.6814667164144907 0.5880374750389383 4.10111712049769 3.3048499695832543e-15 5.581395149230957 0 C 7.061673177964224 0 8.481323582047423 0.5880374750389383 9.528038216436471 1.6347521582048845 C 10.574752850825519 2.6814668413708307 11.162790298461914 4.101117311609734 11.162790298461914 5.581395409323952 L 11.162790298461914 10.232558250427246"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.body",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  15.627906799316406
+                ],
+                [
+                  0,
+                  1,
+                  20.744186401367188
+                ]
+              ],
+              "width": 16.744186401367188,
+              "height": 13.95348834991455,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0.9302325778537326 0 L 15.813953823513454 0 C 16.327707115484525 0 16.744186401367188 0.416479276394341 16.744186401367188 0.93023255666097 L 16.744186401367188 13.02325579325358 C 16.744186401367188 13.53700907352021 16.327707115484525 13.95348834991455 15.813953823513454 13.95348834991455 L 0.9302325778537326 13.95348834991455 C 0.41647928588266336 13.95348834991455 0 13.53700907352021 0 13.02325579325358 L 0 0.93023255666097 C 0 0.416479276394341 0.41647928588266336 0 0.9302325778537326 0 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.keyhole",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  22.604650497436523
+                ],
+                [
+                  0,
+                  1,
+                  24.930233001708984
+                ]
+              ],
+              "width": 2.7906975746154785,
+              "height": 2.7906975746154785,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 2.7906975746154785 1.3953487873077393 C 2.7906975746154785 2.165978653649603 2.165978653649603 2.7906975746154785 1.3953487873077393 2.7906975746154785 C 0.6247189209658757 2.7906975746154785 0 2.165978653649603 0 1.3953487873077393 C 0 0.6247189209658757 0.6247189209658757 0 1.3953487873077393 0 C 2.165978653649603 0 2.7906975746154785 0.6247189209658757 2.7906975746154785 1.3953487873077393 Z"
+                }
+              ],
+              "fill": "stroke",
+              "stroke": null,
+              "detail": false,
+              "cap": "NONE",
+              "join": "MITER",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.keyhole.stem",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  24
+                ],
+                [
+                  0,
+                  1,
+                  28.186046600341797
+                ]
+              ],
+              "width": 0,
+              "height": 3,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 0 L 0 3"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 40,
+          "style": "duotone",
+          "parts": [
+            {
+              "name": "shield",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  6.046511650085449
+                ],
+                [
+                  0,
+                  1,
+                  3.3333332538604736
+                ]
+              ],
+              "width": 27.9069766998291,
+              "height": 33.33333206176758,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 13.95348834991455 0 L 27.9069766998291 5.426356382148211 L 27.9069766998291 17.054262915322948 C 27.9069766998291 24.806200604106106 20.15503872765435 30.232556986254316 13.95348834991455 33.33333206176758 C 7.75193797217475 30.232556986254316 0 24.806200604106106 0 17.054262915322948 L 0 5.426356382148211 L 13.95348834991455 0 Z"
+                }
+              ],
+              "fill": "fill",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.shackle",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  15.348836898803711
+                ],
+                [
+                  0,
+                  1,
+                  8.759690284729004
+                ]
+              ],
+              "width": 9.302325248718262,
+              "height": 8.527132034301758,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 8.527132034301758 L 0 4.651162927800959 C 0 3.417597823378794 0.49003120636366293 2.2345557427944724 1.3622934016878694 1.3622934905638844 C 2.2345555970120756 0.4900312383332964 3.4175976004147417 2.754041692654709e-15 4.651162624359131 0 C 5.88472764830352 0 7.067769651706186 0.4900312383332964 7.940031847030393 1.3622934905638844 C 8.8122940423546 2.2345557427944724 9.302325248718262 3.417597823378794 9.302325248718262 4.651162927800959 L 9.302325248718262 8.527132034301758"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.body",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  13.023255348205566
+                ],
+                [
+                  0,
+                  1,
+                  17.286821365356445
+                ]
+              ],
+              "width": 13.95348834991455,
+              "height": 11.627906799316406,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0.7751937972174751 0 L 13.178294552697077 0 C 13.6064222862526 0 13.95348834991455 0.34706605891778963 13.95348834991455 0.7751937866210937 L 13.95348834991455 10.852713012695313 C 13.95348834991455 11.280840740398617 13.6064222862526 11.627906799316406 13.178294552697077 11.627906799316406 L 0.7751937972174751 11.627906799316406 C 0.34706606366195086 11.627906799316406 0 11.280840740398617 0 10.852713012695313 L 0 0.7751937866210937 C 0 0.34706605891778963 0.34706606366195086 0 0.7751937972174751 0 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.keyhole",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  18.837207794189453
+                ],
+                [
+                  0,
+                  1,
+                  20.77519416809082
+                ]
+              ],
+              "width": 2.3255813121795654,
+              "height": 2.3255813121795654,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 2.3255813121795654 1.1627906560897827 C 2.3255813121795654 1.8049822113746692 1.8049822113746692 2.3255813121795654 1.1627906560897827 2.3255813121795654 C 0.5205991008048964 2.3255813121795654 0 1.8049822113746692 0 1.1627906560897827 C 0 0.5205991008048964 0.5205991008048964 0 1.1627906560897827 0 C 1.8049822113746692 0 2.3255813121795654 0.5205991008048964 2.3255813121795654 1.1627906560897827 Z"
+                }
+              ],
+              "fill": "stroke",
+              "stroke": null,
+              "detail": false,
+              "cap": "NONE",
+              "join": "MITER",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.keyhole.stem",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  20
+                ],
+                [
+                  0,
+                  1,
+                  23.488372802734375
+                ]
+              ],
+              "width": 0,
+              "height": 2.5,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 0 L 0 2.5"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 24,
+          "style": "duotone",
+          "parts": [
+            {
+              "name": "shield",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  3.6279070377349854
+                ],
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "width": 16.744186401367188,
+              "height": 20,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 8.372093200683594 0 L 16.744186401367188 3.255813953488372 L 16.744186401367188 10.232558139534884 C 16.744186401367188 14.88372093023256 12.093023512098524 18.13953488372093 8.372093200683594 20 C 4.651162889268663 18.13953488372093 0 14.88372093023256 0 10.232558139534884 L 0 3.255813953488372 L 8.372093200683594 0 Z"
+                }
+              ],
+              "fill": "fill",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.shackle",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  9.209301948547363
+                ],
+                [
+                  0,
+                  1,
+                  5.255814075469971
+                ]
+              ],
+              "width": 5.581395149230957,
+              "height": 5.116279125213623,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 5.116279125213623 L 0 2.790697704661976 C 0 2.050558655804867 0.2940187238181977 1.3407334206854153 0.8173760410127215 0.8173760791024423 C 1.3407333582072454 0.29401873751946916 2.050558560248845 1.6524249847916272e-15 2.7906975746154785 0 C 3.530836588982112 0 4.240661791023712 0.29401873751946916 4.7640191082182355 0.8173760791024423 C 5.287376425412759 1.3407334206854153 5.581395149230957 2.050558655804867 5.581395149230957 2.790697704661976 L 5.581395149230957 5.116279125213623"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.body",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  7.813953399658203
+                ],
+                [
+                  0,
+                  1,
+                  10.372093200683594
+                ]
+              ],
+              "width": 8.372093200683594,
+              "height": 6.976744174957275,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0.4651162889268663 0 L 7.906976911756727 0 C 8.163853557742263 0 8.372093200683594 0.2082396381971705 8.372093200683594 0.465116278330485 L 8.372093200683594 6.51162789662679 C 8.372093200683594 6.768504536760105 8.163853557742263 6.976744174957275 7.906976911756727 6.976744174957275 L 0.4651162889268663 6.976744174957275 C 0.20823964294133168 6.976744174957275 0 6.768504536760105 0 6.51162789662679 L 0 0.465116278330485 C 0 0.2082396381971705 0.20823964294133168 0 0.4651162889268663 0 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.keyhole",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  11.299999237060547
+                ],
+                [
+                  0,
+                  1,
+                  12.462790489196777
+                ]
+              ],
+              "width": 1.399999976158142,
+              "height": 1.399999976158142,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 1.399999976158142 0.699999988079071 C 1.399999976158142 1.0865993116026946 1.0865993116026946 1.399999976158142 0.699999988079071 1.399999976158142 C 0.3134006645554474 1.399999976158142 0 1.0865993116026946 0 0.699999988079071 C 0 0.3134006645554474 0.3134006645554474 0 0.699999988079071 0 C 1.0865993116026946 0 1.399999976158142 0.3134006645554474 1.399999976158142 0.699999988079071 Z"
+                }
+              ],
+              "fill": "stroke",
+              "stroke": null,
+              "detail": false,
+              "cap": "NONE",
+              "join": "MITER",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.keyhole.stem",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  12
+                ],
+                [
+                  0,
+                  1,
+                  14.093023300170898
+                ]
+              ],
+              "width": 0,
+              "height": 1.5,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 0 L 0 1.5"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": true,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 20,
+          "style": "duotone",
+          "parts": [
+            {
+              "name": "shield",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  3.0232558250427246
+                ],
+                [
+                  0,
+                  1,
+                  1.6666666269302368
+                ]
+              ],
+              "width": 13.95348834991455,
+              "height": 16.66666603088379,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 6.976744174957275 0 L 13.95348834991455 2.7131781910741055 L 13.95348834991455 8.527131457661474 C 13.95348834991455 12.403100302053053 10.077519363827175 15.116278493127158 6.976744174957275 16.66666603088379 C 3.875968986087375 15.116278493127158 0 12.403100302053053 0 8.527131457661474 L 0 2.7131781910741055 L 6.976744174957275 0 Z"
+                }
+              ],
+              "fill": "fill",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.shackle",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  7.6744184494018555
+                ],
+                [
+                  0,
+                  1,
+                  4.379845142364502
+                ]
+              ],
+              "width": 4.651162624359131,
+              "height": 4.263566017150879,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 4.263566017150879 L 0 2.3255814639004795 C 0 1.708798911689397 0.24501560318183147 1.1172778713972362 0.6811467008439347 0.6811467452819422 C 1.1172777985060378 0.2450156191666482 1.7087988002073708 1.3770208463273544e-15 2.3255813121795654 0 C 2.94236382415176 0 3.533884825853093 0.2450156191666482 3.9700159235151964 0.6811467452819422 C 4.4061470211773 1.1172778713972362 4.651162624359131 1.708798911689397 4.651162624359131 2.3255814639004795 L 4.651162624359131 4.263566017150879"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.body",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  6.511627674102783
+                ],
+                [
+                  0,
+                  1,
+                  8.643410682678223
+                ]
+              ],
+              "width": 6.976744174957275,
+              "height": 5.813953399658203,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0.38759689860873753 0 L 6.589147276348538 0 C 6.8032111431263 0 6.976744174957275 0.17353302945889482 6.976744174957275 0.38759689331054686 L 6.976744174957275 5.426356506347656 C 6.976744174957275 5.640420370199308 6.8032111431263 5.813953399658203 6.589147276348538 5.813953399658203 L 0.38759689860873753 5.813953399658203 C 0.17353303183097543 5.813953399658203 0 5.640420370199308 0 5.426356506347656 L 0 0.38759689331054686 C 0 0.17353302945889482 0.17353303183097543 0 0.38759689860873753 0 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.keyhole",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  9.374999046325684
+                ],
+                [
+                  0,
+                  1,
+                  10.343992233276367
+                ]
+              ],
+              "width": 1.25,
+              "height": 1.25,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 1.25 0.625 C 1.25 0.9701779733101528 0.9701779733101528 1.25 0.625 1.25 C 0.2798220266898473 1.25 0 0.9701779733101528 0 0.625 C 0 0.2798220266898473 0.2798220266898473 0 0.625 0 C 0.9701779733101528 0 1.25 0.2798220266898473 1.25 0.625 Z"
+                }
+              ],
+              "fill": "stroke",
+              "stroke": null,
+              "detail": false,
+              "cap": "NONE",
+              "join": "MITER",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.keyhole.stem",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  10
+                ],
+                [
+                  0,
+                  1,
+                  11.744186401367188
+                ]
+              ],
+              "width": 0,
+              "height": 1.25,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 0 L 0 1.25"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": true,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 48,
+          "style": "outline",
+          "parts": [
+            {
+              "name": "shield",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  7.255814075469971
+                ],
+                [
+                  0,
+                  1,
+                  4
+                ]
+              ],
+              "width": 33.488372802734375,
+              "height": 40,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 16.744186401367188 0 L 33.488372802734375 6.511627906976744 L 33.488372802734375 20.46511627906977 C 33.488372802734375 29.76744186046512 24.186047024197048 36.27906976744186 16.744186401367188 40 C 9.302325778537327 36.27906976744186 0 29.76744186046512 0 20.46511627906977 L 0 6.511627906976744 L 16.744186401367188 0 Z"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.shackle",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  18.418603897094727
+                ],
+                [
+                  0,
+                  1,
+                  10.511628150939941
+                ]
+              ],
+              "width": 11.162790298461914,
+              "height": 10.232558250427246,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 10.232558250427246 L 0 5.581395409323952 C 0 4.101117311609734 0.5880374476363954 2.6814668413708307 1.634752082025443 1.6347521582048845 C 2.6814667164144907 0.5880374750389383 4.10111712049769 3.3048499695832543e-15 5.581395149230957 0 C 7.061673177964224 0 8.481323582047423 0.5880374750389383 9.528038216436471 1.6347521582048845 C 10.574752850825519 2.6814668413708307 11.162790298461914 4.101117311609734 11.162790298461914 5.581395409323952 L 11.162790298461914 10.232558250427246"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.body",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  15.627906799316406
+                ],
+                [
+                  0,
+                  1,
+                  20.744186401367188
+                ]
+              ],
+              "width": 16.744186401367188,
+              "height": 13.95348834991455,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0.9302325778537326 0 L 15.813953823513454 0 C 16.327707115484525 0 16.744186401367188 0.416479276394341 16.744186401367188 0.93023255666097 L 16.744186401367188 13.02325579325358 C 16.744186401367188 13.53700907352021 16.327707115484525 13.95348834991455 15.813953823513454 13.95348834991455 L 0.9302325778537326 13.95348834991455 C 0.41647928588266336 13.95348834991455 0 13.53700907352021 0 13.02325579325358 L 0 0.93023255666097 C 0 0.416479276394341 0.41647928588266336 0 0.9302325778537326 0 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.keyhole",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  22.604650497436523
+                ],
+                [
+                  0,
+                  1,
+                  24.930233001708984
+                ]
+              ],
+              "width": 2.7906975746154785,
+              "height": 2.7906975746154785,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 2.7906975746154785 1.3953487873077393 C 2.7906975746154785 2.165978653649603 2.165978653649603 2.7906975746154785 1.3953487873077393 2.7906975746154785 C 0.6247189209658757 2.7906975746154785 0 2.165978653649603 0 1.3953487873077393 C 0 0.6247189209658757 0.6247189209658757 0 1.3953487873077393 0 C 2.165978653649603 0 2.7906975746154785 0.6247189209658757 2.7906975746154785 1.3953487873077393 Z"
+                }
+              ],
+              "fill": "stroke",
+              "stroke": null,
+              "detail": false,
+              "cap": "NONE",
+              "join": "MITER",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.keyhole.stem",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  24
+                ],
+                [
+                  0,
+                  1,
+                  28.186046600341797
+                ]
+              ],
+              "width": 0,
+              "height": 3,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 0 L 0 3"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 40,
+          "style": "outline",
+          "parts": [
+            {
+              "name": "shield",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  6.046511650085449
+                ],
+                [
+                  0,
+                  1,
+                  3.3333332538604736
+                ]
+              ],
+              "width": 27.9069766998291,
+              "height": 33.33333206176758,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 13.95348834991455 0 L 27.9069766998291 5.426356382148211 L 27.9069766998291 17.054262915322948 C 27.9069766998291 24.806200604106106 20.15503872765435 30.232556986254316 13.95348834991455 33.33333206176758 C 7.75193797217475 30.232556986254316 0 24.806200604106106 0 17.054262915322948 L 0 5.426356382148211 L 13.95348834991455 0 Z"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.shackle",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  15.348836898803711
+                ],
+                [
+                  0,
+                  1,
+                  8.759690284729004
+                ]
+              ],
+              "width": 9.302325248718262,
+              "height": 8.527132034301758,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 8.527132034301758 L 0 4.651162927800959 C 0 3.417597823378794 0.49003120636366293 2.2345557427944724 1.3622934016878694 1.3622934905638844 C 2.2345555970120756 0.4900312383332964 3.4175976004147417 2.754041692654709e-15 4.651162624359131 0 C 5.88472764830352 0 7.067769651706186 0.4900312383332964 7.940031847030393 1.3622934905638844 C 8.8122940423546 2.2345557427944724 9.302325248718262 3.417597823378794 9.302325248718262 4.651162927800959 L 9.302325248718262 8.527132034301758"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.body",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  13.023255348205566
+                ],
+                [
+                  0,
+                  1,
+                  17.286821365356445
+                ]
+              ],
+              "width": 13.95348834991455,
+              "height": 11.627906799316406,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0.7751937972174751 0 L 13.178294552697077 0 C 13.6064222862526 0 13.95348834991455 0.34706605891778963 13.95348834991455 0.7751937866210937 L 13.95348834991455 10.852713012695313 C 13.95348834991455 11.280840740398617 13.6064222862526 11.627906799316406 13.178294552697077 11.627906799316406 L 0.7751937972174751 11.627906799316406 C 0.34706606366195086 11.627906799316406 0 11.280840740398617 0 10.852713012695313 L 0 0.7751937866210937 C 0 0.34706605891778963 0.34706606366195086 0 0.7751937972174751 0 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.keyhole",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  18.837207794189453
+                ],
+                [
+                  0,
+                  1,
+                  20.77519416809082
+                ]
+              ],
+              "width": 2.3255813121795654,
+              "height": 2.3255813121795654,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 2.3255813121795654 1.1627906560897827 C 2.3255813121795654 1.8049822113746692 1.8049822113746692 2.3255813121795654 1.1627906560897827 2.3255813121795654 C 0.5205991008048964 2.3255813121795654 0 1.8049822113746692 0 1.1627906560897827 C 0 0.5205991008048964 0.5205991008048964 0 1.1627906560897827 0 C 1.8049822113746692 0 2.3255813121795654 0.5205991008048964 2.3255813121795654 1.1627906560897827 Z"
+                }
+              ],
+              "fill": "stroke",
+              "stroke": null,
+              "detail": false,
+              "cap": "NONE",
+              "join": "MITER",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.keyhole.stem",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  20
+                ],
+                [
+                  0,
+                  1,
+                  23.488372802734375
+                ]
+              ],
+              "width": 0,
+              "height": 2.5,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 0 L 0 2.5"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 24,
+          "style": "outline",
+          "parts": [
+            {
+              "name": "shield",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  3.6279070377349854
+                ],
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "width": 16.744186401367188,
+              "height": 20,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 8.372093200683594 0 L 16.744186401367188 3.255813953488372 L 16.744186401367188 10.232558139534884 C 16.744186401367188 14.88372093023256 12.093023512098524 18.13953488372093 8.372093200683594 20 C 4.651162889268663 18.13953488372093 0 14.88372093023256 0 10.232558139534884 L 0 3.255813953488372 L 8.372093200683594 0 Z"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.shackle",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  9.209301948547363
+                ],
+                [
+                  0,
+                  1,
+                  5.255814075469971
+                ]
+              ],
+              "width": 5.581395149230957,
+              "height": 5.116279125213623,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 5.116279125213623 L 0 2.790697704661976 C 0 2.050558655804867 0.2940187238181977 1.3407334206854153 0.8173760410127215 0.8173760791024423 C 1.3407333582072454 0.29401873751946916 2.050558560248845 1.6524249847916272e-15 2.7906975746154785 0 C 3.530836588982112 0 4.240661791023712 0.29401873751946916 4.7640191082182355 0.8173760791024423 C 5.287376425412759 1.3407334206854153 5.581395149230957 2.050558655804867 5.581395149230957 2.790697704661976 L 5.581395149230957 5.116279125213623"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.body",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  7.813953399658203
+                ],
+                [
+                  0,
+                  1,
+                  10.372093200683594
+                ]
+              ],
+              "width": 8.372093200683594,
+              "height": 6.976744174957275,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0.4651162889268663 0 L 7.906976911756727 0 C 8.163853557742263 0 8.372093200683594 0.2082396381971705 8.372093200683594 0.465116278330485 L 8.372093200683594 6.51162789662679 C 8.372093200683594 6.768504536760105 8.163853557742263 6.976744174957275 7.906976911756727 6.976744174957275 L 0.4651162889268663 6.976744174957275 C 0.20823964294133168 6.976744174957275 0 6.768504536760105 0 6.51162789662679 L 0 0.465116278330485 C 0 0.2082396381971705 0.20823964294133168 0 0.4651162889268663 0 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.keyhole",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  11.299999237060547
+                ],
+                [
+                  0,
+                  1,
+                  12.462790489196777
+                ]
+              ],
+              "width": 1.399999976158142,
+              "height": 1.399999976158142,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 1.399999976158142 0.699999988079071 C 1.399999976158142 1.0865993116026946 1.0865993116026946 1.399999976158142 0.699999988079071 1.399999976158142 C 0.3134006645554474 1.399999976158142 0 1.0865993116026946 0 0.699999988079071 C 0 0.3134006645554474 0.3134006645554474 0 0.699999988079071 0 C 1.0865993116026946 0 1.399999976158142 0.3134006645554474 1.399999976158142 0.699999988079071 Z"
+                }
+              ],
+              "fill": "stroke",
+              "stroke": null,
+              "detail": false,
+              "cap": "NONE",
+              "join": "MITER",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.keyhole.stem",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  12
+                ],
+                [
+                  0,
+                  1,
+                  14.093023300170898
+                ]
+              ],
+              "width": 0,
+              "height": 1.5,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 0 L 0 1.5"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": true,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 20,
+          "style": "outline",
+          "parts": [
+            {
+              "name": "shield",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  3.0232558250427246
+                ],
+                [
+                  0,
+                  1,
+                  1.6666666269302368
+                ]
+              ],
+              "width": 13.95348834991455,
+              "height": 16.66666603088379,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 6.976744174957275 0 L 13.95348834991455 2.7131781910741055 L 13.95348834991455 8.527131457661474 C 13.95348834991455 12.403100302053053 10.077519363827175 15.116278493127158 6.976744174957275 16.66666603088379 C 3.875968986087375 15.116278493127158 0 12.403100302053053 0 8.527131457661474 L 0 2.7131781910741055 L 6.976744174957275 0 Z"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.shackle",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  7.6744184494018555
+                ],
+                [
+                  0,
+                  1,
+                  4.379845142364502
+                ]
+              ],
+              "width": 4.651162624359131,
+              "height": 4.263566017150879,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 4.263566017150879 L 0 2.3255814639004795 C 0 1.708798911689397 0.24501560318183147 1.1172778713972362 0.6811467008439347 0.6811467452819422 C 1.1172777985060378 0.2450156191666482 1.7087988002073708 1.3770208463273544e-15 2.3255813121795654 0 C 2.94236382415176 0 3.533884825853093 0.2450156191666482 3.9700159235151964 0.6811467452819422 C 4.4061470211773 1.1172778713972362 4.651162624359131 1.708798911689397 4.651162624359131 2.3255814639004795 L 4.651162624359131 4.263566017150879"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.body",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  6.511627674102783
+                ],
+                [
+                  0,
+                  1,
+                  8.643410682678223
+                ]
+              ],
+              "width": 6.976744174957275,
+              "height": 5.813953399658203,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0.38759689860873753 0 L 6.589147276348538 0 C 6.8032111431263 0 6.976744174957275 0.17353302945889482 6.976744174957275 0.38759689331054686 L 6.976744174957275 5.426356506347656 C 6.976744174957275 5.640420370199308 6.8032111431263 5.813953399658203 6.589147276348538 5.813953399658203 L 0.38759689860873753 5.813953399658203 C 0.17353303183097543 5.813953399658203 0 5.640420370199308 0 5.426356506347656 L 0 0.38759689331054686 C 0 0.17353302945889482 0.17353303183097543 0 0.38759689860873753 0 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.keyhole",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  9.374999046325684
+                ],
+                [
+                  0,
+                  1,
+                  10.343992233276367
+                ]
+              ],
+              "width": 1.25,
+              "height": 1.25,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 1.25 0.625 C 1.25 0.9701779733101528 0.9701779733101528 1.25 0.625 1.25 C 0.2798220266898473 1.25 0 0.9701779733101528 0 0.625 C 0 0.2798220266898473 0.2798220266898473 0 0.625 0 C 0.9701779733101528 0 1.25 0.2798220266898473 1.25 0.625 Z"
+                }
+              ],
+              "fill": "stroke",
+              "stroke": null,
+              "detail": false,
+              "cap": "NONE",
+              "join": "MITER",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.keyhole.stem",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  10
+                ],
+                [
+                  0,
+                  1,
+                  11.744186401367188
+                ]
+              ],
+              "width": 0,
+              "height": 1.25,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 0 L 0 1.25"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": true,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 48,
+          "style": "filled",
+          "parts": [
+            {
+              "name": "shield",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  7.255814075469971
+                ],
+                [
+                  0,
+                  1,
+                  4
+                ]
+              ],
+              "width": 33.488372802734375,
+              "height": 40,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 16.744186401367188 0 L 33.488372802734375 6.511627906976744 L 33.488372802734375 20.46511627906977 C 33.488372802734375 29.76744186046512 24.186047024197048 36.27906976744186 16.744186401367188 40 C 9.302325778537327 36.27906976744186 0 29.76744186046512 0 20.46511627906977 L 0 6.511627906976744 L 16.744186401367188 0 Z"
+                }
+              ],
+              "fill": "stroke",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.shackle",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  18.418603897094727
+                ],
+                [
+                  0,
+                  1,
+                  10.511628150939941
+                ]
+              ],
+              "width": 11.162790298461914,
+              "height": 10.232558250427246,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 10.232558250427246 L 0 5.581395409323952 C 0 4.101117311609734 0.5880374476363954 2.6814668413708307 1.634752082025443 1.6347521582048845 C 2.6814667164144907 0.5880374750389383 4.10111712049769 3.3048499695832543e-15 5.581395149230957 0 C 7.061673177964224 0 8.481323582047423 0.5880374750389383 9.528038216436471 1.6347521582048845 C 10.574752850825519 2.6814668413708307 11.162790298461914 4.101117311609734 11.162790298461914 5.581395409323952 L 11.162790298461914 10.232558250427246"
+                }
+              ],
+              "fill": null,
+              "stroke": "surface",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.body",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  15.627906799316406
+                ],
+                [
+                  0,
+                  1,
+                  20.744186401367188
+                ]
+              ],
+              "width": 16.744186401367188,
+              "height": 13.95348834991455,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0.9302325778537326 0 L 15.813953823513454 0 C 16.327707115484525 0 16.744186401367188 0.416479276394341 16.744186401367188 0.93023255666097 L 16.744186401367188 13.02325579325358 C 16.744186401367188 13.53700907352021 16.327707115484525 13.95348834991455 15.813953823513454 13.95348834991455 L 0.9302325778537326 13.95348834991455 C 0.41647928588266336 13.95348834991455 0 13.53700907352021 0 13.02325579325358 L 0 0.93023255666097 C 0 0.416479276394341 0.41647928588266336 0 0.9302325778537326 0 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "surface",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.keyhole",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  22.604650497436523
+                ],
+                [
+                  0,
+                  1,
+                  24.930233001708984
+                ]
+              ],
+              "width": 2.7906975746154785,
+              "height": 2.7906975746154785,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 2.7906975746154785 1.3953487873077393 C 2.7906975746154785 2.165978653649603 2.165978653649603 2.7906975746154785 1.3953487873077393 2.7906975746154785 C 0.6247189209658757 2.7906975746154785 0 2.165978653649603 0 1.3953487873077393 C 0 0.6247189209658757 0.6247189209658757 0 1.3953487873077393 0 C 2.165978653649603 0 2.7906975746154785 0.6247189209658757 2.7906975746154785 1.3953487873077393 Z"
+                }
+              ],
+              "fill": "stroke",
+              "stroke": null,
+              "detail": false,
+              "cap": "NONE",
+              "join": "MITER",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.keyhole.stem",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  24
+                ],
+                [
+                  0,
+                  1,
+                  28.186046600341797
+                ]
+              ],
+              "width": 0,
+              "height": 3,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 0 L 0 3"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 40,
+          "style": "filled",
+          "parts": [
+            {
+              "name": "shield",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  6.046511650085449
+                ],
+                [
+                  0,
+                  1,
+                  3.3333332538604736
+                ]
+              ],
+              "width": 27.9069766998291,
+              "height": 33.33333206176758,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 13.95348834991455 0 L 27.9069766998291 5.426356382148211 L 27.9069766998291 17.054262915322948 C 27.9069766998291 24.806200604106106 20.15503872765435 30.232556986254316 13.95348834991455 33.33333206176758 C 7.75193797217475 30.232556986254316 0 24.806200604106106 0 17.054262915322948 L 0 5.426356382148211 L 13.95348834991455 0 Z"
+                }
+              ],
+              "fill": "stroke",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.shackle",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  15.348836898803711
+                ],
+                [
+                  0,
+                  1,
+                  8.759690284729004
+                ]
+              ],
+              "width": 9.302325248718262,
+              "height": 8.527132034301758,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 8.527132034301758 L 0 4.651162927800959 C 0 3.417597823378794 0.49003120636366293 2.2345557427944724 1.3622934016878694 1.3622934905638844 C 2.2345555970120756 0.4900312383332964 3.4175976004147417 2.754041692654709e-15 4.651162624359131 0 C 5.88472764830352 0 7.067769651706186 0.4900312383332964 7.940031847030393 1.3622934905638844 C 8.8122940423546 2.2345557427944724 9.302325248718262 3.417597823378794 9.302325248718262 4.651162927800959 L 9.302325248718262 8.527132034301758"
+                }
+              ],
+              "fill": null,
+              "stroke": "surface",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.body",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  13.023255348205566
+                ],
+                [
+                  0,
+                  1,
+                  17.286821365356445
+                ]
+              ],
+              "width": 13.95348834991455,
+              "height": 11.627906799316406,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0.7751937972174751 0 L 13.178294552697077 0 C 13.6064222862526 0 13.95348834991455 0.34706605891778963 13.95348834991455 0.7751937866210937 L 13.95348834991455 10.852713012695313 C 13.95348834991455 11.280840740398617 13.6064222862526 11.627906799316406 13.178294552697077 11.627906799316406 L 0.7751937972174751 11.627906799316406 C 0.34706606366195086 11.627906799316406 0 11.280840740398617 0 10.852713012695313 L 0 0.7751937866210937 C 0 0.34706605891778963 0.34706606366195086 0 0.7751937972174751 0 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "surface",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.keyhole",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  18.837207794189453
+                ],
+                [
+                  0,
+                  1,
+                  20.77519416809082
+                ]
+              ],
+              "width": 2.3255813121795654,
+              "height": 2.3255813121795654,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 2.3255813121795654 1.1627906560897827 C 2.3255813121795654 1.8049822113746692 1.8049822113746692 2.3255813121795654 1.1627906560897827 2.3255813121795654 C 0.5205991008048964 2.3255813121795654 0 1.8049822113746692 0 1.1627906560897827 C 0 0.5205991008048964 0.5205991008048964 0 1.1627906560897827 0 C 1.8049822113746692 0 2.3255813121795654 0.5205991008048964 2.3255813121795654 1.1627906560897827 Z"
+                }
+              ],
+              "fill": "stroke",
+              "stroke": null,
+              "detail": false,
+              "cap": "NONE",
+              "join": "MITER",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.keyhole.stem",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  20
+                ],
+                [
+                  0,
+                  1,
+                  23.488372802734375
+                ]
+              ],
+              "width": 0,
+              "height": 2.5,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 0 L 0 2.5"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 24,
+          "style": "filled",
+          "parts": [
+            {
+              "name": "shield",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  3.6279070377349854
+                ],
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "width": 16.744186401367188,
+              "height": 20,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 8.372093200683594 0 L 16.744186401367188 3.255813953488372 L 16.744186401367188 10.232558139534884 C 16.744186401367188 14.88372093023256 12.093023512098524 18.13953488372093 8.372093200683594 20 C 4.651162889268663 18.13953488372093 0 14.88372093023256 0 10.232558139534884 L 0 3.255813953488372 L 8.372093200683594 0 Z"
+                }
+              ],
+              "fill": "stroke",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.shackle",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  9.209301948547363
+                ],
+                [
+                  0,
+                  1,
+                  5.255814075469971
+                ]
+              ],
+              "width": 5.581395149230957,
+              "height": 5.116279125213623,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 5.116279125213623 L 0 2.790697704661976 C 0 2.050558655804867 0.2940187238181977 1.3407334206854153 0.8173760410127215 0.8173760791024423 C 1.3407333582072454 0.29401873751946916 2.050558560248845 1.6524249847916272e-15 2.7906975746154785 0 C 3.530836588982112 0 4.240661791023712 0.29401873751946916 4.7640191082182355 0.8173760791024423 C 5.287376425412759 1.3407334206854153 5.581395149230957 2.050558655804867 5.581395149230957 2.790697704661976 L 5.581395149230957 5.116279125213623"
+                }
+              ],
+              "fill": null,
+              "stroke": "surface",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.body",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  7.813953399658203
+                ],
+                [
+                  0,
+                  1,
+                  10.372093200683594
+                ]
+              ],
+              "width": 8.372093200683594,
+              "height": 6.976744174957275,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0.4651162889268663 0 L 7.906976911756727 0 C 8.163853557742263 0 8.372093200683594 0.2082396381971705 8.372093200683594 0.465116278330485 L 8.372093200683594 6.51162789662679 C 8.372093200683594 6.768504536760105 8.163853557742263 6.976744174957275 7.906976911756727 6.976744174957275 L 0.4651162889268663 6.976744174957275 C 0.20823964294133168 6.976744174957275 0 6.768504536760105 0 6.51162789662679 L 0 0.465116278330485 C 0 0.2082396381971705 0.20823964294133168 0 0.4651162889268663 0 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "surface",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.keyhole",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  11.299999237060547
+                ],
+                [
+                  0,
+                  1,
+                  12.462790489196777
+                ]
+              ],
+              "width": 1.399999976158142,
+              "height": 1.399999976158142,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 1.399999976158142 0.699999988079071 C 1.399999976158142 1.0865993116026946 1.0865993116026946 1.399999976158142 0.699999988079071 1.399999976158142 C 0.3134006645554474 1.399999976158142 0 1.0865993116026946 0 0.699999988079071 C 0 0.3134006645554474 0.3134006645554474 0 0.699999988079071 0 C 1.0865993116026946 0 1.399999976158142 0.3134006645554474 1.399999976158142 0.699999988079071 Z"
+                }
+              ],
+              "fill": "stroke",
+              "stroke": null,
+              "detail": false,
+              "cap": "NONE",
+              "join": "MITER",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.keyhole.stem",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  12
+                ],
+                [
+                  0,
+                  1,
+                  14.093023300170898
+                ]
+              ],
+              "width": 0,
+              "height": 1.5,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 0 L 0 1.5"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": true,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 20,
+          "style": "filled",
+          "parts": [
+            {
+              "name": "shield",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  3.0232558250427246
+                ],
+                [
+                  0,
+                  1,
+                  1.6666666269302368
+                ]
+              ],
+              "width": 13.95348834991455,
+              "height": 16.66666603088379,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 6.976744174957275 0 L 13.95348834991455 2.7131781910741055 L 13.95348834991455 8.527131457661474 C 13.95348834991455 12.403100302053053 10.077519363827175 15.116278493127158 6.976744174957275 16.66666603088379 C 3.875968986087375 15.116278493127158 0 12.403100302053053 0 8.527131457661474 L 0 2.7131781910741055 L 6.976744174957275 0 Z"
+                }
+              ],
+              "fill": "stroke",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.shackle",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  7.6744184494018555
+                ],
+                [
+                  0,
+                  1,
+                  4.379845142364502
+                ]
+              ],
+              "width": 4.651162624359131,
+              "height": 4.263566017150879,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 4.263566017150879 L 0 2.3255814639004795 C 0 1.708798911689397 0.24501560318183147 1.1172778713972362 0.6811467008439347 0.6811467452819422 C 1.1172777985060378 0.2450156191666482 1.7087988002073708 1.3770208463273544e-15 2.3255813121795654 0 C 2.94236382415176 0 3.533884825853093 0.2450156191666482 3.9700159235151964 0.6811467452819422 C 4.4061470211773 1.1172778713972362 4.651162624359131 1.708798911689397 4.651162624359131 2.3255814639004795 L 4.651162624359131 4.263566017150879"
+                }
+              ],
+              "fill": null,
+              "stroke": "surface",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.body",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  6.511627674102783
+                ],
+                [
+                  0,
+                  1,
+                  8.643410682678223
+                ]
+              ],
+              "width": 6.976744174957275,
+              "height": 5.813953399658203,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0.38759689860873753 0 L 6.589147276348538 0 C 6.8032111431263 0 6.976744174957275 0.17353302945889482 6.976744174957275 0.38759689331054686 L 6.976744174957275 5.426356506347656 C 6.976744174957275 5.640420370199308 6.8032111431263 5.813953399658203 6.589147276348538 5.813953399658203 L 0.38759689860873753 5.813953399658203 C 0.17353303183097543 5.813953399658203 0 5.640420370199308 0 5.426356506347656 L 0 0.38759689331054686 C 0 0.17353302945889482 0.17353303183097543 0 0.38759689860873753 0 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "surface",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.keyhole",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  9.374999046325684
+                ],
+                [
+                  0,
+                  1,
+                  10.343992233276367
+                ]
+              ],
+              "width": 1.25,
+              "height": 1.25,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 1.25 0.625 C 1.25 0.9701779733101528 0.9701779733101528 1.25 0.625 1.25 C 0.2798220266898473 1.25 0 0.9701779733101528 0 0.625 C 0 0.2798220266898473 0.2798220266898473 0 0.625 0 C 0.9701779733101528 0 1.25 0.2798220266898473 1.25 0.625 Z"
+                }
+              ],
+              "fill": "stroke",
+              "stroke": null,
+              "detail": false,
+              "cap": "NONE",
+              "join": "MITER",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "lock.keyhole.stem",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  10
+                ],
+                [
+                  0,
+                  1,
+                  11.744186401367188
+                ]
+              ],
+              "width": 0,
+              "height": 1.25,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 0 L 0 1.25"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": true,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "location-check",
+      "name": "Location Check",
+      "category": "Location",
+      "tags": [
+        "map",
+        "pin",
+        "verified",
+        "sites"
+      ],
+      "templates": [
+        {
+          "size": 48,
+          "style": "duotone",
+          "parts": [
+            {
+              "name": "assignment.path",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  4
+                ],
+                [
+                  0,
+                  1,
+                  32.83720779418945
+                ]
+              ],
+              "width": 35.348838806152344,
+              "height": 11.162790298461914,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 35.348838806152344 5.581395149230957 C 35.348838806152344 8.663914614598411 27.43573157470727 11.162790298461914 17.674419403076172 11.162790298461914 C 7.913107231445075 11.162790298461914 0 8.663914614598411 0 5.581395149230957 C 0 2.4988756838635027 7.913107231445075 0 17.674419403076172 0 C 27.43573157470727 0 35.348838806152344 2.4988756838635027 35.348838806152344 5.581395149230957 Z"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [
+                2.7906975746154785,
+                3.7209300994873047
+              ],
+              "opacity": 1
+            },
+            {
+              "name": "location.pin",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  10.511628150939941
+                ],
+                [
+                  0,
+                  1,
+                  6.7906975746154785
+                ]
+              ],
+              "width": 22.325580596923828,
+              "height": 30.697673797607422,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 11.162790298461914 30.697673797607422 C 11.162790298461914 30.697673797607422 0 19.53488332575018 0 11.162790471857244 C 6.238904735426243e-8 8.20223436840341 1.1760766695505254 5.36293529041097 3.2695059383286207 3.2695059891149425 C 5.362935207106716 1.1760766878189148 8.20223424099538 0 11.162790298461914 0 C 14.123346355928447 0 16.962647164094847 1.1760766878189148 19.056076432872942 3.2695059891149425 C 21.149505701651037 5.36293529041097 22.325580534534772 8.20223436840341 22.325580596923828 11.162790471857244 C 22.325580596923835 19.53488332575018 11.162790298461914 30.697673797607422 11.162790298461914 30.697673797607422 Z"
+                }
+              ],
+              "fill": "fill",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "pin.center",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  17.953489303588867
+                ],
+                [
+                  0,
+                  1,
+                  14.232558250427246
+                ]
+              ],
+              "width": 7.441860675811768,
+              "height": 7.441860675811768,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 7.441860675811768 3.720930337905884 C 7.441860675811768 5.775943520420711 5.775943520420711 7.441860675811768 3.720930337905884 7.441860675811768 C 1.6659171553910568 7.441860675811768 0 5.775943520420711 0 3.720930337905884 C 0 1.6659171553910568 1.6659171553910568 0 3.720930337905884 0 C 5.775943520420711 0 7.441860675811768 1.6659171553910568 7.441860675811768 3.720930337905884 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "assignment.badge",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  30.976743698120117
+                ],
+                [
+                  0,
+                  1,
+                  4
+                ]
+              ],
+              "width": 13.023255348205566,
+              "height": 13.023255348205566,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 13.023255348205566 6.511627674102783 C 13.023255348205566 10.107900346734027 10.107900346734027 13.023255348205566 6.511627674102783 13.023255348205566 C 2.9153550014715393 13.023255348205566 0 10.107900346734027 0 6.511627674102783 C 0 2.9153550014715393 2.9153550014715393 0 6.511627674102783 0 C 10.107900346734027 0 13.023255348205566 2.9153550014715393 13.023255348205566 6.511627674102783 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "assignment.check",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  34.69767379760742
+                ],
+                [
+                  0,
+                  1,
+                  8.651163101196289
+                ]
+              ],
+              "width": 5.581395149230957,
+              "height": 3.720930337905884,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 1.860465168952942 L 1.8604650497436523 3.720930337905884 L 5.581395149230957 0"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 40,
+          "style": "duotone",
+          "parts": [
+            {
+              "name": "assignment.path",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  3.3333332538604736
+                ],
+                [
+                  0,
+                  1,
+                  27.36433982849121
+                ]
+              ],
+              "width": 29.457365036010742,
+              "height": 9.302325248718262,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 29.457365036010742 4.651162624359131 C 29.457365036010742 7.219928845498677 22.86310915213136 9.302325248718262 14.728682518005371 9.302325248718262 C 6.594255883879381 9.302325248718262 0 7.219928845498677 0 4.651162624359131 C 0 2.0823964032195854 6.594255883879381 0 14.728682518005371 0 C 22.86310915213136 0 29.457365036010742 2.0823964032195854 29.457365036010742 4.651162624359131 Z"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [
+                2.3255813121795654,
+                3.1007750034332275
+              ],
+              "opacity": 1
+            },
+            {
+              "name": "location.pin",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  8.759690284729004
+                ],
+                [
+                  0,
+                  1,
+                  5.658914566040039
+                ]
+              ],
+              "width": 18.604650497436523,
+              "height": 25.58139419555664,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 9.302325248718262 25.58139419555664 C 9.302325248718262 25.58139419555664 0 16.279069033536047 0 9.302325162020598 C 5.199087279521869e-8 6.835195137125471 0.9800638912921045 4.469112630936803 2.7245882819405174 2.7245882565473565 C 4.46911267258893 0.9800638821579097 6.835195200829483 0 9.302325248718262 0 C 11.76945529660704 0 14.135539303412372 0.9800638821579097 15.880063694060786 2.7245882565473565 C 17.6245880847092 4.469112630936803 18.604650445445646 6.835195137125471 18.604650497436523 9.302325162020598 C 18.60465049743653 16.279069033536047 9.302325248718262 25.58139419555664 9.302325248718262 25.58139419555664 Z"
+                }
+              ],
+              "fill": "fill",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "pin.center",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  14.961240768432617
+                ],
+                [
+                  0,
+                  1,
+                  11.860465049743652
+                ]
+              ],
+              "width": 6.201550483703613,
+              "height": 6.201550483703613,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 6.201550483703613 3.1007752418518066 C 6.201550483703613 4.813286205335004 4.813286205335004 6.201550483703613 3.1007752418518066 6.201550483703613 C 1.3882642783686094 6.201550483703613 0 4.813286205335004 0 3.1007752418518066 C 0 1.3882642783686094 1.3882642783686094 0 3.1007752418518066 0 C 4.813286205335004 0 6.201550483703613 1.3882642783686094 6.201550483703613 3.1007752418518066 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "assignment.badge",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  25.813953399658203
+                ],
+                [
+                  0,
+                  1,
+                  3.3333332538604736
+                ]
+              ],
+              "width": 10.852712631225586,
+              "height": 10.852712631225586,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 10.852712631225586 5.426356315612793 C 10.852712631225586 8.423250165580514 8.423250165580514 10.852712631225586 5.426356315612793 10.852712631225586 C 2.4294624656450714 10.852712631225586 0 8.423250165580514 0 5.426356315612793 C 0 2.4294624656450714 2.4294624656450714 0 5.426356315612793 0 C 8.423250165580514 0 10.852712631225586 2.4294624656450714 10.852712631225586 5.426356315612793 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "assignment.check",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  28.91472816467285
+                ],
+                [
+                  0,
+                  1,
+                  7.2093024253845215
+                ]
+              ],
+              "width": 4.651162624359131,
+              "height": 3.1007752418518066,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 1.5503876209259033 L 1.5503875414530437 3.1007752418518066 L 4.651162624359131 0"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 24,
+          "style": "duotone",
+          "parts": [
+            {
+              "name": "assignment.path",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  1,
+                  16.418603897094727
+                ]
+              ],
+              "width": 17.674419403076172,
+              "height": 5.581395149230957,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 17.674419403076172 2.7906975746154785 C 17.674419403076172 4.331957307299206 13.717865787353634 5.581395149230957 8.837209701538086 5.581395149230957 C 3.9565536157225374 5.581395149230957 0 4.331957307299206 0 2.7906975746154785 C 0 1.2494378419317513 3.9565536157225374 0 8.837209701538086 0 C 13.717865787353634 0 17.674419403076172 1.2494378419317513 17.674419403076172 2.7906975746154785 Z"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": true,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [
+                1.2000000476837158,
+                1.7999999523162842
+              ],
+              "opacity": 1
+            },
+            {
+              "name": "location.pin",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  5.255814075469971
+                ],
+                [
+                  0,
+                  1,
+                  3.3953487873077393
+                ]
+              ],
+              "width": 11.162790298461914,
+              "height": 15.348836898803711,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 5.581395149230957 15.348836898803711 C 5.581395149230957 15.348836898803711 0 9.76744166287509 0 5.581395235928622 C 3.1194523677131213e-8 4.101117184201705 0.5880383347752627 2.681467645205485 1.6347529691643103 1.6347529945574713 C 2.681467603553358 0.5880383439094574 4.10111712049769 0 5.581395149230957 0 C 7.061673177964224 0 8.481323582047423 0.5880383439094574 9.528038216436471 1.6347529945574713 C 10.574752850825519 2.681467645205485 11.162790267267386 4.101117184201705 11.162790298461914 5.581395235928622 C 11.162790298461918 9.76744166287509 5.581395149230957 15.348836898803711 5.581395149230957 15.348836898803711 Z"
+                }
+              ],
+              "fill": "fill",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "pin.center",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  8.837209701538086
+                ],
+                [
+                  0,
+                  1,
+                  6.976744174957275
+                ]
+              ],
+              "width": 4,
+              "height": 4,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 4 2 C 4 3.1045695543289185 3.1045695543289185 4 2 4 C 0.8954304456710815 4 0 3.1045695543289185 0 2 C 0 0.8954304456710815 0.8954304456710815 0 2 0 C 3.1045695543289185 0 4 0.8954304456710815 4 2 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "stroke",
+              "detail": true,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "assignment.badge",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  15.300000190734863
+                ],
+                [
+                  0,
+                  1,
+                  1.5
+                ]
+              ],
+              "width": 7.199999809265137,
+              "height": 7.199999809265137,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 7.199999809265137 3.5999999046325684 C 7.199999809265137 5.588224957793191 5.588224957793191 7.199999809265137 3.5999999046325684 7.199999809265137 C 1.6117748514719454 7.199999809265137 0 5.588224957793191 0 3.5999999046325684 C 0 1.6117748514719454 1.6117748514719454 0 3.5999999046325684 0 C 5.588224957793191 0 7.199999809265137 1.6117748514719454 7.199999809265137 3.5999999046325684 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "assignment.check",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  17.35714340209961
+                ],
+                [
+                  0,
+                  1,
+                  4.0714287757873535
+                ]
+              ],
+              "width": 3.085714340209961,
+              "height": 2.057142972946167,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 1.0285714864730835 L 1.0285714467366536 2.057142972946167 L 3.085714340209961 0"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": true,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 20,
+          "style": "duotone",
+          "parts": [
+            {
+              "name": "assignment.path",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  1.6666666269302368
+                ],
+                [
+                  0,
+                  1,
+                  13.682169914245605
+                ]
+              ],
+              "width": 14.728682518005371,
+              "height": 4.651162624359131,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 14.728682518005371 2.3255813121795654 C 14.728682518005371 3.6099644227493384 11.43155457606568 4.651162624359131 7.3643412590026855 4.651162624359131 C 3.2971279419396904 4.651162624359131 0 3.6099644227493384 0 2.3255813121795654 C 0 1.0411982016097927 3.2971279419396904 0 7.3643412590026855 0 C 11.43155457606568 0 14.728682518005371 1.0411982016097927 14.728682518005371 2.3255813121795654 Z"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": true,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [
+                1,
+                1.600000023841858
+              ],
+              "opacity": 1
+            },
+            {
+              "name": "location.pin",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  4.379845142364502
+                ],
+                [
+                  0,
+                  1,
+                  2.8294572830200195
+                ]
+              ],
+              "width": 9.302325248718262,
+              "height": 12.79069709777832,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 4.651162624359131 12.79069709777832 C 4.651162624359131 12.79069709777832 0 8.139534516768023 0 4.651162581010299 C 2.5995436397609344e-8 3.4175975685627353 0.49003194564605224 2.2345563154684016 1.3622941409702587 1.3622941282736782 C 2.234556336294465 0.49003194107895487 3.4175976004147417 0 4.651162624359131 0 C 5.88472764830352 0 7.067769651706186 0.49003194107895487 7.940031847030393 1.3622941282736782 C 8.8122940423546 2.2345563154684016 9.302325222722823 3.4175975685627353 9.302325248718262 4.651162581010299 C 9.302325248718265 8.139534516768023 4.651162624359131 12.79069709777832 4.651162624359131 12.79069709777832 Z"
+                }
+              ],
+              "fill": "fill",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "pin.center",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  7.231008052825928
+                ],
+                [
+                  0,
+                  1,
+                  5.680620193481445
+                ]
+              ],
+              "width": 3.5999999046325684,
+              "height": 3.5999999046325684,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 3.5999999046325684 1.7999999523162842 C 3.5999999046325684 2.7941125248773204 2.7941125248773204 3.5999999046325684 1.7999999523162842 3.5999999046325684 C 0.8058873797552479 3.5999999046325684 0 2.7941125248773204 0 1.7999999523162842 C 0 0.8058873797552479 0.8058873797552479 0 1.7999999523162842 0 C 2.7941125248773204 0 3.5999999046325684 0.8058873797552479 3.5999999046325684 1.7999999523162842 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "stroke",
+              "detail": true,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "assignment.badge",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  12.100000381469727
+                ],
+                [
+                  0,
+                  1,
+                  1.5
+                ]
+              ],
+              "width": 6.400000095367432,
+              "height": 6.400000095367432,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 6.400000095367432 3.200000047683716 C 6.400000095367432 4.9673112792014615 4.9673112792014615 6.400000095367432 3.200000047683716 6.400000095367432 C 1.4326888161659699 6.400000095367432 0 4.9673112792014615 0 3.200000047683716 C 0 1.4326888161659699 1.4326888161659699 0 3.200000047683716 0 C 4.9673112792014615 0 6.400000095367432 1.4326888161659699 6.400000095367432 3.200000047683716 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "assignment.check",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  13.928571701049805
+                ],
+                [
+                  0,
+                  1,
+                  3.7857143878936768
+                ]
+              ],
+              "width": 2.7428572177886963,
+              "height": 1.8285715579986572,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 0.9142857789993286 L 0.9142857392628988 1.8285715579986572 L 2.7428572177886963 0"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": true,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 48,
+          "style": "outline",
+          "parts": [
+            {
+              "name": "assignment.path",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  4
+                ],
+                [
+                  0,
+                  1,
+                  32.83720779418945
+                ]
+              ],
+              "width": 35.348838806152344,
+              "height": 11.162790298461914,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 35.348838806152344 5.581395149230957 C 35.348838806152344 8.663914614598411 27.43573157470727 11.162790298461914 17.674419403076172 11.162790298461914 C 7.913107231445075 11.162790298461914 0 8.663914614598411 0 5.581395149230957 C 0 2.4988756838635027 7.913107231445075 0 17.674419403076172 0 C 27.43573157470727 0 35.348838806152344 2.4988756838635027 35.348838806152344 5.581395149230957 Z"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [
+                2.7906975746154785,
+                3.7209300994873047
+              ],
+              "opacity": 1
+            },
+            {
+              "name": "location.pin",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  10.511628150939941
+                ],
+                [
+                  0,
+                  1,
+                  6.7906975746154785
+                ]
+              ],
+              "width": 22.325580596923828,
+              "height": 30.697673797607422,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 11.162790298461914 30.697673797607422 C 11.162790298461914 30.697673797607422 0 19.53488332575018 0 11.162790471857244 C 6.238904735426243e-8 8.20223436840341 1.1760766695505254 5.36293529041097 3.2695059383286207 3.2695059891149425 C 5.362935207106716 1.1760766878189148 8.20223424099538 0 11.162790298461914 0 C 14.123346355928447 0 16.962647164094847 1.1760766878189148 19.056076432872942 3.2695059891149425 C 21.149505701651037 5.36293529041097 22.325580534534772 8.20223436840341 22.325580596923828 11.162790471857244 C 22.325580596923835 19.53488332575018 11.162790298461914 30.697673797607422 11.162790298461914 30.697673797607422 Z"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "pin.center",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  17.953489303588867
+                ],
+                [
+                  0,
+                  1,
+                  14.232558250427246
+                ]
+              ],
+              "width": 7.441860675811768,
+              "height": 7.441860675811768,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 7.441860675811768 3.720930337905884 C 7.441860675811768 5.775943520420711 5.775943520420711 7.441860675811768 3.720930337905884 7.441860675811768 C 1.6659171553910568 7.441860675811768 0 5.775943520420711 0 3.720930337905884 C 0 1.6659171553910568 1.6659171553910568 0 3.720930337905884 0 C 5.775943520420711 0 7.441860675811768 1.6659171553910568 7.441860675811768 3.720930337905884 Z"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "assignment.badge",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  30.976743698120117
+                ],
+                [
+                  0,
+                  1,
+                  4
+                ]
+              ],
+              "width": 13.023255348205566,
+              "height": 13.023255348205566,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 13.023255348205566 6.511627674102783 C 13.023255348205566 10.107900346734027 10.107900346734027 13.023255348205566 6.511627674102783 13.023255348205566 C 2.9153550014715393 13.023255348205566 0 10.107900346734027 0 6.511627674102783 C 0 2.9153550014715393 2.9153550014715393 0 6.511627674102783 0 C 10.107900346734027 0 13.023255348205566 2.9153550014715393 13.023255348205566 6.511627674102783 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "assignment.check",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  34.69767379760742
+                ],
+                [
+                  0,
+                  1,
+                  8.651163101196289
+                ]
+              ],
+              "width": 5.581395149230957,
+              "height": 3.720930337905884,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 1.860465168952942 L 1.8604650497436523 3.720930337905884 L 5.581395149230957 0"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 40,
+          "style": "outline",
+          "parts": [
+            {
+              "name": "assignment.path",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  3.3333332538604736
+                ],
+                [
+                  0,
+                  1,
+                  27.36433982849121
+                ]
+              ],
+              "width": 29.457365036010742,
+              "height": 9.302325248718262,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 29.457365036010742 4.651162624359131 C 29.457365036010742 7.219928845498677 22.86310915213136 9.302325248718262 14.728682518005371 9.302325248718262 C 6.594255883879381 9.302325248718262 0 7.219928845498677 0 4.651162624359131 C 0 2.0823964032195854 6.594255883879381 0 14.728682518005371 0 C 22.86310915213136 0 29.457365036010742 2.0823964032195854 29.457365036010742 4.651162624359131 Z"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [
+                2.3255813121795654,
+                3.1007750034332275
+              ],
+              "opacity": 1
+            },
+            {
+              "name": "location.pin",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  8.759690284729004
+                ],
+                [
+                  0,
+                  1,
+                  5.658914566040039
+                ]
+              ],
+              "width": 18.604650497436523,
+              "height": 25.58139419555664,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 9.302325248718262 25.58139419555664 C 9.302325248718262 25.58139419555664 0 16.279069033536047 0 9.302325162020598 C 5.199087279521869e-8 6.835195137125471 0.9800638912921045 4.469112630936803 2.7245882819405174 2.7245882565473565 C 4.46911267258893 0.9800638821579097 6.835195200829483 0 9.302325248718262 0 C 11.76945529660704 0 14.135539303412372 0.9800638821579097 15.880063694060786 2.7245882565473565 C 17.6245880847092 4.469112630936803 18.604650445445646 6.835195137125471 18.604650497436523 9.302325162020598 C 18.60465049743653 16.279069033536047 9.302325248718262 25.58139419555664 9.302325248718262 25.58139419555664 Z"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "pin.center",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  14.961240768432617
+                ],
+                [
+                  0,
+                  1,
+                  11.860465049743652
+                ]
+              ],
+              "width": 6.201550483703613,
+              "height": 6.201550483703613,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 6.201550483703613 3.1007752418518066 C 6.201550483703613 4.813286205335004 4.813286205335004 6.201550483703613 3.1007752418518066 6.201550483703613 C 1.3882642783686094 6.201550483703613 0 4.813286205335004 0 3.1007752418518066 C 0 1.3882642783686094 1.3882642783686094 0 3.1007752418518066 0 C 4.813286205335004 0 6.201550483703613 1.3882642783686094 6.201550483703613 3.1007752418518066 Z"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "assignment.badge",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  25.813953399658203
+                ],
+                [
+                  0,
+                  1,
+                  3.3333332538604736
+                ]
+              ],
+              "width": 10.852712631225586,
+              "height": 10.852712631225586,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 10.852712631225586 5.426356315612793 C 10.852712631225586 8.423250165580514 8.423250165580514 10.852712631225586 5.426356315612793 10.852712631225586 C 2.4294624656450714 10.852712631225586 0 8.423250165580514 0 5.426356315612793 C 0 2.4294624656450714 2.4294624656450714 0 5.426356315612793 0 C 8.423250165580514 0 10.852712631225586 2.4294624656450714 10.852712631225586 5.426356315612793 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "assignment.check",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  28.91472816467285
+                ],
+                [
+                  0,
+                  1,
+                  7.2093024253845215
+                ]
+              ],
+              "width": 4.651162624359131,
+              "height": 3.1007752418518066,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 1.5503876209259033 L 1.5503875414530437 3.1007752418518066 L 4.651162624359131 0"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 24,
+          "style": "outline",
+          "parts": [
+            {
+              "name": "assignment.path",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  1,
+                  16.418603897094727
+                ]
+              ],
+              "width": 17.674419403076172,
+              "height": 5.581395149230957,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 17.674419403076172 2.7906975746154785 C 17.674419403076172 4.331957307299206 13.717865787353634 5.581395149230957 8.837209701538086 5.581395149230957 C 3.9565536157225374 5.581395149230957 0 4.331957307299206 0 2.7906975746154785 C 0 1.2494378419317513 3.9565536157225374 0 8.837209701538086 0 C 13.717865787353634 0 17.674419403076172 1.2494378419317513 17.674419403076172 2.7906975746154785 Z"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": true,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [
+                1.2000000476837158,
+                1.7999999523162842
+              ],
+              "opacity": 1
+            },
+            {
+              "name": "location.pin",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  5.255814075469971
+                ],
+                [
+                  0,
+                  1,
+                  3.3953487873077393
+                ]
+              ],
+              "width": 11.162790298461914,
+              "height": 15.348836898803711,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 5.581395149230957 15.348836898803711 C 5.581395149230957 15.348836898803711 0 9.76744166287509 0 5.581395235928622 C 3.1194523677131213e-8 4.101117184201705 0.5880383347752627 2.681467645205485 1.6347529691643103 1.6347529945574713 C 2.681467603553358 0.5880383439094574 4.10111712049769 0 5.581395149230957 0 C 7.061673177964224 0 8.481323582047423 0.5880383439094574 9.528038216436471 1.6347529945574713 C 10.574752850825519 2.681467645205485 11.162790267267386 4.101117184201705 11.162790298461914 5.581395235928622 C 11.162790298461918 9.76744166287509 5.581395149230957 15.348836898803711 5.581395149230957 15.348836898803711 Z"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "pin.center",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  8.837209701538086
+                ],
+                [
+                  0,
+                  1,
+                  6.976744174957275
+                ]
+              ],
+              "width": 4,
+              "height": 4,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 4 2 C 4 3.1045695543289185 3.1045695543289185 4 2 4 C 0.8954304456710815 4 0 3.1045695543289185 0 2 C 0 0.8954304456710815 0.8954304456710815 0 2 0 C 3.1045695543289185 0 4 0.8954304456710815 4 2 Z"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": true,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "assignment.badge",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  15.300000190734863
+                ],
+                [
+                  0,
+                  1,
+                  1.5
+                ]
+              ],
+              "width": 7.199999809265137,
+              "height": 7.199999809265137,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 7.199999809265137 3.5999999046325684 C 7.199999809265137 5.588224957793191 5.588224957793191 7.199999809265137 3.5999999046325684 7.199999809265137 C 1.6117748514719454 7.199999809265137 0 5.588224957793191 0 3.5999999046325684 C 0 1.6117748514719454 1.6117748514719454 0 3.5999999046325684 0 C 5.588224957793191 0 7.199999809265137 1.6117748514719454 7.199999809265137 3.5999999046325684 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "assignment.check",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  17.35714340209961
+                ],
+                [
+                  0,
+                  1,
+                  4.0714287757873535
+                ]
+              ],
+              "width": 3.085714340209961,
+              "height": 2.057142972946167,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 1.0285714864730835 L 1.0285714467366536 2.057142972946167 L 3.085714340209961 0"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": true,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 20,
+          "style": "outline",
+          "parts": [
+            {
+              "name": "assignment.path",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  1.6666666269302368
+                ],
+                [
+                  0,
+                  1,
+                  13.682169914245605
+                ]
+              ],
+              "width": 14.728682518005371,
+              "height": 4.651162624359131,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 14.728682518005371 2.3255813121795654 C 14.728682518005371 3.6099644227493384 11.43155457606568 4.651162624359131 7.3643412590026855 4.651162624359131 C 3.2971279419396904 4.651162624359131 0 3.6099644227493384 0 2.3255813121795654 C 0 1.0411982016097927 3.2971279419396904 0 7.3643412590026855 0 C 11.43155457606568 0 14.728682518005371 1.0411982016097927 14.728682518005371 2.3255813121795654 Z"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": true,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [
+                1,
+                1.600000023841858
+              ],
+              "opacity": 1
+            },
+            {
+              "name": "location.pin",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  4.379845142364502
+                ],
+                [
+                  0,
+                  1,
+                  2.8294572830200195
+                ]
+              ],
+              "width": 9.302325248718262,
+              "height": 12.79069709777832,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 4.651162624359131 12.79069709777832 C 4.651162624359131 12.79069709777832 0 8.139534516768023 0 4.651162581010299 C 2.5995436397609344e-8 3.4175975685627353 0.49003194564605224 2.2345563154684016 1.3622941409702587 1.3622941282736782 C 2.234556336294465 0.49003194107895487 3.4175976004147417 0 4.651162624359131 0 C 5.88472764830352 0 7.067769651706186 0.49003194107895487 7.940031847030393 1.3622941282736782 C 8.8122940423546 2.2345563154684016 9.302325222722823 3.4175975685627353 9.302325248718262 4.651162581010299 C 9.302325248718265 8.139534516768023 4.651162624359131 12.79069709777832 4.651162624359131 12.79069709777832 Z"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "pin.center",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  7.231008052825928
+                ],
+                [
+                  0,
+                  1,
+                  5.680620193481445
+                ]
+              ],
+              "width": 3.5999999046325684,
+              "height": 3.5999999046325684,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 3.5999999046325684 1.7999999523162842 C 3.5999999046325684 2.7941125248773204 2.7941125248773204 3.5999999046325684 1.7999999523162842 3.5999999046325684 C 0.8058873797552479 3.5999999046325684 0 2.7941125248773204 0 1.7999999523162842 C 0 0.8058873797552479 0.8058873797552479 0 1.7999999523162842 0 C 2.7941125248773204 0 3.5999999046325684 0.8058873797552479 3.5999999046325684 1.7999999523162842 Z"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": true,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "assignment.badge",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  12.100000381469727
+                ],
+                [
+                  0,
+                  1,
+                  1.5
+                ]
+              ],
+              "width": 6.400000095367432,
+              "height": 6.400000095367432,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 6.400000095367432 3.200000047683716 C 6.400000095367432 4.9673112792014615 4.9673112792014615 6.400000095367432 3.200000047683716 6.400000095367432 C 1.4326888161659699 6.400000095367432 0 4.9673112792014615 0 3.200000047683716 C 0 1.4326888161659699 1.4326888161659699 0 3.200000047683716 0 C 4.9673112792014615 0 6.400000095367432 1.4326888161659699 6.400000095367432 3.200000047683716 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "assignment.check",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  13.928571701049805
+                ],
+                [
+                  0,
+                  1,
+                  3.7857143878936768
+                ]
+              ],
+              "width": 2.7428572177886963,
+              "height": 1.8285715579986572,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 0.9142857789993286 L 0.9142857392628988 1.8285715579986572 L 2.7428572177886963 0"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": true,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 48,
+          "style": "filled",
+          "parts": [
+            {
+              "name": "assignment.path",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  4
+                ],
+                [
+                  0,
+                  1,
+                  32.83720779418945
+                ]
+              ],
+              "width": 35.348838806152344,
+              "height": 11.162790298461914,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 35.348838806152344 5.581395149230957 C 35.348838806152344 8.663914614598411 27.43573157470727 11.162790298461914 17.674419403076172 11.162790298461914 C 7.913107231445075 11.162790298461914 0 8.663914614598411 0 5.581395149230957 C 0 2.4988756838635027 7.913107231445075 0 17.674419403076172 0 C 27.43573157470727 0 35.348838806152344 2.4988756838635027 35.348838806152344 5.581395149230957 Z"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [
+                2.7906975746154785,
+                3.7209300994873047
+              ],
+              "opacity": 1
+            },
+            {
+              "name": "location.pin",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  10.511628150939941
+                ],
+                [
+                  0,
+                  1,
+                  6.7906975746154785
+                ]
+              ],
+              "width": 22.325580596923828,
+              "height": 30.697673797607422,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 11.162790298461914 30.697673797607422 C 11.162790298461914 30.697673797607422 0 19.53488332575018 0 11.162790471857244 C 6.238904735426243e-8 8.20223436840341 1.1760766695505254 5.36293529041097 3.2695059383286207 3.2695059891149425 C 5.362935207106716 1.1760766878189148 8.20223424099538 0 11.162790298461914 0 C 14.123346355928447 0 16.962647164094847 1.1760766878189148 19.056076432872942 3.2695059891149425 C 21.149505701651037 5.36293529041097 22.325580534534772 8.20223436840341 22.325580596923828 11.162790471857244 C 22.325580596923835 19.53488332575018 11.162790298461914 30.697673797607422 11.162790298461914 30.697673797607422 Z"
+                }
+              ],
+              "fill": "stroke",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "pin.center",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  17.953489303588867
+                ],
+                [
+                  0,
+                  1,
+                  14.232558250427246
+                ]
+              ],
+              "width": 7.441860675811768,
+              "height": 7.441860675811768,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 7.441860675811768 3.720930337905884 C 7.441860675811768 5.775943520420711 5.775943520420711 7.441860675811768 3.720930337905884 7.441860675811768 C 1.6659171553910568 7.441860675811768 0 5.775943520420711 0 3.720930337905884 C 0 1.6659171553910568 1.6659171553910568 0 3.720930337905884 0 C 5.775943520420711 0 7.441860675811768 1.6659171553910568 7.441860675811768 3.720930337905884 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "surface",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "assignment.badge",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  30.976743698120117
+                ],
+                [
+                  0,
+                  1,
+                  4
+                ]
+              ],
+              "width": 13.023255348205566,
+              "height": 13.023255348205566,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 13.023255348205566 6.511627674102783 C 13.023255348205566 10.107900346734027 10.107900346734027 13.023255348205566 6.511627674102783 13.023255348205566 C 2.9153550014715393 13.023255348205566 0 10.107900346734027 0 6.511627674102783 C 0 2.9153550014715393 2.9153550014715393 0 6.511627674102783 0 C 10.107900346734027 0 13.023255348205566 2.9153550014715393 13.023255348205566 6.511627674102783 Z"
+                }
+              ],
+              "fill": "stroke",
+              "stroke": "surface",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "assignment.check",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  34.69767379760742
+                ],
+                [
+                  0,
+                  1,
+                  8.651163101196289
+                ]
+              ],
+              "width": 5.581395149230957,
+              "height": 3.720930337905884,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 1.860465168952942 L 1.8604650497436523 3.720930337905884 L 5.581395149230957 0"
+                }
+              ],
+              "fill": null,
+              "stroke": "surface",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 40,
+          "style": "filled",
+          "parts": [
+            {
+              "name": "assignment.path",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  3.3333332538604736
+                ],
+                [
+                  0,
+                  1,
+                  27.36433982849121
+                ]
+              ],
+              "width": 29.457365036010742,
+              "height": 9.302325248718262,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 29.457365036010742 4.651162624359131 C 29.457365036010742 7.219928845498677 22.86310915213136 9.302325248718262 14.728682518005371 9.302325248718262 C 6.594255883879381 9.302325248718262 0 7.219928845498677 0 4.651162624359131 C 0 2.0823964032195854 6.594255883879381 0 14.728682518005371 0 C 22.86310915213136 0 29.457365036010742 2.0823964032195854 29.457365036010742 4.651162624359131 Z"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [
+                2.3255813121795654,
+                3.1007750034332275
+              ],
+              "opacity": 1
+            },
+            {
+              "name": "location.pin",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  8.759690284729004
+                ],
+                [
+                  0,
+                  1,
+                  5.658914566040039
+                ]
+              ],
+              "width": 18.604650497436523,
+              "height": 25.58139419555664,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 9.302325248718262 25.58139419555664 C 9.302325248718262 25.58139419555664 0 16.279069033536047 0 9.302325162020598 C 5.199087279521869e-8 6.835195137125471 0.9800638912921045 4.469112630936803 2.7245882819405174 2.7245882565473565 C 4.46911267258893 0.9800638821579097 6.835195200829483 0 9.302325248718262 0 C 11.76945529660704 0 14.135539303412372 0.9800638821579097 15.880063694060786 2.7245882565473565 C 17.6245880847092 4.469112630936803 18.604650445445646 6.835195137125471 18.604650497436523 9.302325162020598 C 18.60465049743653 16.279069033536047 9.302325248718262 25.58139419555664 9.302325248718262 25.58139419555664 Z"
+                }
+              ],
+              "fill": "stroke",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "pin.center",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  14.961240768432617
+                ],
+                [
+                  0,
+                  1,
+                  11.860465049743652
+                ]
+              ],
+              "width": 6.201550483703613,
+              "height": 6.201550483703613,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 6.201550483703613 3.1007752418518066 C 6.201550483703613 4.813286205335004 4.813286205335004 6.201550483703613 3.1007752418518066 6.201550483703613 C 1.3882642783686094 6.201550483703613 0 4.813286205335004 0 3.1007752418518066 C 0 1.3882642783686094 1.3882642783686094 0 3.1007752418518066 0 C 4.813286205335004 0 6.201550483703613 1.3882642783686094 6.201550483703613 3.1007752418518066 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": "surface",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "assignment.badge",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  25.813953399658203
+                ],
+                [
+                  0,
+                  1,
+                  3.3333332538604736
+                ]
+              ],
+              "width": 10.852712631225586,
+              "height": 10.852712631225586,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 10.852712631225586 5.426356315612793 C 10.852712631225586 8.423250165580514 8.423250165580514 10.852712631225586 5.426356315612793 10.852712631225586 C 2.4294624656450714 10.852712631225586 0 8.423250165580514 0 5.426356315612793 C 0 2.4294624656450714 2.4294624656450714 0 5.426356315612793 0 C 8.423250165580514 0 10.852712631225586 2.4294624656450714 10.852712631225586 5.426356315612793 Z"
+                }
+              ],
+              "fill": "stroke",
+              "stroke": "surface",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "assignment.check",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  28.91472816467285
+                ],
+                [
+                  0,
+                  1,
+                  7.2093024253845215
+                ]
+              ],
+              "width": 4.651162624359131,
+              "height": 3.1007752418518066,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 1.5503876209259033 L 1.5503875414530437 3.1007752418518066 L 4.651162624359131 0"
+                }
+              ],
+              "fill": null,
+              "stroke": "surface",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 24,
+          "style": "filled",
+          "parts": [
+            {
+              "name": "assignment.path",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  1,
+                  16.418603897094727
+                ]
+              ],
+              "width": 17.674419403076172,
+              "height": 5.581395149230957,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 17.674419403076172 2.7906975746154785 C 17.674419403076172 4.331957307299206 13.717865787353634 5.581395149230957 8.837209701538086 5.581395149230957 C 3.9565536157225374 5.581395149230957 0 4.331957307299206 0 2.7906975746154785 C 0 1.2494378419317513 3.9565536157225374 0 8.837209701538086 0 C 13.717865787353634 0 17.674419403076172 1.2494378419317513 17.674419403076172 2.7906975746154785 Z"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": true,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [
+                1.2000000476837158,
+                1.7999999523162842
+              ],
+              "opacity": 1
+            },
+            {
+              "name": "location.pin",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  5.255814075469971
+                ],
+                [
+                  0,
+                  1,
+                  3.3953487873077393
+                ]
+              ],
+              "width": 11.162790298461914,
+              "height": 15.348836898803711,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 5.581395149230957 15.348836898803711 C 5.581395149230957 15.348836898803711 0 9.76744166287509 0 5.581395235928622 C 3.1194523677131213e-8 4.101117184201705 0.5880383347752627 2.681467645205485 1.6347529691643103 1.6347529945574713 C 2.681467603553358 0.5880383439094574 4.10111712049769 0 5.581395149230957 0 C 7.061673177964224 0 8.481323582047423 0.5880383439094574 9.528038216436471 1.6347529945574713 C 10.574752850825519 2.681467645205485 11.162790267267386 4.101117184201705 11.162790298461914 5.581395235928622 C 11.162790298461918 9.76744166287509 5.581395149230957 15.348836898803711 5.581395149230957 15.348836898803711 Z"
+                }
+              ],
+              "fill": "stroke",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "pin.center",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  8.837209701538086
+                ],
+                [
+                  0,
+                  1,
+                  6.976744174957275
+                ]
+              ],
+              "width": 4,
+              "height": 4,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 4 2 C 4 3.1045695543289185 3.1045695543289185 4 2 4 C 0.8954304456710815 4 0 3.1045695543289185 0 2 C 0 0.8954304456710815 0.8954304456710815 0 2 0 C 3.1045695543289185 0 4 0.8954304456710815 4 2 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": null,
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "assignment.badge",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  15.300000190734863
+                ],
+                [
+                  0,
+                  1,
+                  1.5
+                ]
+              ],
+              "width": 7.199999809265137,
+              "height": 7.199999809265137,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 7.199999809265137 3.5999999046325684 C 7.199999809265137 5.588224957793191 5.588224957793191 7.199999809265137 3.5999999046325684 7.199999809265137 C 1.6117748514719454 7.199999809265137 0 5.588224957793191 0 3.5999999046325684 C 0 1.6117748514719454 1.6117748514719454 0 3.5999999046325684 0 C 5.588224957793191 0 7.199999809265137 1.6117748514719454 7.199999809265137 3.5999999046325684 Z"
+                }
+              ],
+              "fill": "stroke",
+              "stroke": "surface",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "assignment.check",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  17.35714340209961
+                ],
+                [
+                  0,
+                  1,
+                  4.0714287757873535
+                ]
+              ],
+              "width": 3.085714340209961,
+              "height": 2.057142972946167,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 1.0285714864730835 L 1.0285714467366536 2.057142972946167 L 3.085714340209961 0"
+                }
+              ],
+              "fill": null,
+              "stroke": "surface",
+              "detail": true,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        },
+        {
+          "size": 20,
+          "style": "filled",
+          "parts": [
+            {
+              "name": "assignment.path",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  1.6666666269302368
+                ],
+                [
+                  0,
+                  1,
+                  13.682169914245605
+                ]
+              ],
+              "width": 14.728682518005371,
+              "height": 4.651162624359131,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 14.728682518005371 2.3255813121795654 C 14.728682518005371 3.6099644227493384 11.43155457606568 4.651162624359131 7.3643412590026855 4.651162624359131 C 3.2971279419396904 4.651162624359131 0 3.6099644227493384 0 2.3255813121795654 C 0 1.0411982016097927 3.2971279419396904 0 7.3643412590026855 0 C 11.43155457606568 0 14.728682518005371 1.0411982016097927 14.728682518005371 2.3255813121795654 Z"
+                }
+              ],
+              "fill": null,
+              "stroke": "stroke",
+              "detail": true,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [
+                1,
+                1.600000023841858
+              ],
+              "opacity": 1
+            },
+            {
+              "name": "location.pin",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  4.379845142364502
+                ],
+                [
+                  0,
+                  1,
+                  2.8294572830200195
+                ]
+              ],
+              "width": 9.302325248718262,
+              "height": 12.79069709777832,
+              "paths": [
+                {
+                  "windingRule": "NONZERO",
+                  "data": "M 4.651162624359131 12.79069709777832 C 4.651162624359131 12.79069709777832 0 8.139534516768023 0 4.651162581010299 C 2.5995436397609344e-8 3.4175975685627353 0.49003194564605224 2.2345563154684016 1.3622941409702587 1.3622941282736782 C 2.234556336294465 0.49003194107895487 3.4175976004147417 0 4.651162624359131 0 C 5.88472764830352 0 7.067769651706186 0.49003194107895487 7.940031847030393 1.3622941282736782 C 8.8122940423546 2.2345563154684016 9.302325222722823 3.4175975685627353 9.302325248718262 4.651162581010299 C 9.302325248718265 8.139534516768023 4.651162624359131 12.79069709777832 4.651162624359131 12.79069709777832 Z"
+                }
+              ],
+              "fill": "stroke",
+              "stroke": "stroke",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "pin.center",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  7.231008052825928
+                ],
+                [
+                  0,
+                  1,
+                  5.680620193481445
+                ]
+              ],
+              "width": 3.5999999046325684,
+              "height": 3.5999999046325684,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 3.5999999046325684 1.7999999523162842 C 3.5999999046325684 2.7941125248773204 2.7941125248773204 3.5999999046325684 1.7999999523162842 3.5999999046325684 C 0.8058873797552479 3.5999999046325684 0 2.7941125248773204 0 1.7999999523162842 C 0 0.8058873797552479 0.8058873797552479 0 1.7999999523162842 0 C 2.7941125248773204 0 3.5999999046325684 0.8058873797552479 3.5999999046325684 1.7999999523162842 Z"
+                }
+              ],
+              "fill": "surface",
+              "stroke": null,
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "assignment.badge",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  12.100000381469727
+                ],
+                [
+                  0,
+                  1,
+                  1.5
+                ]
+              ],
+              "width": 6.400000095367432,
+              "height": 6.400000095367432,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 6.400000095367432 3.200000047683716 C 6.400000095367432 4.9673112792014615 4.9673112792014615 6.400000095367432 3.200000047683716 6.400000095367432 C 1.4326888161659699 6.400000095367432 0 4.9673112792014615 0 3.200000047683716 C 0 1.4326888161659699 1.4326888161659699 0 3.200000047683716 0 C 4.9673112792014615 0 6.400000095367432 1.4326888161659699 6.400000095367432 3.200000047683716 Z"
+                }
+              ],
+              "fill": "stroke",
+              "stroke": "surface",
+              "detail": false,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            },
+            {
+              "name": "assignment.check",
+              "type": "VECTOR",
+              "transform": [
+                [
+                  1,
+                  0,
+                  13.928571701049805
+                ],
+                [
+                  0,
+                  1,
+                  3.7857143878936768
+                ]
+              ],
+              "width": 2.7428572177886963,
+              "height": 1.8285715579986572,
+              "paths": [
+                {
+                  "windingRule": "NONE",
+                  "data": "M 0 0.9142857789993286 L 0.9142857392628988 1.8285715579986572 L 2.7428572177886963 0"
+                }
+              ],
+              "fill": null,
+              "stroke": "surface",
+              "detail": true,
+              "cap": "ROUND",
+              "join": "ROUND",
+              "dash": [],
+              "opacity": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
