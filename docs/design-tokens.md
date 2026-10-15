@@ -1,8 +1,8 @@
 # Interface tokens
 
-Source: [Capte design system](https://www.figma.com/design/oFZw7IVtiURZG2x5XhAKyD/Capte-Design-System?node-id=560-12154).
+Source: Capte design system.
 
-The versioned `packages/ui/design-tokens.json` snapshot was read from that file on 2026-10-15. It retains variable IDs, collection/mode names, resolved Light/Dark values, and text-style definitions/IDs. Aliases are resolved through the referenced variable and matching mode, including references not returned by the local-variable listing.
+The versioned `packages/ui/design-tokens.json` snapshot was exported from the design system on 2026-10-15. It retains variable IDs, collection/mode names, resolved Light/Dark values, and text-style definitions/IDs. Aliases are resolved through the referenced variable and matching mode, including references not returned by the local-variable listing.
 
 | Interface role | Figma source |
 | --- | --- |
