@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.3 — Live editing and design tokens — 2026-10-15
+
+- Apply size, weight, grade, style, palette, and catalog changes live to the selected Capte icon.
+- Make Insert icon always create an additional icon.
+- Guard live edits with their target root ID and avoid same-root selection echoes resetting newer controls.
+- Commit each insertion/live edit to undo history.
+- Export interface color, spacing, radius, and text-style tokens from the Capte design system; generate shared CSS and validate token references during builds.
+- Bundle Roboto/Roboto Mono and their notices for offline plugin and documentation use.
+- Add regressions for rapid edits, changed canvas selections, all live controls, and resolved interface styling. Figma Desktop confirmation remains pending.
+
 ## 0.1.2 — One insert action — 2026-10-15
 
 - Remove the redundant Update selected button and keep a single Insert icon action.

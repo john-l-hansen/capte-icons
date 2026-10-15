@@ -26,8 +26,8 @@ Open **http://127.0.0.1:4173** for the explorer and documentation. `npm run dev`
 
 3. In Figma Desktop, use **Plugins → Development → Import plugin from manifest** and choose `apps/figma-plugin/dist/manifest.json`.
 4. Run **Capte Icons — Pilot**, select an icon, customize it, and click **Insert icon**.
-5. Select an inserted icon (or a vector inside it) to load its settings. Change the controls and click **Insert icon**, or choose another icon in the grid to replace the selected icon immediately.
-6. Deselect the canvas icon before inserting an additional icon. **Insert icon** updates the same root layer while an owned icon is selected; with no owned selection, it creates a new icon.
+5. Select an inserted icon (or a vector inside it). Size, weight, grade, style, color, and catalog choices update that icon immediately.
+6. Click **Insert icon** whenever you want an additional icon. It always creates a new root, including when another Capte icon is selected.
 
 If you are using the extracted pilot ZIP, choose the `manifest.json` beside `code.js` and `ui.html` in the extracted folder instead. Keep all three files together. Import the manifest from its current location; moving the folder later leaves Figma pointing at the old path. If an older Capte Icons entry conflicts, remove that entry under **Plugins → Development → Manage plugins in development**, then import the current manifest again. Removing the entry does not require deleting the plugin files.
 
@@ -48,6 +48,12 @@ Grade and Color are independent. Small-size templates preserve approved optical 
 The plugin inserts editable vector frames with fixed colors and live strokes. It records icon ID, catalog version, and settings in private plugin metadata. Updating replaces generated children while retaining the root frame ID, parent, position, and rotation. Manual edits to generated children are overwritten. Arbitrary SVGs, components from other plugins, multi-selections, and locked root layers are not updated.
 
 These inserted icons are snapshots. They are not linked library instances, do not bind to the destination file's Figma variables, and do not automatically receive catalog updates.
+
+## Interface design tokens
+
+Plugin and documentation styles use a versioned export from the Capte Figma design system: semantic Light/Dark colors, spacing, radii, and Roboto text styles. Fonts and notices are bundled so the plugin works offline. Builds validate that every referenced Capte token exists. See [token mapping and refresh](docs/design-tokens.md).
+
+The export is a build-time snapshot. Changing Figma variables does not silently modify an installed plugin; re-export, rebuild, and install a new build to receive token changes.
 
 ## Project layout
 

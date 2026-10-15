@@ -15,24 +15,32 @@ function selectedIcon(): FrameNode | null {
   }
   return null;
 }
-function selectionChanged() {
+let lastSelectionId: string | null | undefined;
+function selectionChanged(force = false) {
   const selected = selectedIcon();
-  send({ type: 'selection', options: selected ? readIconMetadata(selected.getPluginData(KEY)) : null });
+  const nodeId = selected?.id ?? null;
+  // Artwork updates can fire selectionchange for the same root. Do not echo
+  // older settings over a newer draft already displayed in the iframe.
+  if (!force && nodeId === lastSelectionId) return;
+  lastSelectionId = nodeId;
+  send({ type: 'selection', nodeId, options: selected ? readIconMetadata(selected.getPluginData(KEY)) : null });
 }
-figma.on('selectionchange', selectionChanged);
+figma.on('selectionchange', () => selectionChanged());
 async function preferences() {
   try { return normalizeOptions(await figma.clientStorage.getAsync('preferences')); } catch { return DEFAULT_OPTIONS; }
 }
 figma.ui.onmessage = async (message: unknown) => {
   try {
     if (!message || typeof message !== 'object') throw new Error('Invalid request.');
-    const msg = message as { type: string; options?: unknown };
-    if (msg.type === 'ready') { send({ type: 'preferences', options: await preferences() }); selectionChanged(); return; }
+    const msg = message as { type: string; options?: unknown; targetId?: string };
+    if (msg.type === 'ready') { send({ type: 'preferences', options: await preferences() }); selectionChanged(true); return; }
     if (!['insert', 'update', 'preferences'].includes(msg.type)) throw new Error('Unknown action.');
     const options: IconOptions = normalizeOptions(msg.options);
     if (msg.type === 'preferences') { await figma.clientStorage.setAsync('preferences', options); return; }
-    const target = selectedIcon();
+    const target = msg.type === 'update' ? selectedIcon() : null;
     if (msg.type === 'update' && !target) throw new Error('Select one icon inserted by Capte Icons.');
+    // A queued live edit belongs to the icon that was selected when it was sent.
+    if (target && msg.targetId !== target.id) { selectionChanged(true); return; }
     if (target?.locked) throw new Error('Unlock the selected icon before updating it.');
     const fresh = figma.createNodeFromSvg(renderSvg(options));
     let node: FrameNode = fresh;
@@ -53,6 +61,7 @@ figma.ui.onmessage = async (message: unknown) => {
     node.setPluginData(KEY, writeIconMetadata(options));
     node.setRelaunchData({ open: 'Edit icon settings' });
     figma.currentPage.selection = [node];
+    figma.commitUndo();
     send({ type: 'success', text: target ? 'Icon updated.' : 'Icon inserted.' });
     selectionChanged();
     await figma.clientStorage.setAsync('preferences', options);

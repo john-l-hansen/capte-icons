@@ -10,7 +10,7 @@ The pilot uses one geometry template per size/style with weight and grade applie
 
 ## Plugin
 
-The iframe UI sends settings, not arbitrary SVG, to the controller. The controller validates them and renders its own bundled catalog. SVG import creates native editable artwork. Plugin metadata stores schema version, catalog version and selected settings. Selection resolves a single generated child to its owning icon frame. Choosing another icon with an owned canvas selection replaces that frame’s artwork; insertion with no owned selection creates a new frame. Updates retain the existing root frame and regenerate its children, resizing without applying child constraints. Theme changes use fixed palette colors; no variable binding or library access is assumed in the destination file.
+The iframe UI sends settings, not arbitrary SVG, to the controller. The controller validates them and renders its own bundled catalog. SVG import creates native editable artwork. Plugin metadata stores schema version, catalog version and selected settings. Selection resolves a single generated child to its owning icon frame. Every control and catalog choice updates the owned selection live. Update messages carry the intended root ID; the controller rejects a stale target, and same-root selection events do not reload older UI settings. Insert always creates a new frame. Each mutation commits an undo checkpoint. Updates retain the existing root frame and regenerate its children, resizing without applying child constraints. Theme changes use fixed palette colors; no variable binding or library access is assumed in the destination file.
 
 ## Website
 
@@ -23,3 +23,7 @@ The static explorer shares UI controls and rendering with the plugin. It support
 - Add linked library-instance insertion only after publication/access requirements are settled.
 - Decide the distribution license and release ownership before a public release.
 - Preserve backward-compatible IDs and introduce explicit migrations for future schema changes.
+
+## Shared interface tokens
+
+`packages/ui/design-tokens.json` records Figma variable IDs, resolved Light/Dark values, and text-style IDs. `scripts/design-tokens.mjs` emits CSS custom properties; the build fails for undefined references. Layout rules reference these properties for colors, typography, spacing, radii and focus treatment. The approved catalog supplies the separate icon preview container colors. Fonts and license notices are inlined into the self-contained plugin UI and static stylesheet. See `docs/design-tokens.md` for refresh instructions and structural layout exceptions.

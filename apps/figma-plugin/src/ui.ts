@@ -1,5 +1,6 @@
 import { mountExplorer } from '../../../packages/ui/explorer.ts';
-const send = (type: string, options?: unknown) => parent.postMessage({ pluginMessage: { type, options } }, '*');
+let selectedId: string | null = null;
+const send = (type: string, options?: unknown) => parent.postMessage({ pluginMessage: { type, options, ...(type === 'update' ? { targetId: selectedId } : {}) } }, '*');
 const explorer = mountExplorer(document.getElementById('app')!, { plugin: true,
   onInsert: options => send('insert', options), onUpdate: options => send('update', options), onChange: options => send('preferences', options) });
 window.addEventListener('message', event => {
@@ -9,7 +10,10 @@ window.addEventListener('message', event => {
   if (!message) return;
   try {
     if (message.type === 'preferences') explorer.setOptions(message.options);
-    else if (message.type === 'selection') explorer.setSelection(message.options);
+    else if (message.type === 'selection') {
+      selectedId = message.nodeId ?? null;
+      explorer.setSelection(message.options, selectedId);
+    }
     else if (message.type === 'success' || message.type === 'error') explorer.status(message.text, message.type === 'error');
   } catch { explorer.status('Unable to load these icon settings.', true); }
 });
