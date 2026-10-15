@@ -1,4 +1,6 @@
 # Logs
+.figma-plugin-id
+tests/artifacts/
 logs
 *.log
 npm-debug.log*
