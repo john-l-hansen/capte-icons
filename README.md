@@ -16,11 +16,11 @@ Open **http://127.0.0.1:4173** for the explorer and documentation. `npm run dev`
 
 ## Load the Figma development plugin
 
-1. In **Figma Desktop**, create a development plugin with a custom UI using **Plugins → Development → New plugin**. Copy the assigned `id` from its generated manifest. Keep that ID; the generated starter code is not needed.
-2. In this repository, configure the assigned ID and build:
+1. The manifest is configured for the Capte development plugin, ID `1692625788103724528`.
+2. In this repository, install dependencies and build:
 
    ```sh
-   npm run configure:plugin -- YOUR_NUMERIC_FIGMA_PLUGIN_ID
+   npm ci
    npm run build
    ```
 
@@ -28,7 +28,7 @@ Open **http://127.0.0.1:4173** for the explorer and documentation. `npm run dev`
 4. Run **Capte Icons — Pilot**, select an icon, customize it, and click **Insert icon**.
 5. Select an inserted icon to load its settings. Change the controls and click **Update selected**.
 
-The configured ID lives in the ignored `.figma-plugin-id` file. The checked-in manifest has a development placeholder so CI can build without a Figma account; replace it through the command above before importing or publishing. This project has not been published to Figma Community.
+For a separate development plugin or fork, create a plugin in Figma Desktop and run `npm run configure:plugin -- YOUR_NUMERIC_FIGMA_PLUGIN_ID`. That local override lives in the ignored `.figma-plugin-id` file. The checked-in manifest uses the assigned Capte plugin ID. This project has not been published to Figma Community.
 
 ## Controls
 
