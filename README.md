@@ -26,8 +26,8 @@ Open **http://127.0.0.1:4173** for the explorer and documentation. `npm run dev`
 
 3. In Figma Desktop, use **Plugins → Development → Import plugin from manifest** and choose `apps/figma-plugin/dist/manifest.json`.
 4. Run **Capte Icons — Pilot**, select an icon, customize it, and click **Insert icon**.
-5. Select an inserted icon (or a vector inside it) to load its settings. Change the controls and click **Update selected**, or choose another icon in the grid to replace the selected icon immediately.
-6. Deselect the canvas icon before inserting an additional icon. While an owned icon is selected, the primary button reads **Replace icon** and updates that same root layer.
+5. Select an inserted icon (or a vector inside it) to load its settings. Change the controls and click **Insert icon**, or choose another icon in the grid to replace the selected icon immediately.
+6. Deselect the canvas icon before inserting an additional icon. **Insert icon** updates the same root layer while an owned icon is selected; with no owned selection, it creates a new icon.
 
 If you are using the extracted pilot ZIP, choose the `manifest.json` beside `code.js` and `ui.html` in the extracted folder instead. Keep all three files together. Import the manifest from its current location; moving the folder later leaves Figma pointing at the old path. If an older Capte Icons entry conflicts, remove that entry under **Plugins → Development → Manage plugins in development**, then import the current manifest again. Removing the entry does not require deleting the plugin files.
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.2 — One insert action — 2026-10-15
+
+- Remove the redundant Update selected button and keep a single Insert icon action.
+- Insert icon applies settings to an owned canvas selection or creates an icon when no owned icon is selected.
+- Preserve immediate replacement when choosing another catalog icon.
+- Keep the website’s Download SVG and Copy SVG actions.
+
 ## 0.1.1 — Pilot selection fixes — 2026-10-15
 
 - Accept selection/settings messages from the native host when their Window source is absent.
