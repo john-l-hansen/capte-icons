@@ -28,6 +28,8 @@ Open **http://127.0.0.1:4173** for the explorer and documentation. `npm run dev`
 4. Run **Capte Icons — Pilot**, select an icon, customize it, and click **Insert icon**.
 5. Select an inserted icon to load its settings. Change the controls and click **Update selected**.
 
+If you are using the extracted pilot ZIP, choose the `manifest.json` beside `code.js` and `ui.html` in the extracted folder instead. Keep all three files together. Import the manifest from its current location; moving the folder later leaves Figma pointing at the old path. If an older Capte Icons entry conflicts, remove that entry under **Plugins → Development → Manage plugins in development**, then import the current manifest again. Removing the entry does not require deleting the plugin files.
+
 For a separate development plugin or fork, create a plugin in Figma Desktop and run `npm run configure:plugin -- YOUR_NUMERIC_FIGMA_PLUGIN_ID`. That local override lives in the ignored `.figma-plugin-id` file. The checked-in manifest uses the assigned Capte plugin ID. This project has not been published to Figma Community.
 
 ## Controls
@@ -82,6 +84,8 @@ Before a release, complete the manual Figma Desktop checklist in `docs/acceptanc
 
 ## Development status
 
-This is the three-icon workflow pilot, not the full icon collection. The next milestone is validating the development plugin in Figma Desktop, then expanding the catalog in reviewed batches. Linked component insertion and public Community distribution are later milestones.
+This is the three-icon workflow pilot. On October 15, 2026, the project owner confirmed that the development plugin opens in Figma Desktop and that the initial presentation looks good. This is a launch and visual-review checkpoint; the full insertion/update acceptance checklist remains pending.
+
+Next, apply pilot feedback and complete the remaining editor checks before expanding the catalog in reviewed batches. Linked component insertion and public Community distribution are later milestones.
 
 No distribution license has been selected.

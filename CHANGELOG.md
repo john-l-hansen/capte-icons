@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+### Pilot checkpoint — 2026-10-15
+
+- Project owner confirmed a successful Figma Desktop launch and positive initial visual review.
+- Clarified installation from the extracted build and recovery from a stale development-plugin path.
+- Kept the three-icon scope while pilot adjustments are collected; full editor acceptance remains pending.
+
 ## 0.1.0 — Development pilot
 
 - Search, Shield Lock and Location Check, sourced from the approved Figma pilot.

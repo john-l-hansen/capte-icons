@@ -5,9 +5,13 @@
 - `npm run check`: type checking, nine renderer/controller tests and both production builds.
 - `npm run test:browser`: real Chromium checks of filtering, every control, independent grade/color settings, SVG download size, preference restoration, plugin UI messages and narrow layouts.
 
-## Manual Figma Desktop gate — pending
+## Figma Desktop checkpoint — 2026-10-15
 
-1. Configure the assigned plugin ID and import the built manifest.
+The project owner confirmed that the imported development plugin opens successfully and that the initial presentation looks good. This records user-reported launch and visual review only. Insertion, update behavior, persistence, undo/redo, and detailed artwork comparisons have not yet been confirmed through the complete checklist below.
+
+## Manual Figma Desktop gate — partially verified
+
+1. Configure the assigned plugin ID and import the built manifest. **Launch confirmed by the project owner on 2026-10-15.**
 2. Insert each pilot icon at 20, 24, 40 and 48 px; confirm frame dimensions in the inspector.
 3. Compare Outline, Filled and Duotone on white, pale and dark-blue backgrounds against the approved Figma pilot.
 4. Check Thin, Medium and Heavy, including compact badge and lock details.
