@@ -3,7 +3,8 @@ const send = (type: string, options?: unknown) => parent.postMessage({ pluginMes
 const explorer = mountExplorer(document.getElementById('app')!, { plugin: true,
   onInsert: options => send('insert', options), onUpdate: options => send('update', options), onChange: options => send('preferences', options) });
 window.addEventListener('message', event => {
-  if (event.source !== parent) return;
+  // Figma's native host can deliver messages without a Window source.
+  if (event.source && event.source !== parent) return;
   const message = event.data?.pluginMessage;
   if (!message) return;
   try {

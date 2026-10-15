@@ -10,7 +10,7 @@ The pilot uses one geometry template per size/style with weight and grade applie
 
 ## Plugin
 
-The iframe UI sends settings, not arbitrary SVG, to the controller. The controller validates them and renders its own bundled catalog. SVG import creates native editable artwork. Plugin metadata stores schema version, catalog version and selected settings. Updates retain the existing root frame and regenerate its children. Theme changes use fixed palette colors; no variable binding or library access is assumed in the destination file.
+The iframe UI sends settings, not arbitrary SVG, to the controller. The controller validates them and renders its own bundled catalog. SVG import creates native editable artwork. Plugin metadata stores schema version, catalog version and selected settings. Selection resolves a single generated child to its owning icon frame. Choosing another icon with an owned canvas selection replaces that frame’s artwork; insertion with no owned selection creates a new frame. Updates retain the existing root frame and regenerate its children, resizing without applying child constraints. Theme changes use fixed palette colors; no variable binding or library access is assumed in the destination file.
 
 ## Website
 

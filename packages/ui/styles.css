@@ -95,6 +95,17 @@ h2 {
   white-space: nowrap;
   color: var(--muted);
 }
+.header-tools {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.color-control select {
+  width: 88px;
+  padding: 8px 24px 8px 10px;
+}
 .workspace {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -330,7 +341,7 @@ footer {
   padding: 20px 24px;
 }
 .plugin .fields {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
   margin-top: 16px;
 }
@@ -427,7 +438,7 @@ footer {
   grid-column: auto;
 }
 :root .plugin .fields label:last-child {
-  grid-column: span 2;
+  grid-column: auto;
 }
 :root .plugin .searchbar {
   grid-template-columns: 1fr 170px;
@@ -438,10 +449,10 @@ footer {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   :root .plugin .fields label:nth-child(3) {
-    grid-column: 1/-1;
+    grid-column: auto;
   }
   :root .plugin .fields label:last-child {
-    grid-column: 1/-1;
+    grid-column: auto;
   }
   :root .plugin .searchbar {
     grid-template-columns: 1fr;
