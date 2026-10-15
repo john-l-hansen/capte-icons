@@ -1,6 +1,11 @@
 # Changelog
 
-## 0.1.3 — Live editing and design tokens — 2026-10-15
+## 0.1.3 — Team preview — 2026-10-15
+
+- Package the compiled plugin with installation/usage guides, release notes, source/version metadata, checksum, and font notices for team distribution.
+- Add a team-first README, preview image, roadmap, contribution guide, feedback forms, and reproducible GitHub pre-release workflow.
+
+### Live editing and design tokens
 
 - Apply size, weight, grade, style, palette, and catalog changes live to the selected Capte icon.
 - Make Insert icon always create an additional icon.

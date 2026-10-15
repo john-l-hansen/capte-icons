@@ -1,0 +1,52 @@
+name: Team preview release
+on:
+  push:
+    branches: [feat/icon-plugin-pilot, main]
+    paths:
+      - release-plan.json
+      - .github/workflows/team-preview.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: capte-team-preview-release
+  cancel-in-progress: false
+jobs:
+  release:
+    if: github.repository == 'john-l-hansen/capte-icons' && (github.ref == 'refs/heads/feat/icon-plugin-pilot' || github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npx playwright install --with-deps chromium --only-shell
+      - run: npm run test:browser
+      - run: npm run package:release
+      - name: Publish the team preview and downloads
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag=$(node -p 'JSON.parse(require("fs").readFileSync("release-plan.json", "utf8")).tag')
+          version=$(node -p 'JSON.parse(require("fs").readFileSync("release-plan.json", "utf8")).version')
+          notes=$(node -p 'JSON.parse(require("fs").readFileSync("release-plan.json", "utf8")).notes')
+          if gh release view "$tag" > /dev/null 2>&1; then
+            echo "Release $tag already exists; leaving its tag and assets intact."
+            exit 0
+          fi
+          gh release create "$tag" \
+            "release-artifacts/capte-icons-figma-plugin-$version.zip" \
+            release-artifacts/SHA256SUMS \
+            release-artifacts/VERSION.json \
+            --target "$GITHUB_SHA" \
+            --title "Capte Icons $version — Team preview" \
+            --notes-file "$notes" \
+            --prerelease --latest=false

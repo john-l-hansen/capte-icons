@@ -1,10 +1,76 @@
 # Capte Icons
 
-A shared icon catalog, Figma plugin, and interactive documentation explorer. The development pilot uses **Search, Shield Lock, and Location Check**, exported from the approved Capte Figma artwork.
+**Figma icons, with intention.** A shared Capte icon catalog, live-editing Figma plugin, and companion icon explorer.
 
-## Start here
+[![Checks](https://github.com/john-l-hansen/capte-icons/actions/workflows/check.yml/badge.svg)](https://github.com/john-l-hansen/capte-icons/actions/workflows/check.yml)
 
-Requires Node.js 22.18+ and npm. Open this repository in Antigravity, Codex, or your preferred editor.
+**Current version: 0.1.3 · Team preview · Three pilot icons**
+
+[Download the Figma plugin](https://github.com/john-l-hansen/capte-icons/releases/download/v0.1.3/capte-icons-figma-plugin-0.1.3.zip) · [Release notes](https://github.com/john-l-hansen/capte-icons/releases/tag/v0.1.3) · [Installation guide](INSTALL.md) · [Usage guide](docs/usage.md) · [Roadmap](docs/roadmap.md)
+
+This preview is for trying the workflow and collecting team feedback. It includes **Search, Shield Lock, and Location Check**. The rest of the approved icon library will follow in reviewed batches. It is a manually installed development plugin; a Figma Community installation link is a later milestone.
+
+<p align="center"><img src="docs/images/plugin-preview.png" width="480" alt="Capte Icons plugin with customization controls, Light/Dark palette, an Insert icon button, and the three pilot icons"></p>
+
+## For the team: install and try it
+
+**You need Figma Desktop. You do not need Node.js, an API key, or access to the source design file.**
+
+1. Download the **capte-icons-figma-plugin-0.1.3.zip** asset from the release above. GitHub's automatic “Source code” downloads are for developers.
+2. Extract the ZIP into a permanent folder, such as `Documents/Capte Icons`. Keep `manifest.json`, `code.js`, and `ui.html` together.
+3. Open a Figma Design file in Figma Desktop. Choose **Plugins → Development → Import plugin from manifest…** and select that `manifest.json`.
+4. Run **Capte Icons — Pilot** from **Plugins → Development**.
+
+[Installation, updating, and troubleshooting →](INSTALL.md)
+
+## How it works
+
+- Choose an icon and settings, then click **Insert icon** to create an editable vector icon.
+- Select an inserted Capte icon—or a vector inside it—to load its settings. Controls and catalog choices update it **live**.
+- **Insert icon always creates an additional icon**, even when another icon is selected.
+- With no Capte icon selected, controls change the preview until you insert.
+
+| Control | Options |
+| --- | --- |
+| Optical size | 20, 24, 40, 48 px |
+| Weight | Thin, Medium, Heavy |
+| Grade | Dark, Normal, Emphasis |
+| Style | Outline, Filled, Duotone |
+| Color, top-right | Light, Dark |
+
+Grade changes stroke thickness; Color changes the palette. They are independent. Approved small-size geometry preserves compact details. The three icons support **648 configurations** from 36 geometry templates and 24 stroke profiles.
+
+Live editing retains the root frame, parent, position, and rotation while replacing generated children. **Manual edits inside an icon are overwritten when its settings change.** Unrelated artwork, multiple selections, and locked root layers are not live-edited.
+
+Inserted icons are editable snapshots. They are not linked library instances, do not bind to the destination file's variables, and do not automatically change when the plugin or source library is updated.
+
+## Preview status and feedback
+
+| Verified | Still to confirm |
+| --- | --- |
+| Earlier pilot launch and initial appearance confirmed by the project owner | Full 0.1.3 live-editing and undo/redo pass inside Figma Desktop |
+| TypeScript, 13 renderer/controller tests, all 648 configurations, both builds | Detailed artwork comparison in the editor |
+| Chromium checks: controls, rapid edits, target switching, downloads, preferences, layouts | Full catalog expansion |
+| Light/Dark interfaces visually reviewed against exported tokens | Community distribution and production website |
+
+Automated controller tests use a mocked Figma API. The [editor acceptance checklist](docs/acceptance.md) records the remaining checks. Try the preview in a working copy of a design file and report the icon, settings, version, and what happened using [a bug report](https://github.com/john-l-hansen/capte-icons/issues/new?template=bug_report.yml).
+
+## Project guide
+
+| I want to… | Start here |
+| --- | --- |
+| Install or update the plugin | [Installation](INSTALL.md) |
+| Understand controls and live editing | [Usage](docs/usage.md) |
+| See what's changed | [Changelog](CHANGELOG.md) and [0.1.3 notes](releases/0.1.3.md) |
+| See what's next | [Roadmap](docs/roadmap.md) |
+| Build or contribute | [Contributing](CONTRIBUTING.md) |
+| Understand shared artwork and rendering | [Architecture](docs/architecture.md) |
+| Refresh interface tokens from Figma | [Design tokens](docs/design-tokens.md) |
+| Package the next team preview | [Maintainer release guide](docs/releasing.md) |
+
+## For developers
+
+Requires Node.js **22.18+** and npm. Release packaging also uses Python 3.
 
 ```sh
 npm ci
@@ -12,87 +78,30 @@ npm run check
 npm run dev
 ```
 
-Open **http://127.0.0.1:4173** for the explorer and documentation. `npm run dev` builds once and starts the preview server; restart it after code changes. No accounts, API keys, or remote asset services are needed to run the preview or plugin.
+Open **http://127.0.0.1:4173** for the local icon explorer and documentation. It supports SVG download/copy. The preview server builds once; restart it after code changes. The website has not been deployed.
 
-## Load the Figma development plugin
+```sh
+npx playwright install chromium --only-shell
+npm run test:browser
+npm run package:release
+```
 
-1. The manifest is configured for the Capte development plugin, ID `1692625788103724528`.
-2. In this repository, install dependencies and build:
-
-   ```sh
-   npm ci
-   npm run build
-   ```
-
-3. In Figma Desktop, use **Plugins → Development → Import plugin from manifest** and choose `apps/figma-plugin/dist/manifest.json`.
-4. Run **Capte Icons — Pilot**, select an icon, customize it, and click **Insert icon**.
-5. Select an inserted icon (or a vector inside it). Size, weight, grade, style, color, and catalog choices update that icon immediately.
-6. Click **Insert icon** whenever you want an additional icon. It always creates a new root, including when another Capte icon is selected.
-
-If you are using the extracted pilot ZIP, choose the `manifest.json` beside `code.js` and `ui.html` in the extracted folder instead. Keep all three files together. Import the manifest from its current location; moving the folder later leaves Figma pointing at the old path. If an older Capte Icons entry conflicts, remove that entry under **Plugins → Development → Manage plugins in development**, then import the current manifest again. Removing the entry does not require deleting the plugin files.
-
-For a separate development plugin or fork, create a plugin in Figma Desktop and run `npm run configure:plugin -- YOUR_NUMERIC_FIGMA_PLUGIN_ID`. That local override lives in the ignored `.figma-plugin-id` file. The checked-in manifest uses the assigned Capte plugin ID. This project has not been published to Figma Community.
-
-## Controls
-
-| Control | Values |
-| --- | --- |
-| Optical size | 20, 24, 40, 48 px |
-| Weight | Thin, Medium, Heavy |
-| Grade | Dark, Normal, Emphasis |
-| Style | Outline, Filled, Duotone |
-| Color (top-right) | Light, Dark |
-
-Grade and Color are independent. Small-size templates preserve approved optical adjustments instead of scaling a single drawing. The catalog contains 36 geometry templates and 24 stroke profiles; these produce **648 supported configurations** across the three icons.
-
-The plugin inserts editable vector frames with fixed colors and live strokes. It records icon ID, catalog version, and settings in private plugin metadata. Updating replaces generated children while retaining the root frame ID, parent, position, and rotation. Manual edits to generated children are overwritten. Arbitrary SVGs, components from other plugins, multi-selections, and locked root layers are not updated.
-
-These inserted icons are snapshots. They are not linked library instances, do not bind to the destination file's Figma variables, and do not automatically receive catalog updates.
-
-## Interface design tokens
-
-Plugin and documentation styles use a versioned export from the Capte Figma design system: semantic Light/Dark colors, spacing, radii, and Roboto text styles. Fonts and notices are bundled so the plugin works offline. Builds validate that every referenced Capte token exists. See [token mapping and refresh](docs/design-tokens.md).
-
-The export is a build-time snapshot. Changing Figma variables does not silently modify an installed plugin; re-export, rebuild, and install a new build to receive token changes.
-
-## Project layout
+`npm run build` outputs the plugin under `apps/figma-plugin/dist` and website under `apps/docs/dist`. Import the built manifest directly when developing. The assigned plugin ID is `1692625788103724528`. Forks should create their own development plugin and use `npm run configure:plugin -- YOUR_NUMERIC_FIGMA_PLUGIN_ID` before rebuilding.
 
 | Path | Purpose |
 | --- | --- |
-| `packages/icons` | Approved geometry, token profiles, renderer, validation and search |
-| `packages/ui` | Shared explorer interface used by the plugin and website |
-| `apps/figma-plugin` | Plugin controller, UI entry point and manifest |
-| `apps/docs` | Browser explorer, installation instructions, guide and release notes |
-| `scripts` | Build, local preview, plugin configuration and artwork export |
-| `tests` | Renderer, controller and browser checks |
+| `packages/icons` | Approved catalog, renderer, validation, and search |
+| `packages/ui` | Shared explorer, exported design tokens, bundled fonts |
+| `apps/figma-plugin` | Figma controller and UI entry point |
+| `apps/docs` | Website explorer and documentation |
+| `scripts` | Build, packaging, and read-only Figma exports |
+| `tests` | Renderer, controller, and browser checks |
 
-`npm run build` writes self-contained plugin files under `apps/figma-plugin/dist` and static website files under `apps/docs/dist`. No deployment occurs. The plugin bundles its catalog and UI and requests no network access. The website can later be hosted as static files or integrated with the Capte documentation site.
-
-## Artwork source and releases
+## Design source and delivery
 
 - [Approved Figma pilot](https://www.figma.com/design/oFZw7IVtiURZG2x5XhAKyD/Capte-Design-System?node-id=3637-27)
-- [Original icon library](https://www.figma.com/design/oFZw7IVtiURZG2x5XhAKyD/Capte-Design-System?node-id=3614-1889)
+- [Complete icon library](https://www.figma.com/design/oFZw7IVtiURZG2x5XhAKyD/Capte-Design-System?node-id=3614-1889)
 
-Figma is the artwork approval surface. `packages/icons/catalog.json` is the versioned runtime source used by both clients. Use `scripts/export-pilot.figma.js` in an authorized Plugin API environment to collect the approved pilot geometry and tokens; save its result as the catalog. The export script intentionally targets known pilot masters and fails on missing or unsupported data. Extend that mapping when new icons are approved. It does not publish or modify the artwork.
+Figma is the artwork approval surface. The versioned catalog powers both clients. Interface styles use exported Capte semantic colors, Roboto text styles, spacing, and radii. Tokens and fonts are bundled, so the plugin runs offline and requests no network access. Token and catalog changes require a rebuilt plugin; they do not sync automatically into installed copies.
 
-Keep IDs stable. Review changed geometry in both clients, increment the catalog version for releases, and record changes in `CHANGELOG.md`. New icons need explicit small-size artwork and style decisions. Do not approximate missing templates at runtime.
-
-## Verification
-
-```sh
-npm run check
-npx playwright install chromium --only-shell
-npm run test:browser
-```
-
-The first command type-checks the code, exercises all 648 configurations, verifies search and metadata validation, checks update behavior using a mocked Plugin API, and builds both clients. Browser checks verify filtering, controls, download dimensions, preference persistence, the plugin UI bridge, and narrow layouts. Screenshots are saved under `tests/artifacts/`.
-
-Before a release, complete the manual Figma Desktop checklist in `docs/acceptance.md`. Automated controller tests and SVG checks do not replace testing a development plugin in the editor.
-
-## Development status
-
-This is the three-icon workflow pilot. On October 15, 2026, the project owner confirmed that the development plugin opens in Figma Desktop and that the initial presentation looks good. This is a launch and visual-review checkpoint; the full insertion/update acceptance checklist remains pending.
-
-Next, apply pilot feedback and complete the remaining editor checks before expanding the catalog in reviewed batches. Linked component insertion and public Community distribution are later milestones.
-
-No distribution license has been selected.
+GitHub Releases are the download source for team previews. A future Capte brand assets page should link to that release asset rather than maintain a separate copy. Community publication, website deployment, and a project distribution license remain separate decisions. Bundled font notices are retained in `packages/ui/fonts` and in the build.
