@@ -99,9 +99,6 @@ npm run package:release
 
 ## Design source and delivery
 
-- [Approved Figma pilot](https://www.figma.com/design/oFZw7IVtiURZG2x5XhAKyD/Capte-Design-System?node-id=3637-27)
-- [Complete icon library](https://www.figma.com/design/oFZw7IVtiURZG2x5XhAKyD/Capte-Design-System?node-id=3614-1889)
-
 Figma is the artwork approval surface. The versioned catalog powers both clients. Interface styles use exported Capte semantic colors, Roboto text styles, spacing, and radii. Tokens and fonts are bundled, so the plugin runs offline and requests no network access. Token and catalog changes require a rebuilt plugin; they do not sync automatically into installed copies.
 
 GitHub Releases are the download source for team previews. A future Capte brand assets page should link to that release asset rather than maintain a separate copy. Community publication, website deployment, and a project distribution license remain separate decisions. Bundled font notices are retained in `packages/ui/fonts` and in the build.
