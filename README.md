@@ -1,5 +1,3 @@
-<p><img src="docs/images/capte-favicon.png" width="64" height="64" alt="Capte"></p>
-
 # Capte Icons
 
 **Figma icons, with intention.** A shared Capte icon catalog, button-driven editing Figma plugin, and companion icon explorer.
