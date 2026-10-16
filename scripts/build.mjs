@@ -27,7 +27,7 @@ await writeFile(`${plugin}/ui.html`, html);
 const manifest = JSON.parse(await readFile('apps/figma-plugin/manifest.json', 'utf8'));
 try { manifest.id = (await readFile('.figma-plugin-id', 'utf8')).trim(); } catch { /* Configure the assigned Figma ID before importing. */ }
 await writeFile(`${plugin}/manifest.json`, JSON.stringify(manifest, null, 2) + '\n');
-await Promise.all([copyFile('apps/docs/index.html', `${docs}/index.html`), writeFile(`${docs}/styles.css`, css)]);
+await Promise.all([copyFile('apps/docs/index.html', `${docs}/index.html`), copyFile('docs/images/capte-favicon.png', `${docs}/capte-favicon.png`), writeFile(`${docs}/styles.css`, css)]);
 console.log(`Built plugin: ${path.join(plugin, 'manifest.json')}`);
 if (manifest.id === 'capte-icons-development') console.log('Before importing: npm run configure:plugin -- YOUR_FIGMA_PLUGIN_ID, then rebuild.');
 console.log(`Built explorer: ${docs}/index.html`);
