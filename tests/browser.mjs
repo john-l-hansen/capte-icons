@@ -62,7 +62,7 @@ try {
   assert.equal(await page.locator('.status').innerText(), 'Host reply accepted');
   // Native Figma messages may have source=null, unlike a browser parent window.
   await page.evaluate(o => dispatchEvent(new MessageEvent('message', { data: { pluginMessage: { type: 'selection', nodeId: 'icon-a', options: o } }, source: null })), options);
-  await page.waitForFunction(() => document.querySelector('.status').textContent.includes('Insert icon replaces'));
+  await page.waitForFunction(() => document.querySelector('.status').textContent.includes('press Update icon'));
   assert.equal(await page.locator('.masthead').count(), 0);
   assert.equal(await page.getByLabel('Color', { exact: true }).count(), 0);
   assert.equal(await page.locator('.documentation [aria-disabled=true]').count(), 1);
@@ -74,17 +74,21 @@ try {
   await page.getByLabel('Category').selectOption('all');
   assert.equal(await page.locator('.actions button').count(), 1);
   assert.equal(await page.getByRole('button', { name: 'Update selected' }).count(), 0);
-  await page.getByRole('button', { name: 'Insert icon', exact: true }).click();
+  await page.getByRole('button', { name: 'Update icon', exact: true }).click();
   await page.waitForFunction(() => window.__messages.some(m => m.type === 'insert'));
   const updated = await page.evaluate(() => window.__messages.find(m => m.type === 'insert')); assert.deepEqual(updated.options, options); assert.equal(updated.targetId, 'icon-a');
   await page.getByRole('button', { name: 'Select Shield Lock', exact: true }).click();
-  await page.waitForFunction(() => window.__messages.some(m => m.type === 'apply' && m.options.iconId === 'shield-lock'));
   await page.getByLabel('Weight', { exact: true }).selectOption('heavy');
-  await page.waitForFunction(() => window.__messages.some(m => m.type === 'apply' && m.options.weight === 'heavy' ));
-  for (const [label, value, key] of [['Optical size', '40', 'size'], ['Grade', 'emphasis', 'grade'], ['Style', 'filled', 'style']]) {
+  for (const [label, value] of [['Optical size', '40'], ['Grade', 'emphasis'], ['Style', 'filled']]) {
     await page.getByLabel(label, { exact: true }).selectOption(value);
-    await page.waitForFunction(({ key, value }) => window.__messages.some(m => m.type === 'apply' && String(m.options[key]) === value ), { key, value });
   }
+  assert.equal(await page.evaluate(() => window.__messages.filter(m => ['apply', 'update'].includes(m.type)).length), 0);
+  assert.equal(await page.evaluate(() => window.__messages.filter(m => m.type === 'insert').length), 1);
+  await page.getByRole('button', { name: 'Update icon', exact: true }).click();
+  await page.waitForFunction(() => window.__messages.filter(m => m.type === 'insert').length === 2);
+  const draft = await page.evaluate(() => window.__messages.filter(m => m.type === 'insert').at(-1));
+  assert.equal(draft.options.weight, 'heavy'); assert.equal(draft.options.size, 40);
+  assert.equal(draft.options.style, 'filled'); assert.equal(draft.options.grade, 'emphasis');
   // Rapid changes followed by an old same-root echo must keep the latest draft.
   await page.evaluate(() => {
     const weight = document.querySelector('[name=weight]'); weight.value = 'thin'; weight.dispatchEvent(new Event('change'));
@@ -96,13 +100,13 @@ try {
   await page.evaluate(o => dispatchEvent(new MessageEvent('message', { data: { pluginMessage: { type: 'selection', nodeId: 'icon-b', options: o } } })), options);
   assert.equal(await page.getByLabel('Weight', { exact: true }).inputValue(), 'medium');
   await page.getByLabel('Weight', { exact: true }).selectOption('heavy');
-  await page.waitForFunction(() => window.__messages.some(m => m.type === 'apply'  && m.options.weight === 'heavy'));
+  assert.equal(await page.getByRole('button', { name: 'Update icon', exact: true }).count(), 1);
   await page.evaluate(() => postMessage({ pluginMessage: { type: 'selection', options: null } }, '*'));
   await page.waitForFunction(() => document.querySelector('.status').textContent === '');
   await page.evaluate(() => { window.__messages = []; });
   await page.getByLabel('Weight', { exact: true }).selectOption('thin');
   await page.getByRole('button', { name: 'Select Search', exact: true }).click();
-  assert.ok(await page.evaluate(() => window.__messages.some(m => m.type === 'apply')));
+  assert.equal(await page.evaluate(() => window.__messages.filter(m => ['apply', 'update', 'insert'].includes(m.type)).length), 0);
   await page.getByRole('button', { name: 'Insert icon', exact: true }).click();
   await page.waitForFunction(() => window.__messages.some(m => m.type === 'insert' && m.options.iconId === 'search'));
   // Measure actual rendered previews: larger optical sizes must not be clamped by the grid.
@@ -149,27 +153,42 @@ try {
   await page.waitForFunction(() => document.querySelector('.status').textContent.includes('Icon inserted.'));
   const inserted = host.page.selection[0];
   assert.equal(inserted.parent.id, frame.id); assert.deepEqual([inserted.x, inserted.y], [88, 88]);
+  assert.equal(await page.getByRole('button', { name: 'Update icon', exact: true }).count(), 1);
+  const before = inserted.getPluginData('capte-icon'), children = inserted.children.map(c => c.id);
+  const commits = host.undoCommits;
   await page.getByRole('button', { name: 'Select Shield Lock', exact: true }).click();
+  await page.getByLabel('Weight', { exact: true }).selectOption('heavy');
+  await page.getByLabel('Optical size').selectOption('48');
+  await page.getByLabel('Style', { exact: true }).selectOption('filled');
+  await page.getByLabel('Grade', { exact: true }).selectOption('emphasis');
+  assert.equal(inserted.getPluginData('capte-icon'), before);
+  assert.deepEqual(inserted.children.map(c => c.id), children);
+  assert.equal(inserted.width, 24); assert.equal(host.undoCommits, commits);
+  await page.getByRole('button', { name: 'Update icon', exact: true }).click();
   await page.waitForFunction(() => document.querySelector('.status').textContent.includes('Icon replaced.'));
   assert.equal(host.page.selection[0].id, inserted.id);
-  assert.match(inserted.getPluginData('capte-icon'), /shield-lock/);
-  // Reopen with an existing icon selected, but drop every selection notification.
-  // The controller must still update the actual selection and Insert must replace it.
+  const applied = JSON.parse(inserted.getPluginData('capte-icon')).options;
+  assert.equal(applied.iconId, 'shield-lock'); assert.equal(applied.weight, 'heavy');
+  assert.equal(applied.size, 48); assert.equal(applied.style, 'filled'); assert.equal(applied.grade, 'emphasis');
+  assert.equal(host.undoCommits, commits + 1); assert.equal(frame.children.length, 1);
+  // Deselecting restores Insert; reselecting loads settings and restores Update.
+  host.page.selection = []; host.events.selectionchange();
+  await page.getByRole('button', { name: 'Insert icon', exact: true }).waitFor();
+  host.page.selection = [inserted]; host.events.selectionchange();
+  await page.getByRole('button', { name: 'Update icon', exact: true }).waitFor();
+  assert.equal(await page.getByLabel('Weight', { exact: true }).inputValue(), 'heavy');
+  // Even with dropped selection notifications, a button press resolves the real target.
   const deliver = host.figma.ui.postMessage;
   host.figma.ui.postMessage = message => { if (message.type !== 'selection') deliver(message); };
   await page.reload();
   await page.waitForFunction(() => document.querySelector('.status').textContent.includes('Ready.'));
-  await page.getByLabel('Weight', { exact: true }).selectOption('heavy');
-  await page.waitForFunction(() => document.querySelector('.status').textContent.includes('Icon replaced.'));
-  assert.match(inserted.getPluginData('capte-icon'), /heavy/);
-  assert.equal(host.page.selection[0].id, inserted.id);
   await page.getByRole('button', { name: 'Select Location Check', exact: true }).click();
-  await page.waitForFunction(() => document.querySelector('.status').textContent.includes('Icon replaced.'));
+  assert.equal(JSON.parse(inserted.getPluginData('capte-icon')).options.iconId, 'shield-lock');
   await page.getByRole('button', { name: 'Insert icon', exact: true }).click();
   await page.waitForFunction(() => document.querySelector('.status').textContent.includes('Icon replaced.'));
-  assert.equal(frame.children.length, 1);
-  assert.equal(host.page.selection[0].id, inserted.id);
+  assert.equal(frame.children.length, 1); assert.equal(host.page.selection[0].id, inserted.id);
   assert.match(inserted.getPluginData('capte-icon'), /location-check/);
+  assert.equal(await page.getByRole('button', { name: 'Update icon', exact: true }).count(), 1);
 
   assert.deepEqual(errors, []);
   console.log('Browser checks passed: filters, controls, download, storage, plugin bridge and responsive layout.');

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.13
+
+Require a primary-button press to change canvas icons. Display Update icon for an owned selection and Insert icon otherwise; option and icon choices affect the preview only.
+
+
 ## 0.1.12
 
 Resolve live edits and Insert against the actual Figma selection, avoiding dependence on cached UI selection state. Include root metadata in success replies to restore UI tracking. Preserve the root layer during updates.

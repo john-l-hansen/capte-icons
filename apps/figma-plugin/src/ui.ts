@@ -1,5 +1,5 @@
 import { mountExplorer } from '../../../packages/ui/explorer.ts';
-const VERSION = '0.1.12';
+const VERSION = '0.1.13';
 let selectedId: string | null = null;
 let responseTimer: ReturnType<typeof setTimeout> | undefined;
 let awaitingAction = false;
@@ -14,7 +14,7 @@ function action(type: string, options: unknown) {
 }
 const send = (type: string, options?: unknown) => parent.postMessage({ pluginMessage: { type, options, ...(['insert', 'update'].includes(type) ? { targetId: selectedId } : {}) } }, '*');
 const explorer = mountExplorer(document.getElementById('app')!, { plugin: true,
-  onInsert: options => action('insert', options), onUpdate: options => selectedId ? action('apply', options) : send('apply', options), onChange: options => send('preferences', options) });
+  onInsert: options => action('insert', options), onChange: options => send('preferences', options) });
 window.addEventListener('message', event => {
   // Figma's native host and Developer VM can use null or non-parent sources.
   // Validate the plugin envelope rather than relying on browser window identity.

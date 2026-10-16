@@ -4,7 +4,7 @@ import { bindColors, colorTokens, outlineArtwork } from './artwork.ts';
 
 import { placeIcon } from './placement.ts';
 
-const VERSION = '0.1.12';
+const VERSION = '0.1.13';
 const KEY = 'capte-icon';
 console.log(`[Capte Icons ${VERSION}] Controller started.`);
 figma.showUI(__html__, { width: 360, height: 680, themeColors: true });

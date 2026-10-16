@@ -1,8 +1,8 @@
-# Using Capte Icons 0.1.12
+# Using Capte Icons 0.1.13
 
-Choose an icon and settings, then click **Insert icon**. If one plugin-generated Capte icon is selected, it is replaced in place. **Deselect it to insert another.** Selecting a vector inside an owned icon also works. Unrelated artwork, multiple selections, and locked roots or parents are not overwritten. Edit icons inside component instances through their main component.
+Choose an icon and settings, then click **Insert icon**. When a Capte icon is selected, the button reads **Update icon**. If one plugin-generated Capte icon is selected, it is replaced in place. **Deselect it to insert another.** Selecting a vector inside an owned icon also works. Unrelated artwork, multiple selections, and locked roots or parents are not overwritten. Edit icons inside component instances through their main component.
 
-Changing controls or choosing another icon updates an owned selection live. The root retains its ID, parent, placement, and rotation. Generated children are replaced, so later settings changes overwrite manual child edits. Each insertion/edit commits an undo checkpoint. Re-select after undo/redo to reload saved settings.
+Changing controls or choosing another icon updates only the plugin preview. Press **Update icon** to apply the chosen settings to the selected icon. The root retains its ID, parent, placement, and rotation. Generated children are replaced, so later settings changes overwrite manual child edits. Each insertion/edit commits an undo checkpoint. Re-select after undo/redo to reload saved settings.
 
 ## Controls
 
