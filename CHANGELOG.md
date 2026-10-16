@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.9
+
+Diagnostic build for the unresolved editor insertion issue. Add versioned progress, connection acknowledgment, a no-response message, controller logs, and an integrated UI/controller browser check. Preserve success feedback after selection synchronization.
+
+
 ## 0.1.8
 
 Fix silent insertion cancellation by comparing selected layer IDs rather than node wrapper objects. Show a retry message when an Insert action is canceled by a changed selection.

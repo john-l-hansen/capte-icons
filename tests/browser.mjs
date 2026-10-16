@@ -1,3 +1,4 @@
+import { runtime } from './helpers/plugin-runtime.ts';
 import { chromium } from 'playwright';
 import http from 'node:http';
 import assert from 'node:assert/strict';
@@ -118,6 +119,26 @@ try {
   const docsBounds = await page.locator('.documentation').boundingBox(); assert.ok(docsBounds.y + docsBounds.height <= 680);
   const iconButtons = await page.locator('.icon-card').all();
   for (const b of iconButtons) { const bounds = await b.boundingBox(); assert.ok(bounds.width >= 40 && bounds.height >= 40); }
+  // Connect the built UI to the real bundled controller with the Figma API harness.
+  const host = runtime(), frame = host.frame(200); frame.x = 50; frame.y = 80;
+  host.page.selection = [frame];
+  await page.exposeFunction('capteHost', async message => { await host.figma.ui.onmessage(message); });
+  host.figma.ui.postMessage = message => {
+    void page.evaluate(m => dispatchEvent(new MessageEvent('message', { data: { pluginMessage: m }, source: null })), message);
+  };
+  await page.addInitScript(() => addEventListener('message', event => {
+    if (event.source === window && event.data?.pluginMessage) void window.capteHost(event.data.pluginMessage);
+  }));
+  await page.reload();
+  await page.waitForFunction(() => document.querySelector('.status').textContent.includes('Ready.'));
+  await page.getByRole('button', { name: 'Insert icon', exact: true }).click();
+  await page.waitForFunction(() => document.querySelector('.status').textContent.includes('Icon inserted.'));
+  const inserted = host.page.selection[0];
+  assert.equal(inserted.parent.id, frame.id); assert.deepEqual([inserted.x, inserted.y], [88, 88]);
+  await page.getByRole('button', { name: 'Select Shield Lock', exact: true }).click();
+  await page.waitForFunction(() => document.querySelector('.status').textContent.includes('Icon replaced.'));
+  assert.equal(host.page.selection[0].id, inserted.id);
+  assert.match(inserted.getPluginData('capte-icon'), /shield-lock/);
   assert.deepEqual(errors, []);
   console.log('Browser checks passed: filters, controls, download, storage, plugin bridge and responsive layout.');
 } finally { if (browser) await browser.close(); await new Promise(resolve => server.close(resolve)); }
