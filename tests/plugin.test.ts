@@ -212,3 +212,21 @@ test('published source color variables are reused without creating fallback toke
   const insert = r.send('insert'); await waiting; r.page.selection = [second]; release(); await insert;
   assert.equal(r.page.children.length, 2); assert.equal(r.undoCommits, 0);
  });
+
+test('insert works when Figma returns fresh selection wrappers for the same node', async () => {
+  const r = runtime(), frame = r.frame(200); frame.x = 50; frame.y = 80;
+  let selection = [frame];
+  Object.defineProperty(r.page, 'selection', {
+    get() { return selection.map(node => new Proxy(node, {})); },
+    set(nodes) { selection = nodes; },
+  });
+  await r.send('insert');
+  assert.equal(r.undoCommits, 1);
+  const icon = r.page.selection[0];
+  assert.equal(icon.parent.id, frame.id);
+  assert.deepEqual([icon.x, icon.y], [88, 88]);
+  await r.send('insert', { ...DEFAULT_OPTIONS, iconId: 'shield-lock' });
+  assert.equal(r.undoCommits, 2);
+  assert.equal(r.page.selection[0].id, icon.id);
+  assert.equal(readIconMetadata(r.page.selection[0].getPluginData('capte-icon'))?.iconId, 'shield-lock');
+});

@@ -43,11 +43,15 @@ async function handleMessage(message: unknown) {
     if (msg.type === 'preferences') { await figma.clientStorage.setAsync('preferences', options); return; }
     const target = selectedIcon();
     const selection = [...figma.currentPage.selection];
-    const selectionUnchanged = () => selection.length === figma.currentPage.selection.length && selection.every((node, i) => !node.removed && node === figma.currentPage.selection[i]);
+    const selectionUnchanged = () => selection.length === figma.currentPage.selection.length && selection.every((node, i) => !node.removed && node.id === figma.currentPage.selection[i]?.id);
     if (msg.type === 'update' && !target) throw new Error('Select one icon inserted by Capte Icons.');
     // A queued live edit belongs to the icon that was selected when it was sent.
     const expectedId = msg.targetId ?? null;
-    if (expectedId !== (target?.id ?? null)) { selectionChanged(true); return; }
+    const canceled = () => {
+      selectionChanged(true);
+      if (msg.type === 'insert') send({ type: 'error', text: 'Selection changed. Click Insert icon again.' });
+    };
+    if (expectedId !== (target?.id ?? null)) { canceled(); return; }
     let ancestor: BaseNode | null = target;
     while (ancestor && ancestor.type !== 'PAGE') {
       if ('locked' in ancestor && ancestor.locked) throw new Error('Unlock the selected icon and its parent before updating it.');
@@ -56,11 +60,11 @@ async function handleMessage(message: unknown) {
     }
     const colors = await colorTokens();
     // Selection can move while library token imports are in progress.
-    if (!selectionUnchanged() || (selectedIcon()?.id ?? null) !== expectedId || target?.removed) { selectionChanged(true); return; }
+    if (!selectionUnchanged() || (selectedIcon()?.id ?? null) !== expectedId || target?.removed) { canceled(); return; }
     const fresh = staged = figma.createNodeFromSvg(renderSvg(options));
     outlineArtwork(fresh);
     await bindColors(fresh, options, colors.tokens);
-    if (!selectionUnchanged() || (selectedIcon()?.id ?? null) !== expectedId || target?.removed || target?.locked) { fresh.remove(); staged = null; selectionChanged(true); return; }
+    if (!selectionUnchanged() || (selectedIcon()?.id ?? null) !== expectedId || target?.removed || target?.locked) { fresh.remove(); staged = null; canceled(); return; }
     let node: FrameNode = fresh;
     if (target) {
       // Keep the root ID, parent, placement and rotation; only replace generated artwork.

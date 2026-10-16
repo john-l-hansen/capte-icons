@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.8
+
+Fix silent insertion cancellation by comparing selected layer IDs rather than node wrapper objects. Show a retry message when an Insert action is canceled by a changed selection.
+
+
 ## 0.1.7
 
 Center insertion over selected objects, or in the overall frame beneath the viewport center when deselected. Preserve existing Capte icon replacement; support rotated and auto-layout containers without shifting layout. Cancel insertion if the selection changes during token import.

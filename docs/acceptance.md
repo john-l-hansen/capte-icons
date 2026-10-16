@@ -1,4 +1,4 @@
-# Pilot acceptance — 0.1.7
+# Pilot acceptance — 0.1.8
 
 ## Verified
 
@@ -10,7 +10,7 @@ Controller tests use a mock Plugin API. The native probe verifies outline conver
 
 ## Owner's Figma Desktop review
 
-1. Install the supplied 0.1.7 ZIP and reopen the plugin. Confirm category/search, four controls, and the documentation row, which must not navigate.
+1. Install the supplied 0.1.8 ZIP and reopen the plugin. Confirm category/search, four controls, and the documentation row, which must not navigate.
 2. Insert each icon at 20, 24, 40, and 48 dp. Confirm matching numeric frame dimensions.
 3. Compare all styles, weights, and grades, especially small lock/badge details. Inspect child shapes: no live strokes; editable filled paths.
 4. Inspect fill bindings. When the source is unpublished, confirm one local Capte Icons collection is reused. Edit a local color, confirm existing artwork follows it, and insert again to ensure its value is not reset.
@@ -21,7 +21,7 @@ Controller tests use a mock Plugin API. The native probe verifies outline conver
 9. Check undo/redo for insertion/replacement. Re-select afterward to reload metadata. Confirm bindings recover if undo removes the local token collection.
 10. Reopen and check preferences. The plugin uses Light; the website explorer retains Color. Web SVG exports still use live strokes.
 
-Earlier pilot launch/appearance was confirmed by the owner on 2026-10-15. This 0.1.7 installed-plugin checklist remains pending.
+Earlier pilot launch/appearance was confirmed by the owner on 2026-10-15. This 0.1.8 installed-plugin checklist remains pending.
 
 - Select a non-icon object and insert: confirm the icon is centered over it. Repeat inside a rotated frame and an auto-layout frame; the layout must not shift.
 - Deselect with an overall frame beneath the viewport center: confirm insertion at the frame center. Pan to empty canvas and confirm viewport-center placement.

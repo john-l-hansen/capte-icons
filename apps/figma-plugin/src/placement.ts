@@ -26,12 +26,12 @@ export function placeIcon(icon: FrameNode, selection: readonly SceneNode[]) {
     const right = Math.max(...bounds.map(b => b.x + b.width)), bottom = Math.max(...bounds.map(b => b.y + b.height));
     center = { x: (left + right) / 2, y: (top + bottom) / 2 };
     const parents = selection.map(node => container(node));
-    if (parents.every(p => p === parents[0])) parent = parents[0];
+    if (parents.every(p => p?.id === parents[0]?.id)) parent = parents[0];
   } else if (!selection.length) {
     // The outermost frame beneath the viewport center is the overall frame.
     const findFrame = (nodes: readonly SceneNode[]): FrameNode | null => {
       for (const node of [...nodes].reverse()) {
-        if (node === icon || !node.visible) continue;
+        if (node.id === icon.id || !node.visible) continue;
         const box = node.absoluteBoundingBox;
         if (!box || center.x < box.x || center.x > box.x + box.width || center.y < box.y || center.y > box.y + box.height) continue;
         if (editableFrame(node)) return node;
