@@ -1,11 +1,22 @@
 {
-  "name": "Capte Icons — Pilot",
+  "name": "Capte Icons",
   "id": "1692625788103724528",
   "api": "1.0.0",
   "main": "code.js",
   "ui": "ui.html",
-  "editorType": ["figma"],
+  "editorType": [
+    "figma"
+  ],
   "documentAccess": "dynamic-page",
-  "networkAccess": { "allowedDomains": ["none"] },
-  "relaunchButtons": [{ "command": "open", "name": "Edit icon settings" }]
+  "networkAccess": {
+    "allowedDomains": [
+      "none"
+    ]
+  },
+  "relaunchButtons": [
+    {
+      "command": "open",
+      "name": "Edit icon settings"
+    }
+  ]
 }

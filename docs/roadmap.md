@@ -1,31 +1,19 @@
 # Roadmap
 
-## Available in 0.1.3 team preview
+## Current catalog preview: 0.2.0-beta.1
 
-- Search, Shield Lock, and Location Check.
-- Four optical sizes, three weights, three grades, three styles, two palettes.
-- Live editing of a selected owned icon and insertion of additional icons.
-- Shared renderer for the plugin and local website explorer.
-- Exported Capte interface tokens, bundled fonts, offline plugin runtime.
-- Automated renderer/controller/browser checks and a manual editor checklist.
+- All 60 named source icons, 720 size/style templates and existing stroke/color tokens.
+- Button-driven Insert icon / Update icon; settings affect previews until pressed.
+- Shared offline catalog for the plugin and website explorer.
+- Automated checks and native Figma import/outline/color-binding probes.
 
-## Next: validate the workflow
+## Next review
 
-- Confirm 0.1.3 live editing, undo/redo, placement, and artwork fidelity in Figma Desktop.
-- Collect team feedback through repository issues and resolve interaction/rendering problems.
-- Keep preview and production readiness distinct in release notes.
+- Compare the new Filled treatments and small-size details against design intent.
+- Refine dense icons individually at 20/24 dp; the 57 additions currently use proportional paths with size-specific stroke profiles.
+- Install the beta and confirm selection replacement, centering, undo/redo and variable binding in Figma Desktop.
+- Approve a matching beta release only after this review. v0.1.13 remains the published three-icon download.
 
-## Then: expand the catalog
+## Broader distribution
 
-- Audit approved source groups for duplicates and stable identities.
-- Add icons in reviewed batches with explicit size/style artwork.
-- Check previews, insertion, and SVG exports against the same approved source.
-
-## Later: broader distribution
-
-- Publish a Figma Community plugin after release readiness is confirmed.
-- Add a Capte brand assets page with an explorer, usage guidance, installation link, and SVG downloads.
-- Use one published release asset for manual downloads.
-- Consider linked library instances only after publication/access requirements are established.
-
-Dates and owners for future milestones have not been assigned. Nothing in this roadmap schedules or authorizes publication, deployment, or catalog changes by itself.
+Figma Community publication, website deployment and a distribution license remain separate owner decisions. A future brand assets page should link to the published release asset rather than duplicate it.
