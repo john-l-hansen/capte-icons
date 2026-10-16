@@ -4,7 +4,7 @@
 - Use the approved Figma pilot as the visual reference. Keep icon IDs stable and preserve small-size optical geometry.
 - Grade, Color, Weight and Style are independent controls. Do not make a theme change silently change grade.
 - Keep insertion editable and preserve the root layer on update. Only update icons identified by this plugin's private metadata.
-- Do not publish a Figma plugin, deploy a website, merge a pull request, or choose a distribution license without explicit user authorization.
+- User-requested fixes, UI adjustments, documentation, and asset updates may be merged into main after relevant checks pass. Separate approval is required for releases, deployments, Figma Community publication, licensing, and repository permission changes.
 - Run `npm run check` for renderer/controller changes. Run `npm run test:browser` for shared UI changes when Chromium is installed. Record any missing editor verification honestly.
 - Use feature branches and reviewable pull requests. Avoid adding infrastructure until the pilot requires it.
 - Public repository contents must be project code and approved assets, not unrelated Capte source documents.
