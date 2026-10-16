@@ -1,6 +1,6 @@
 import { mountExplorer } from '../../../packages/ui/explorer.ts';
 let selectedId: string | null = null;
-const send = (type: string, options?: unknown) => parent.postMessage({ pluginMessage: { type, options, ...(type === 'update' ? { targetId: selectedId } : {}) } }, '*');
+const send = (type: string, options?: unknown) => parent.postMessage({ pluginMessage: { type, options, ...(['insert', 'update'].includes(type) ? { targetId: selectedId } : {}) } }, '*');
 const explorer = mountExplorer(document.getElementById('app')!, { plugin: true,
   onInsert: options => send('insert', options), onUpdate: options => send('update', options), onChange: options => send('preferences', options) });
 window.addEventListener('message', event => {

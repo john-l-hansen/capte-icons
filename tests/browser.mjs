@@ -49,22 +49,31 @@ try {
   await page.setViewportSize({ width: 390, height: 844 });
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
   await page.screenshot({ path: path.join(artifactDir, 'explorer-mobile.png'), fullPage: true });
-  await page.setViewportSize({ width: 560, height: 720 }); await page.goto(url + '/plugin');
+  await page.setViewportSize({ width: 360, height: 680 }); await page.goto(url + '/plugin');
   await page.evaluate(() => { window.__messages = []; addEventListener('message', e => { if (e.data?.pluginMessage) window.__messages.push(e.data.pluginMessage); }); });
   const options = { iconId: 'location-check', size: 24, weight: 'medium', grade: 'normal', style: 'duotone', theme: 'light' };
   // Native Figma messages may have source=null, unlike a browser parent window.
   await page.evaluate(o => dispatchEvent(new MessageEvent('message', { data: { pluginMessage: { type: 'selection', nodeId: 'icon-a', options: o } }, source: null })), options);
-  await page.waitForFunction(() => document.querySelector('.status').textContent.includes('selected icon'));
+  await page.waitForFunction(() => document.querySelector('.status').textContent.includes('Insert icon replaces'));
+  assert.equal(await page.locator('.masthead').count(), 0);
+  assert.equal(await page.getByLabel('Color', { exact: true }).count(), 0);
+  assert.equal(await page.locator('.documentation [aria-disabled=true]').count(), 1);
+  assert.equal(await page.locator('.documentation [href]').count(), 0);
+  assert.deepEqual(await page.getByLabel('Optical size').locator('option').allTextContents(), ['20 dp', '24 dp', '40 dp', '48 dp']);
+  await page.getByLabel('Search icons').fill('magnifier'); assert.equal(await page.locator('.icon-card').count(), 1);
+  await page.getByLabel('Search icons').fill('');
+  await page.getByLabel('Category').selectOption('Security'); assert.equal(await page.locator('.icon-card').count(), 1);
+  await page.getByLabel('Category').selectOption('all');
   assert.equal(await page.locator('.actions button').count(), 1);
   assert.equal(await page.getByRole('button', { name: 'Update selected' }).count(), 0);
   await page.getByRole('button', { name: 'Insert icon', exact: true }).click();
   await page.waitForFunction(() => window.__messages.some(m => m.type === 'insert'));
-  const updated = await page.evaluate(() => window.__messages.find(m => m.type === 'insert')); assert.deepEqual(updated.options, options);
+  const updated = await page.evaluate(() => window.__messages.find(m => m.type === 'insert')); assert.deepEqual(updated.options, options); assert.equal(updated.targetId, 'icon-a');
   await page.getByRole('button', { name: 'Select Shield Lock', exact: true }).click();
   await page.waitForFunction(() => window.__messages.some(m => m.type === 'update' && m.options.iconId === 'shield-lock'));
   await page.getByLabel('Weight', { exact: true }).selectOption('heavy');
   await page.waitForFunction(() => window.__messages.some(m => m.type === 'update' && m.options.weight === 'heavy' && m.targetId === 'icon-a'));
-  for (const [label, value, key] of [['Optical size', '40', 'size'], ['Grade', 'emphasis', 'grade'], ['Style', 'filled', 'style'], ['Color', 'dark', 'theme']]) {
+  for (const [label, value, key] of [['Optical size', '40', 'size'], ['Grade', 'emphasis', 'grade'], ['Style', 'filled', 'style']]) {
     await page.getByLabel(label, { exact: true }).selectOption(value);
     await page.waitForFunction(({ key, value }) => window.__messages.some(m => m.type === 'update' && String(m.options[key]) === value && m.targetId === 'icon-a'), { key, value });
   }
@@ -94,6 +103,10 @@ try {
   await page.screenshot({ path: path.join(artifactDir, 'plugin-ui.png'), fullPage: true });
   assert.equal(await page.evaluate(() => getComputedStyle(document.body).fontFamily.includes('Roboto')), true);
   assert.equal(await page.evaluate(() => getComputedStyle(document.querySelector('.primary')).backgroundColor), 'rgb(221, 54, 3)');
+  assert.ok(await page.evaluate(() => document.documentElement.scrollHeight <= innerHeight));
+  const docsBounds = await page.locator('.documentation').boundingBox(); assert.ok(docsBounds.y + docsBounds.height <= 680);
+  const iconButtons = await page.locator('.icon-card').all();
+  for (const b of iconButtons) { const bounds = await b.boundingBox(); assert.ok(bounds.width >= 40 && bounds.height >= 40); }
   assert.deepEqual(errors, []);
   console.log('Browser checks passed: filters, controls, download, storage, plugin bridge and responsive layout.');
 } finally { if (browser) await browser.close(); await new Promise(resolve => server.close(resolve)); }

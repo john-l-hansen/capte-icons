@@ -121,3 +121,33 @@ footer { max-width: 1000px; margin: 0 auto; padding: var(--capte-spacer-small-pl
   .plugin .searchbar { grid-template-columns: 1fr; }
   .docs td, .docs th { padding: var(--capte-spacing-2); }
 }
+/* Compact plugin panel: category/search, four controls, symbol grid, actions, docs. */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+#app.plugin { height: 100vh; display: flex; flex-direction: column; max-width: none; }
+.plugin .plugin-topbar { display: grid; grid-template-columns: 128px minmax(0, 1fr); min-height: 48px; border-bottom: var(--ui-rule) solid var(--capte-border-subtle); flex-shrink: 0; }
+.plugin .plugin-topbar label { gap: 0; justify-content: center; }
+.plugin .plugin-topbar select, .plugin .plugin-topbar input { border: 0; border-radius: 0; background: var(--capte-background-surface); height: 48px; }
+.plugin .plugin-topbar select { font-size: var(--capte-type-text-fine-print-regular-font-size); }
+.plugin .category-control { border-right: var(--ui-rule) solid var(--capte-border-subtle); }
+.plugin .search-control { position: relative; }
+.plugin .search-control input { padding-left: var(--capte-spacing-8); }
+.plugin .search-symbol { position: absolute; left: var(--capte-spacing-3); top: var(--capte-spacing-3); font-size: 24px; line-height: 24px; color: var(--capte-text-secondary); pointer-events: none; }
+.plugin .workspace { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+.plugin .controls { padding: var(--capte-spacing-4); background: var(--capte-background-page); flex-shrink: 0; }
+.plugin .fields { margin: 0; gap: var(--capte-spacing-4); }
+.plugin .fields select { border-radius: var(--capte-radius-full); background: var(--capte-background-surface); height: 40px; padding: var(--capte-spacing-2) var(--capte-spacing-3); }
+.plugin .browser { flex: 1; min-height: 0; overflow-y: auto; padding: var(--capte-spacing-4); }
+.plugin .icon-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--capte-spacing-2); }
+.plugin .icon-card { min-height: 48px; height: 48px; padding: var(--capte-spacing-1); border-color: transparent; border-radius: var(--capte-radius-md); gap: 0; }
+.plugin .icon-card:hover { background: var(--capte-background-subtle); }
+.plugin .icon-card[aria-pressed=true] { border-color: var(--capte-border-focus); }
+.plugin .card-art { height: 100%; background: transparent; }
+.plugin .card-art svg { max-width: 100%; max-height: 100%; }
+.plugin .icon-card strong, .plugin .icon-card small { display: none; }
+.plugin .plugin-actions { flex-shrink: 0; padding: 0 var(--capte-spacing-4) var(--capte-spacing-3); }
+.plugin .plugin-actions .status:empty { display: none; }
+.plugin .actions { margin: var(--capte-spacing-2) 0 0; }
+.plugin .actions button { padding: var(--capte-spacing-2); }
+.plugin .documentation { flex-shrink: 0; width: 100%; margin: 0; padding: var(--capte-spacing-4); font-size: var(--capte-type-body-small-regular-font-size); }
+.plugin .documentation > span { display: flex; justify-content: space-between; align-items: center; gap: var(--capte-spacing-3); color: var(--capte-text-secondary); cursor: default; }
+.plugin .documentation svg { flex-shrink: 0; }

@@ -1,33 +1,24 @@
-# Pilot acceptance
+# Pilot acceptance — 0.1.4
 
-## Automated
+## Verified
 
-- `npm run check`: type checking, thirteen renderer/controller tests and both production builds.
-- `npm run test:browser`: real Chromium checks of filtering, every control, independent grade/color settings, SVG download size, preference restoration, plugin UI messages and narrow layouts.
+- `npm run check`: TypeScript, 17 renderer/controller tests, all 648 renderer configurations, and both builds.
+- `npm run test:browser`: search/category combinations, controls, live messages, guarded insertion/replacement requests, dp labels, absence of header/color controls, documentation placeholder with no href, preference restoration, SVG downloads, and compact layout.
+- Native Figma API probe: all three duotone pilot icons at 48 produced filled outlined geometry, no live strokes, and unchanged 48 × 48 roots. Temporary probe nodes were removed.
 
-## Figma Desktop checkpoint — 2026-10-15
+Controller tests use a mock Plugin API. The native probe verifies outline conversion only; it does not establish an installed-plugin acceptance pass.
 
-The project owner confirmed that the imported development plugin opens successfully and that the initial presentation looks good. This records user-reported launch and visual review only. Insertion, update behavior, persistence, undo/redo, and detailed artwork comparisons have not yet been confirmed through the complete checklist below.
+## Owner's Figma Desktop review
 
-## Manual Figma Desktop gate — partially verified
+1. Install the supplied 0.1.4 ZIP and reopen the plugin. Confirm category/search, four controls, and the documentation row, which must not navigate.
+2. Insert each icon at 20, 24, 40, and 48 dp. Confirm matching numeric frame dimensions.
+3. Compare all styles, weights, and grades, especially small lock/badge details. Inspect child shapes: no live strokes; editable filled paths.
+4. Inspect fill bindings. When the source is unpublished, confirm one local Capte Icons collection is reused. Edit a local color, confirm existing artwork follows it, and insert again to ensure its value is not reset.
+5. With the source library published and accessible, confirm imported variables are used. Reopen after publication to retry imports; reapply settings to rebind older icons.
+6. Select an inserted icon or child path; change controls and choose another icon to confirm live replacement. Insert icon must replace that root. Deselect and insert to add another.
+7. Check parent, position, rotation, and root ID, including inside auto-layout. Change settings rapidly and switch selection while token imports run; no stale edit should reach the new selection.
+8. Confirm unrelated artwork and multiple selections are not overwritten. Locked roots/parents and icons inside component instances must not be modified.
+9. Check undo/redo for insertion/replacement. Re-select afterward to reload metadata. Confirm bindings recover if undo removes the local token collection.
+10. Reopen and check preferences. The plugin uses Light; the website explorer retains Color. Web SVG exports still use live strokes.
 
-1. Configure the assigned plugin ID and import the built manifest. **Launch confirmed by the project owner on 2026-10-15.**
-2. Insert each pilot icon at 20, 24, 40 and 48 px; confirm frame dimensions in the inspector.
-3. Compare Outline, Filled and Duotone on white, pale and dark-blue backgrounds against the approved Figma pilot.
-4. Check Thin, Medium and Heavy, including compact badge and lock details.
-5. Check each Grade independently of the top-right **Light/Dark** palette control.
-6. Reopen the plugin and confirm saved preferences and selection metadata load.
-7. Select a vector inside an inserted icon and confirm settings load. Change every control and choose another catalog icon; confirm immediate updates without an extra canvas layer. Rapidly change weight and size, then select another canvas icon; confirm no stale edit affects it. Click **Insert icon** with an icon still selected and confirm a new root is created. Confirm root ID, placement, rotation and parent survive live edits, including inside auto-layout.
-8. Confirm unrelated artwork, multi-selections and locked roots cannot be overwritten.
-9. Check undo/redo after insertion and update.
-10. Check the copied/downloaded SVG in the browser and an independent SVG editor.
-
-The root frame survives an update, but its generated child layers are replaced. User edits inside those children are not retained.
-
-## 0.1.1 verification
-
-The regression suite covers nested artwork selection and repeated in-place replacement. Browser coverage includes native-host messages with no Window source, the single insert action with and without a selection, automatic replacement on catalog choice, and the header palette control. These checks do not establish a completed Figma Desktop acceptance pass for this update.
-
-## 0.1.3 verification
-
-Check that every control edits the selected icon live and that Insert icon creates an additional root. Re-select after undo/redo to reload stored settings; confirm each edit can be undone independently. Inspect Light/Dark semantic surfaces and text, orange primary actions, Roboto typography, spacing, and corners against the token export. The automated controller uses a mock Plugin API; real editor undo/redo and rendering remain manual checks.
+Earlier pilot launch/appearance was confirmed by the owner on 2026-10-15. This 0.1.4 installed-plugin checklist remains pending.

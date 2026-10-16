@@ -7,9 +7,30 @@ const code = buildSync({ entryPoints: ['apps/figma-plugin/src/code.ts'], bundle:
 function runtime() {
   const messages: any[] = [], page: any = { type: 'PAGE', selection: [], children: [] }, storage = new Map(), events: Record<string, () => void> = {};
   let sequence = 0, undoCommits = 0;
+  const collections: any[] = [], variables: any[] = [];
+  const variableApi = {
+    async getLocalVariablesAsync() { return variables; },
+    async getLocalVariableCollectionsAsync() { return collections; },
+    async getVariableCollectionByIdAsync(id: string) { return collections.find(c => c.id === id); },
+    async importVariableByKeyAsync() { throw new Error('Library not published'); },
+    createVariableCollection(name: string) {
+      const data = new Map();
+      const c: any = { id: 'collection-' + ++sequence, name, defaultModeId: 'light', modes: [{ modeId: 'light', name: 'Light' }],
+        getPluginData(k: string) { return data.get(k); }, setPluginData(k: string, v: string) { data.set(k, v); }, renameMode() {} };
+      collections.push(c); return c;
+    },
+    createVariable(name: string, collection: any) {
+      const v: any = { id: 'variable-' + ++sequence, key: 'local-' + sequence, name, variableCollectionId: collection.id, valuesByMode: {},
+        setValueForMode(mode: string, value: unknown) { v.valuesByMode[mode] = value; }, setVariableCodeSyntax() {} };
+      variables.push(v); return v;
+    },
+    setBoundVariableForPaint(paint: any, _field: string, v: any) { return { ...paint, boundVariables: { color: { type: 'VARIABLE_ALIAS', id: v.id } } }; },
+  };
   const frame = (size: number): any => {
     const data = new Map();
-    const n: any = { id: String(++sequence), type: 'FRAME', x: 0, y: 0, rotation: 0, width: size, height: size, locked: false, children: [], parent: page, removed: false,
+    const n: any = { id: String(++sequence), type: 'FRAME', x: 0, y: 0, rotation: 0, width: size, height: size, locked: false, children: [], parent: page, removed: false, explicitVariableModes: {},
+      setExplicitVariableModeForCollection(id: string, mode: string) { n.explicitVariableModes[id] = mode; },
+      insertChild(index: number, child: any) { if (child.parent?.children) child.parent.children = child.parent.children.filter((c: any) => c !== child); child.parent = n; n.children.splice(index, 0, child); },
       appendChild(child: any) { if (child.parent?.children) child.parent.children = child.parent.children.filter((c: any) => c !== child); child.parent = n; n.children.push(child); },
       resize(w: number, h: number) { n.width = w; n.height = h; },
       resizeWithoutConstraints(w: number, h: number) { n.width = w; n.height = h; },
@@ -19,9 +40,26 @@ function runtime() {
   };
   const figma: any = { currentPage: page, viewport: { center: { x: 100, y: 200 } }, showUI() {}, commitUndo() { undoCommits++; }, on(name: string, callback: () => void) { events[name] = callback; },
     ui: { postMessage(message: unknown) { messages.push(message); } }, clientStorage: { async getAsync(key: string) { return storage.get(key); }, async setAsync(key: string, value: unknown) { storage.set(key, value); } },
-    createNodeFromSvg(svg: string) { const n = frame(Number(svg.match(/width="(\d+)"/)![1])); const child: any = { type: 'VECTOR', parent: n, remove() { child.parent.children = child.parent.children.filter((c: any) => c !== child); } }; n.children.push(child); return n; } };
+    variables: variableApi,
+    createNodeFromSvg(svg: string) {
+      const n = frame(Number(svg.match(/width="(\d+)"/)![1]));
+      const paint = (hex: string) => hex === 'none' ? [] : [{ type: 'SOLID', color: { r: parseInt(hex.slice(1,3),16)/255, g: parseInt(hex.slice(3,5),16)/255, b: parseInt(hex.slice(5,7),16)/255 } }];
+      for (const shape of svg.matchAll(/<(?:path|ellipse) [^>]+/g)) {
+        const child: any = { id: String(++sequence), name: 'Artwork', type: 'VECTOR', parent: n,
+          fills: paint(shape[0].match(/ fill="([^"]+)"/)![1]), strokes: paint(shape[0].match(/ stroke="([^"]+)"/)![1]),
+          remove() { child.parent.children = child.parent.children.filter((c: any) => c !== child); },
+          outlineStroke() {
+            const o: any = { id: String(++sequence), type: 'VECTOR', name: 'Outline', fills: child.strokes, strokes: [], parent: n,
+              remove() { o.parent.children = o.parent.children.filter((c: any) => c !== o); } };
+            n.children.push(o); return o;
+          } };
+        n.children.push(child);
+      }
+      return n;
+    } };
+
   vm.runInNewContext(code, { figma, __html__: '<html></html>' });
-  return { figma, page, frame, messages, events, get undoCommits() { return undoCommits; }, async send(type: string, options: unknown = DEFAULT_OPTIONS, targetId?: string) {
+  return { figma, page, frame, messages, events, variables, collections, get undoCommits() { return undoCommits; }, async send(type: string, options: unknown = DEFAULT_OPTIONS, targetId?: string) {
     let target = page.selection[0];
     while (target && target.type !== 'PAGE' && !(target.type === 'FRAME' && target.getPluginData('capte-icon'))) target = target.parent;
     await figma.ui.onmessage({ type, options, targetId: targetId ?? target?.id });
@@ -38,7 +76,7 @@ test('updating an owned icon retains the root, parent, placement and rotation', 
   await r.send('update', { ...DEFAULT_OPTIONS, iconId: 'shield-lock', size: 48, style: 'filled' });
   assert.equal(r.page.selection[0], old); assert.equal(old.id, id); assert.equal(old.parent, parent);
   assert.deepEqual([old.x, old.y, old.rotation, old.width, old.height], [27, 42, 30, 48, 48]);
-  assert.equal(old.children.length, 1); assert.equal(r.page.children.length, 1);
+  assert.ok(old.children.length > 0); assert.equal(r.page.children.length, 1);
 });
 test('unowned, multiple, locked and invalid selections are not overwritten', async () => {
   const r = runtime(), unowned = r.frame(20); r.page.selection = [unowned];
@@ -56,7 +94,7 @@ test('selecting a generated vector loads and updates its owning icon', async () 
   assert.equal(r.page.selection[0], root);
   assert.equal(readIconMetadata(root.getPluginData('capte-icon'))?.iconId, 'shield-lock');
 });
-test('live edits retain one root while Insert icon always creates an additional icon', async () => {
+test('live edits and Insert icon both replace a selected owned icon', async () => {
   const r = runtime(); await r.send('insert'); const root = r.page.selection[0];
   root.x = 18; root.y = 36; root.rotation = 15;
   // SVG children may have scale constraints: updates must not resize their geometry.
@@ -64,19 +102,23 @@ test('live edits retain one root while Insert icon always creates an additional 
   for (const iconId of ['shield-lock', 'location-check', 'search']) {
     await r.send('update', { ...DEFAULT_OPTIONS, iconId, size: 48 });
     assert.equal(r.page.children.length, 1);
-    assert.equal(root.children.length, 1);
+    assert.ok(root.children.length > 0);
     assert.equal(r.page.selection[0], root);
     assert.equal(readIconMetadata(root.getPluginData('capte-icon'))?.iconId, iconId);
     assert.deepEqual([root.x, root.y, root.rotation], [18, 36, 15]);
   }
   assert.equal(r.undoCommits, 4);
   await r.send('insert');
+  assert.equal(r.page.children.length, 1);
+  assert.equal(r.page.selection[0], root);
+  r.page.selection = [];
+  await r.send('insert');
   assert.equal(r.page.children.length, 2);
   assert.notEqual(r.page.selection[0], root);
 });
 test('a queued edit cannot mutate a newly selected icon', async () => {
   const r = runtime(); await r.send('insert'); const first = r.page.selection[0];
-  await r.send('insert'); const second = r.page.selection[0];
+  r.page.selection = []; await r.send('insert'); const second = r.page.selection[0];
   await r.send('update', { ...DEFAULT_OPTIONS, weight: 'heavy' }, first.id);
   assert.equal(readIconMetadata(second.getPluginData('capte-icon'))?.weight, 'medium');
   assert.equal(r.undoCommits, 2);
@@ -89,4 +131,54 @@ test('same-root selection events do not echo old settings over rapid live edits'
   await r.send('update', { ...heavy, size: 40 }); r.events.selectionchange();
   assert.equal(r.messages.filter(m => m.type === 'selection').length, before);
   assert.equal(readIconMetadata(r.page.selection[0].getPluginData('capte-icon'))?.size, 40);
+});
+
+test('inserted and replaced artwork has filled outlines bound to reusable color variables', async () => {
+  const r = runtime(); await r.send('insert');
+  const root = r.page.selection[0];
+  const check = () => {
+    assert.ok(root.children.length > 0);
+    for (const part of root.children) {
+      assert.equal(part.strokes.length, 0);
+      assert.ok(part.fills.length > 0);
+      for (const paint of part.fills) assert.ok(paint.boundVariables.color.id);
+    }
+  };
+  check(); assert.equal(r.collections.length, 1); assert.equal(r.variables.length, 5);
+  const ids = r.variables.map(v => v.id);
+  r.variables[0].valuesByMode.light = { r: 1, g: 0, b: 0 };
+  await r.send('insert', { ...DEFAULT_OPTIONS, iconId: 'shield-lock' });
+  check(); assert.equal(r.page.children.length, 1); assert.deepEqual(r.variables.map(v => v.id), ids);
+  assert.deepEqual(r.variables[0].valuesByMode.light, { r: 1, g: 0, b: 0 });
+});
+test('a failure to outline preserves existing artwork and removes the staged frame', async () => {
+  const r = runtime(); await r.send('insert'); const root = r.page.selection[0];
+  const children = [...root.children]; const create = r.figma.createNodeFromSvg;
+  r.figma.createNodeFromSvg = (svg: string) => { const n = create(svg); for (const child of n.children) child.outlineStroke = () => null; return n; };
+  await r.send('insert', { ...DEFAULT_OPTIONS, iconId: 'shield-lock' });
+  assert.equal(r.messages.at(-1).type, 'error'); assert.equal(r.page.children.length, 1);
+  assert.deepEqual(root.children, children);
+});
+test('selection is checked again after asynchronous library-token work', async () => {
+  const r = runtime(); await r.send('insert'); const first = r.page.selection[0];
+  r.page.selection = []; await r.send('insert'); const second = r.page.selection[0];
+  r.page.selection = [first];
+  let release!: () => void, entered!: () => void;
+  const waiting = new Promise<void>(resolve => { entered = resolve; });
+  r.figma.variables.getLocalVariablesAsync = async () => { entered(); await new Promise<void>(resolve => { release = resolve; }); return r.variables; };
+  const update = r.send('insert', { ...DEFAULT_OPTIONS, iconId: 'shield-lock' }, first.id);
+  await waiting; r.page.selection = [second]; release(); await update;
+  assert.equal(readIconMetadata(first.getPluginData('capte-icon'))?.iconId, 'search');
+  assert.equal(readIconMetadata(second.getPluginData('capte-icon'))?.iconId, 'search');
+  assert.equal(r.page.children.length, 2);
+});
+test('published source color variables are reused without creating fallback tokens', async () => {
+  const r = runtime(); const c = r.figma.variables.createVariableCollection('Published library');
+  r.figma.variables.importVariableByKeyAsync = async (key: string) => {
+    const v = r.figma.variables.createVariable('Library color', c); v.key = key; return v;
+  };
+  await r.send('insert');
+  assert.equal(r.collections.length, 1); assert.equal(r.variables.length, 5);
+  assert.match(r.messages.find(m => m.type === 'success').text, /Library color tokens/);
+  for (const part of r.page.selection[0].children) for (const paint of part.fills) assert.ok(r.variables.some(v => v.id === paint.boundVariables.color.id));
 });

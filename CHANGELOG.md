@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.4 — Review build — 2026-10-16
+
+- Outline inserted and updated strokes into filled vector paths, preserving separate paint roles.
+- Restore replacement on Insert icon for a single selected plugin-generated icon; deselect to insert another.
+- Bind filled artwork to published Capte color variables, with reusable local-token fallback.
+- Simplify the plugin to category/search, four compact controls, an icon-only grid, Insert icon, and an inactive documentation row awaiting its URL.
+- Remove the plugin header and color-mode UI; retain live editing, search, and filtering. Display optical sizes in dp without changing numeric Figma dimensions.
+- Add tests for bindings, outlined output, replacement, staged failure cleanup, asynchronous selection changes, and the compact UI.
+
 ## 0.1.3 — Team preview — 2026-10-15
 
 - Package the compiled plugin with installation/usage guides, release notes, source/version metadata, checksum, and font notices for team distribution.
