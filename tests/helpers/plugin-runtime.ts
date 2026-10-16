@@ -29,7 +29,10 @@ export function runtime() {
     const n: any = { id: String(++sequence), type: 'FRAME', x: 0, y: 0, rotation: 0, width: size, height: size, locked: false, visible: true, layoutMode: 'NONE',
       get absoluteTransform() { return [[1, 0, n.x], [0, 1, n.y]]; },
       get absoluteBoundingBox() { return { x: n.x, y: n.y, width: n.width, height: n.height }; }, children: [], parent: page, removed: false, explicitVariableModes: {},
-      setExplicitVariableModeForCollection(id: string, mode: string) { n.explicitVariableModes[id] = mode; },
+      setExplicitVariableModeForCollection(collection: any, mode: string) {
+        if (!collection || typeof collection !== 'object') throw new Error('Cannot pass a collection id in incremental mode. Please pass the collection node instead.');
+        n.explicitVariableModes[collection.id] = mode;
+      },
       insertChild(index: number, child: any) { if (child.parent?.children) child.parent.children = child.parent.children.filter((c: any) => c !== child); child.parent = n; n.children.splice(index, 0, child); },
       appendChild(child: any) { if (child.parent?.children) child.parent.children = child.parent.children.filter((c: any) => c !== child); child.parent = n; n.children.push(child); },
       resize(w: number, h: number) { n.width = w; n.height = h; },

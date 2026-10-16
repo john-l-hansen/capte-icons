@@ -165,3 +165,14 @@ test('insert works when Figma returns fresh selection wrappers for the same node
   assert.equal(r.page.selection[0].id, icon.id);
   assert.equal(readIconMetadata(r.page.selection[0].getPluginData('capte-icon'))?.iconId, 'shield-lock');
 });
+
+ test('dynamic-page mode applies collection objects during insertion and replacement', async () => {
+  const r = runtime(); await r.send('insert'); const icon = r.page.selection[0];
+  assert.ok(icon, JSON.stringify(r.messages));
+  assert.equal(icon.explicitVariableModes[r.collections[0].id], 'light');
+  await r.send('insert', { ...DEFAULT_OPTIONS, iconId: 'location-check' });
+  assert.equal(r.page.selection[0].id, icon.id);
+  assert.equal(icon.explicitVariableModes[r.collections[0].id], 'light');
+  assert.equal(r.messages.filter(m => m.type === 'error').length, 0);
+  assert.equal(readIconMetadata(icon.getPluginData('capte-icon'))?.iconId, 'location-check');
+ });

@@ -77,9 +77,14 @@ export async function bindColors(root: FrameNode, options: IconOptions, tokens: 
   };
   visit(root);
   // Plugin output uses the Light palette; the UI itself has no palette switch.
+  const modes: { collection: VariableCollection; modeId: string }[] = [];
   for (const id of new Set(Object.values(tokens).map(v => v.variableCollectionId))) {
     const collection = await figma.variables.getVariableCollectionByIdAsync(id);
     const mode = collection?.modes.find(m => /^(light|light background)$/i.test(m.name));
-    if (mode) root.setExplicitVariableModeForCollection(id, mode.modeId);
+    if (collection && mode) {
+      root.setExplicitVariableModeForCollection(collection, mode.modeId);
+      modes.push({ collection, modeId: mode.modeId });
+    }
   }
+  return modes;
 }

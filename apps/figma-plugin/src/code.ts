@@ -4,7 +4,7 @@ import { bindColors, colorTokens, outlineArtwork } from './artwork.ts';
 
 import { placeIcon } from './placement.ts';
 
-const VERSION = '0.1.9';
+const VERSION = '0.1.10';
 const KEY = 'capte-icon';
 console.log(`[Capte Icons ${VERSION}] Controller started.`);
 figma.showUI(__html__, { width: 360, height: 680, themeColors: true });
@@ -77,7 +77,7 @@ async function handleMessage(message: unknown) {
     const fresh = staged = figma.createNodeFromSvg(renderSvg(options));
     outlineArtwork(fresh);
     progress('Attaching color tokens…');
-    await bindColors(fresh, options, colors.tokens);
+    const modes = await bindColors(fresh, options, colors.tokens);
     if (!selectionUnchanged() || (selectedIcon()?.id ?? null) !== expectedId || target?.removed || target?.locked) { fresh.remove(); staged = null; canceled(); return; }
     progress('Placing icon…');
     let node: FrameNode = fresh;
@@ -85,7 +85,7 @@ async function handleMessage(message: unknown) {
       // Keep the root ID, parent, placement and rotation; only replace generated artwork.
       const oldChildren = [...target.children];
       target.resizeWithoutConstraints(options.size, options.size);
-      for (const [id, mode] of Object.entries(fresh.explicitVariableModes)) target.setExplicitVariableModeForCollection(id, mode);
+      for (const { collection, modeId } of modes) target.setExplicitVariableModeForCollection(collection, modeId);
       for (const child of [...fresh.children]) target.appendChild(child);
       for (const child of oldChildren) child.remove();
       fresh.remove();

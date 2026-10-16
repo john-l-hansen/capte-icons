@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.10
+
+Fix the confirmed Figma dynamic-page API error by passing VariableCollection objects to setExplicitVariableModeForCollection during insertion and replacement. Update the API harness to reject deprecated collection IDs.
+
+
 ## 0.1.9
 
 Diagnostic build for the unresolved editor insertion issue. Add versioned progress, connection acknowledgment, a no-response message, controller logs, and an integrated UI/controller browser check. Preserve success feedback after selection synchronization.

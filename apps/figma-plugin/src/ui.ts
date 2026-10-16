@@ -1,5 +1,5 @@
 import { mountExplorer } from '../../../packages/ui/explorer.ts';
-const VERSION = '0.1.9';
+const VERSION = '0.1.10';
 let selectedId: string | null = null;
 let responseTimer: ReturnType<typeof setTimeout> | undefined;
 let awaitingAction = false;
