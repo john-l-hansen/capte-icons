@@ -1,5 +1,62 @@
 # Changelog
 
+## 0.1.13
+
+Require a primary-button press to change canvas icons. Display Update icon for an owned selection and Insert icon otherwise; option and icon choices affect the preview only.
+
+
+## 0.1.12
+
+Resolve live edits and Insert against the actual Figma selection, avoiding dependence on cached UI selection state. Include root metadata in success replies to restore UI tracking. Preserve the root layer during updates.
+
+
+## 0.1.11
+
+Accept plugin replies from non-parent host windows so Developer VM feedback and selection tracking work. Bound parallel library token imports to 1.2 seconds and reuse existing local tokens without waiting for imports.
+
+
+## 0.1.10
+
+Fix the confirmed Figma dynamic-page API error by passing VariableCollection objects to setExplicitVariableModeForCollection during insertion and replacement. Update the API harness to reject deprecated collection IDs.
+
+
+## 0.1.9
+
+Diagnostic build for the unresolved editor insertion issue. Add versioned progress, connection acknowledgment, a no-response message, controller logs, and an integrated UI/controller browser check. Preserve success feedback after selection synchronization.
+
+
+## 0.1.8
+
+Fix silent insertion cancellation by comparing selected layer IDs rather than node wrapper objects. Show a retry message when an Insert action is canceled by a changed selection.
+
+
+## 0.1.7
+
+Center insertion over selected objects, or in the overall frame beneath the viewport center when deselected. Preserve existing Capte icon replacement; support rotated and auto-layout containers without shifting layout. Cancel insertion if the selection changes during token import.
+
+
+## 0.1.6 — Review build — 2026-10-16
+
+- Give preview cells enough room for full-size icons instead of clamping 40 and 48 dp to the same space.
+- Render previews at their actual selected dimensions, with responsive grid columns.
+- Explicitly apply the 8px token to action-button corners.
+- Add a browser regression measuring actual 40/48 preview bounds and their 1.2 size ratio.
+
+## 0.1.5 — Review build — 2026-10-16
+
+- Match category and search field typography at 14px with consistent weight and vertical alignment.
+- Apply the existing 8px radius token to search, category, and settings fields.
+- Center the search icon and add consistent top-row padding and field borders.
+
+## 0.1.4 — Review build — 2026-10-16
+
+- Outline inserted and updated strokes into filled vector paths, preserving separate paint roles.
+- Restore replacement on Insert icon for a single selected plugin-generated icon; deselect to insert another.
+- Bind filled artwork to published Capte color variables, with reusable local-token fallback.
+- Simplify the plugin to category/search, four compact controls, an icon-only grid, Insert icon, and an inactive documentation row awaiting its URL.
+- Remove the plugin header and color-mode UI; retain live editing, search, and filtering. Display optical sizes in dp without changing numeric Figma dimensions.
+- Add tests for bindings, outlined output, replacement, staged failure cleanup, asynchronous selection changes, and the compact UI.
+
 ## 0.1.3 — Team preview — 2026-10-15
 
 - Package the compiled plugin with installation/usage guides, release notes, source/version metadata, checksum, and font notices for team distribution.

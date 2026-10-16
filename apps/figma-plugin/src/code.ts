@@ -1,9 +1,18 @@
 import { DEFAULT_OPTIONS, formatName, normalizeOptions, readIconMetadata, renderSvg, writeIconMetadata } from '../../../packages/icons/index.ts';
 import type { IconOptions } from '../../../packages/icons/index.ts';
+import { bindColors, colorTokens, outlineArtwork } from './artwork.ts';
 
+import { placeIcon } from './placement.ts';
+
+const VERSION = '0.1.13';
 const KEY = 'capte-icon';
-figma.showUI(__html__, { width: 560, height: 720, themeColors: true });
+console.log(`[Capte Icons ${VERSION}] Controller started.`);
+figma.showUI(__html__, { width: 360, height: 680, themeColors: true });
 const send = (message: object) => figma.ui.postMessage(message);
+const progress = (text: string) => {
+  console.log(`[Capte Icons ${VERSION}] ${text}`);
+  send({ type: 'progress', text: `v${VERSION} · ${text}` });
+};
 function selectedIcon(): FrameNode | null {
   const nodes = figma.currentPage.selection;
   if (nodes.length !== 1) return null;
@@ -29,41 +38,87 @@ figma.on('selectionchange', () => selectionChanged());
 async function preferences() {
   try { return normalizeOptions(await figma.clientStorage.getAsync('preferences')); } catch { return DEFAULT_OPTIONS; }
 }
-figma.ui.onmessage = async (message: unknown) => {
+async function handleMessage(message: unknown) {
+  let staged: FrameNode | null = null;
   try {
     if (!message || typeof message !== 'object') throw new Error('Invalid request.');
     const msg = message as { type: string; options?: unknown; targetId?: string };
-    if (msg.type === 'ready') { send({ type: 'preferences', options: await preferences() }); selectionChanged(true); return; }
+    if (msg.type === 'ready') {
+      progress('Connected to Figma.');
+      send({ type: 'preferences', options: await preferences() });
+      selectionChanged(true); progress('Ready.'); return;
+    }
     if (!['insert', 'update', 'preferences'].includes(msg.type)) throw new Error('Unknown action.');
-    const options: IconOptions = normalizeOptions(msg.options);
+    const options: IconOptions = { ...normalizeOptions(msg.options), theme: 'light' };
     if (msg.type === 'preferences') { await figma.clientStorage.setAsync('preferences', options); return; }
-    const target = msg.type === 'update' ? selectedIcon() : null;
+    progress(msg.type === 'insert' ? 'Insert received.' : 'Update received.');
+    const target = selectedIcon();
+    const selection = [...figma.currentPage.selection];
+    const selectionUnchanged = () => selection.length === figma.currentPage.selection.length && selection.every((node, i) => !node.removed && node.id === figma.currentPage.selection[i]?.id);
     if (msg.type === 'update' && !target) throw new Error('Select one icon inserted by Capte Icons.');
     // A queued live edit belongs to the icon that was selected when it was sent.
-    if (target && msg.targetId !== target.id) { selectionChanged(true); return; }
-    if (target?.locked) throw new Error('Unlock the selected icon before updating it.');
-    const fresh = figma.createNodeFromSvg(renderSvg(options));
+    const expectedId = msg.targetId ?? null;
+    const canceled = () => {
+      selectionChanged(true);
+      if (msg.type === 'insert') send({ type: 'error', text: 'Selection changed. Click Insert icon again.' });
+    };
+    if (expectedId !== (target?.id ?? null)) { canceled(); return; }
+    let ancestor: BaseNode | null = target;
+    while (ancestor && ancestor.type !== 'PAGE') {
+      if ('locked' in ancestor && ancestor.locked) throw new Error('Unlock the selected icon and its parent before updating it.');
+      if (ancestor.type === 'INSTANCE') throw new Error('Edit this icon in its main component.');
+      ancestor = ancestor.parent;
+    }
+    progress('Loading color tokens…');
+    const colors = await colorTokens();
+    // Selection can move while library token imports are in progress.
+    if (!selectionUnchanged() || (selectedIcon()?.id ?? null) !== expectedId || target?.removed) { canceled(); return; }
+    progress('Creating icon artwork…');
+    const fresh = staged = figma.createNodeFromSvg(renderSvg(options));
+    outlineArtwork(fresh);
+    progress('Attaching color tokens…');
+    const modes = await bindColors(fresh, options, colors.tokens);
+    if (!selectionUnchanged() || (selectedIcon()?.id ?? null) !== expectedId || target?.removed || target?.locked) { fresh.remove(); staged = null; canceled(); return; }
+    progress('Placing icon…');
     let node: FrameNode = fresh;
     if (target) {
       // Keep the root ID, parent, placement and rotation; only replace generated artwork.
       const oldChildren = [...target.children];
       target.resizeWithoutConstraints(options.size, options.size);
+      for (const { collection, modeId } of modes) target.setExplicitVariableModeForCollection(collection, modeId);
       for (const child of [...fresh.children]) target.appendChild(child);
       for (const child of oldChildren) child.remove();
       fresh.remove();
       node = target;
     } else {
-      const center = figma.viewport.center;
-      fresh.x = Math.round(center.x - options.size / 2);
-      fresh.y = Math.round(center.y - options.size / 2);
+      placeIcon(fresh, selection);
     }
     node.name = formatName(options);
     node.setPluginData(KEY, writeIconMetadata(options));
     node.setRelaunchData({ open: 'Edit icon settings' });
+    staged = null;
     figma.currentPage.selection = [node];
     figma.commitUndo();
-    send({ type: 'success', text: target ? 'Icon updated.' : 'Icon inserted.' });
     selectionChanged();
+    send({ type: 'success', nodeId: node.id, options, text: `${target ? 'Icon replaced.' : 'Icon inserted.'}${colors.local ? ' Local color tokens attached.' : ' Library color tokens attached.'}` });
     await figma.clientStorage.setAsync('preferences', options);
-  } catch (error) { send({ type: 'error', text: error instanceof Error ? error.message : 'Unable to create the icon.' }); }
+  } catch (error) {
+    if (staged && !staged.removed) staged.remove();
+    console.error(`[Capte Icons ${VERSION}]`, error);
+    send({ type: 'error', text: error instanceof Error ? error.message : 'Unable to create the icon.' });
+  }
+}
+// Serialize artwork edits so slower token imports cannot overwrite a newer draft.
+let pending = Promise.resolve();
+figma.ui.onmessage = (message: unknown) => {
+  console.log(`[Capte Icons ${VERSION}] UI message`, (message as { type?: string })?.type);
+  const msg = message as { type?: string; options?: unknown; targetId?: string };
+  if (msg?.type === 'apply' || msg?.type === 'insert') {
+    // Resolve intent against the real selection at receipt, before queued work.
+    // The iframe may have missed a selection message; it cannot decide ownership.
+    const target = selectedIcon();
+    if (msg.type === 'apply' && !target) return Promise.resolve();
+    message = { ...msg, type: msg.type === 'apply' ? 'update' : 'insert', targetId: target?.id ?? null };
+  }
+  return pending = pending.then(() => handleMessage(message));
 };
