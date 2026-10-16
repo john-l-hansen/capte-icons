@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.5 — Review build — 2026-10-16
+
+- Match category and search field typography at 14px with consistent weight and vertical alignment.
+- Apply the existing 8px radius token to search, category, and settings fields.
+- Center the search icon and add consistent top-row padding and field borders.
+
 ## 0.1.4 — Review build — 2026-10-16
 
 - Outline inserted and updated strokes into filled vector paths, preserving separate paint roles.
