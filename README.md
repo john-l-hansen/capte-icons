@@ -1,3 +1,5 @@
+<p><img src="docs/images/capte-favicon.png" width="64" height="64" alt="Capte"></p>
+
 # Capte Icons
 
 **Figma icons, with intention.** A shared Capte icon catalog, button-driven editing Figma plugin, and companion icon explorer.
@@ -12,9 +14,9 @@ The project owner approved this build for GitHub release on October 16, 2026. Co
 
 This preview is for trying the workflow and collecting team feedback. It includes **Search, Shield Lock, and Location Check**. The rest of the approved icon library will follow in reviewed batches. It is a manually installed development plugin; a Figma Community installation link is a later milestone.
 
-<p align="center"><img src="docs/images/plugin-preview.png" width="480" alt="Capte Icons plugin showing category and search, weight, style, grade, optical size, and three pilot icons"></p>
+<p align="center"><img src="docs/images/plugin-preview-v0.1.13.png" width="360" alt="Capte Icons plugin showing category and search, weight, style, grade, optical size, and three pilot icons"></p>
 
-*Owner-supplied Figma screenshot from v0.1.12. The v0.1.13 release uses the same layout and requires a button press to apply changes; the button reads Update icon for a selected Capte icon.*
+*Current v0.1.13 interface, captured from the built plugin UI with an icon selected. Changes apply when Update icon is pressed.*
 
 ## For the team: install and try it
 
