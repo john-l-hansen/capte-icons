@@ -28,7 +28,7 @@ Search accepts names and keywords. Category filtering works alongside search. Ic
 
 ## Review checklist
 
-Try all three icons at small and large sizes, inspect fills and variable bindings, replace a selection, deselect to insert another, change every control, and try undo/redo. See the [acceptance checklist](acceptance.md). Full end-to-end Figma Desktop acceptance remains pending.
+Try representative icons from every category at small and large sizes, inspect fills and variable bindings, replace a selection, deselect to insert another, change every control, and try undo/redo. See the [acceptance checklist](acceptance.md). Full end-to-end Figma Desktop acceptance remains pending.
 
 ## Placement
 

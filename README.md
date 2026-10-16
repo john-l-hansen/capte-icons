@@ -4,17 +4,17 @@
 
 [![Checks](https://github.com/john-l-hansen/capte-icons/actions/workflows/check.yml/badge.svg)](https://github.com/john-l-hansen/capte-icons/actions/workflows/check.yml)
 
-**Team preview: v0.1.13 · Approved for team testing · Three pilot icons**
+**Catalog preview: 0.2.0-beta.1 · 60 icons · Editor review pending**
 
-The project owner approved this build for GitHub release on October 16, 2026. Community publication and full catalog expansion are separate milestones.
+This branch expands the shared catalog from three pilot icons to all 60 named Figma masters. It preserves the pilot artwork and button-driven insert/update behavior. New sizes use proportional paths and the existing stroke profiles; individual optical refinements are still a design-review step. See the [catalog review and inventory](docs/catalog-review.md).
 
-[Download the Figma plugin](https://github.com/john-l-hansen/capte-icons/releases/download/v0.1.13/capte-icons-figma-plugin-0.1.13.zip) · [Release notes](https://github.com/john-l-hansen/capte-icons/releases/tag/v0.1.13) · [Installation guide](INSTALL.md) · [Usage guide](docs/usage.md) · [Roadmap](docs/roadmap.md)
+The published download remains the earlier **three-icon v0.1.13**. The full-catalog beta is prepared for review and has not been published as a GitHub release or Figma Community plugin.
 
-This preview is for trying the workflow and collecting team feedback. It includes **Search, Shield Lock, and Location Check**. The rest of the approved icon library will follow in reviewed batches. It is a manually installed development plugin; a Figma Community installation link is a later milestone.
+[Earlier v0.1.13 download](https://github.com/john-l-hansen/capte-icons/releases/download/v0.1.13/capte-icons-figma-plugin-0.1.13.zip) · [Installation](INSTALL.md) · [Usage](docs/usage.md) · [Catalog review](docs/catalog-review.md)
 
 <p align="center"><img src="docs/images/plugin-preview-v0.1.13.png" width="360" alt="Capte Icons plugin showing category and search, weight, style, grade, optical size, and three pilot icons"></p>
 
-*Current v0.1.13 interface, captured from the built plugin UI with an icon selected. Changes apply when Update icon is pressed.*
+*Earlier three-icon v0.1.13 interface, captured from the built plugin UI with an icon selected. Changes apply when Update icon is pressed.*
 
 ## For the team: install and try it
 
@@ -23,7 +23,7 @@ This preview is for trying the workflow and collecting team feedback. It include
 1. Download the **capte-icons-figma-plugin-0.1.13.zip** asset from the release above. GitHub's automatic “Source code” downloads are for developers.
 2. Extract the ZIP into a permanent folder, such as `Documents/Capte Icons`. Keep `manifest.json`, `code.js`, and `ui.html` together.
 3. Open a Figma Design file in Figma Desktop. Choose **Plugins → Development → Import plugin from manifest…** and select that `manifest.json`.
-4. Run **Capte Icons — Pilot** from **Plugins → Development**.
+4. Run **Capte Icons** (the older release is named **Capte Icons — Pilot**) from **Plugins → Development**.
 
 [Installation, updating, and troubleshooting →](INSTALL.md)
 
@@ -42,7 +42,7 @@ This preview is for trying the workflow and collecting team feedback. It include
 | Grade | Dark, Normal, Emphasis |
 | Style | Outline, Filled, Duotone |
 
-Grade changes thickness independently of Style. The plugin uses the Light palette and a simplified interface; the website explorer retains its palette control. Approved small-size geometry preserves compact details. The shared renderer supports **648 configurations** from 36 geometry templates and 24 stroke profiles; the Light-only plugin exposes 324.
+Grade changes thickness independently of Style. The plugin uses the Light palette and a simplified interface; the website explorer retains its palette control. The original three icons retain approved small-size geometry. The full catalog supports **12,960 configurations** from 720 geometry templates and 24 stroke profiles; the Light-only plugin exposes 6,480. The 57 additions use proportional geometry at each size and need individual optical review.
 
 Updating retains the root frame, parent, position, and rotation while replacing generated children. **Manual edits inside an icon are overwritten when Update icon is pressed.** Unrelated artwork, multiple selections, and locked root layers are not overwritten.
 
@@ -53,9 +53,9 @@ Inserted icons use editable filled vector paths with outlined strokes. Colors bi
 | Verified | Still to confirm |
 | --- | --- |
 | v0.1.13 approved by the project owner for team release on October 16, 2026 | Broader team testing, including undo/redo and variable recovery |
-| TypeScript, 25 renderer/controller tests, all 648 configurations, both builds | Detailed artwork comparison in the editor |
-| Chromium checks: preview-only controls, explicit updates, label switching, host replies, downloads, and layouts | Full catalog expansion |
-| Light/Dark interfaces visually reviewed against exported tokens | Community distribution and production website |
+| TypeScript, 29 renderer/controller tests, all 12,960 configurations, both builds | Detailed artwork comparison and small-size refinements in the editor |
+| Chromium checks: full catalog search/filter, preview-only controls, explicit updates, downloads, and layouts | Installed beta acceptance with the team |
+| 120 native Figma SVG import/outline/token probes, plus targeted checks after artwork fixes | Community distribution and production website |
 
 Automated controller tests use a mocked Figma API. The [editor acceptance checklist](docs/acceptance.md) records the remaining checks. Try the preview in a working copy of a design file and report the icon, settings, version, and what happened using [a bug report](https://github.com/john-l-hansen/capte-icons/issues/new?template=bug_report.yml).
 
@@ -94,7 +94,7 @@ npm run package:release
 
 | Path | Purpose |
 | --- | --- |
-| `packages/icons` | Approved catalog, renderer, validation, and search |
+| `packages/icons` | Source paths, catalog, recipes, renderer, validation, and search |
 | `packages/ui` | Shared explorer, exported design tokens, bundled fonts |
 | `apps/figma-plugin` | Figma controller and UI entry point |
 | `apps/docs` | Website explorer and documentation |

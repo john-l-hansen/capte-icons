@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0-beta.1 — Unreleased catalog preview
+
+Expand from three to 60 icons, with 720 size/style templates, semantic colors, category/keyword search, and explicit filled contrast roles. Preserve all three pilot definitions and existing insert/update behavior. Include source export and reproducible catalog generation. The 57 new icons use proportional sizes with size-specific stroke profiles; optical review and installed-plugin acceptance remain pending.
+
 ## 0.1.13
 
 Require a primary-button press to change canvas icons. Display Update icon for an owned selection and Insert icon otherwise; option and icon choices affect the preview only.

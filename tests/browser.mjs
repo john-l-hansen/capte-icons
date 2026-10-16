@@ -1,3 +1,4 @@
+import { icons } from '../packages/icons/index.ts';
 import { runtime } from './helpers/plugin-runtime.ts';
 import { chromium } from 'playwright';
 import http from 'node:http';
@@ -23,11 +24,11 @@ try {
   page.setDefaultTimeout(7000);
   const errors = []; page.on('pageerror', e => errors.push(e.message));
   await page.goto(url);
-  assert.equal(await page.locator('.icon-card').count(), 3);
+  assert.equal(await page.locator('.icon-card').count(), icons.length);
   await page.getByLabel('Search icons').fill('magnifier'); assert.equal(await page.locator('.icon-card').count(), 1);
   await page.getByLabel('Search icons').fill('no-such-icon'); assert.match(await page.locator('.empty').innerText(), /No icons found/);
   await page.getByLabel('Search icons').fill('');
-  await page.getByLabel('Category').selectOption('Security'); assert.equal(await page.locator('.icon-card').count(), 1);
+  await page.getByLabel('Category').selectOption('Security'); assert.equal(await page.locator('.icon-card').count(), icons.filter(i => i.category === 'Security').length);
   await page.getByRole('button', { name: /Select Shield Lock/ }).click();
   await page.getByLabel('Category').selectOption('all');
   await page.getByLabel('Optical size').selectOption('20');
@@ -70,7 +71,7 @@ try {
   assert.deepEqual(await page.getByLabel('Optical size').locator('option').allTextContents(), ['20 dp', '24 dp', '40 dp', '48 dp']);
   await page.getByLabel('Search icons').fill('magnifier'); assert.equal(await page.locator('.icon-card').count(), 1);
   await page.getByLabel('Search icons').fill('');
-  await page.getByLabel('Category').selectOption('Security'); assert.equal(await page.locator('.icon-card').count(), 1);
+  await page.getByLabel('Category').selectOption('Security'); assert.equal(await page.locator('.icon-card').count(), icons.filter(i => i.category === 'Security').length);
   await page.getByLabel('Category').selectOption('all');
   assert.equal(await page.locator('.actions button').count(), 1);
   assert.equal(await page.getByRole('button', { name: 'Update selected' }).count(), 0);
@@ -190,6 +191,13 @@ try {
   assert.match(inserted.getPluginData('capte-icon'), /location-check/);
   assert.equal(await page.getByRole('button', { name: 'Update icon', exact: true }).count(), 1);
 
+  await page.getByLabel('Search icons').fill('electric');
+  await page.getByRole('button', { name: 'Select Battery Bolt', exact: true }).click();
+  await page.getByRole('button', { name: 'Update icon', exact: true }).click();
+  await page.waitForFunction(() => document.querySelector('.status').textContent.includes('Icon replaced.'));
+  assert.match(inserted.getPluginData('capte-icon'), /battery-bolt/);
+  await page.getByLabel('Search icons').fill('');
+  assert.equal(await page.locator('.icon-card').count(), icons.length);
   assert.deepEqual(errors, []);
   console.log('Browser checks passed: filters, controls, download, storage, plugin bridge and responsive layout.');
 } finally { if (browser) await browser.close(); await new Promise(resolve => server.close(resolve)); }
