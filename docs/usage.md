@@ -1,4 +1,4 @@
-# Using Capte Icons 0.1.6
+# Using Capte Icons 0.1.7
 
 Choose an icon and settings, then click **Insert icon**. If one plugin-generated Capte icon is selected, it is replaced in place. **Deselect it to insert another.** Selecting a vector inside an owned icon also works. Unrelated artwork, multiple selections, and locked roots or parents are not overwritten. Edit icons inside component instances through their main component.
 
@@ -29,3 +29,7 @@ Search accepts names and keywords. Category filtering works alongside search. Ic
 ## Review checklist
 
 Try all three icons at small and large sizes, inspect fills and variable bindings, replace a selection, deselect to insert another, change every control, and try undo/redo. See the [acceptance checklist](acceptance.md). Full end-to-end Figma Desktop acceptance remains pending.
+
+## Placement
+
+A selected Capte icon is replaced in place. For other selected objects, the new icon is centered over their combined bounds. It is added inside their shared editable frame when available, using absolute positioning in auto-layout frames. With nothing selected, the icon is centered in the outermost editable frame beneath the viewport center. If no frame is there, it is centered in the viewport. Locked artwork and component instances are not modified.

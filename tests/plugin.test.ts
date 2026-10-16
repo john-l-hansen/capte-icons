@@ -28,7 +28,9 @@ function runtime() {
   };
   const frame = (size: number): any => {
     const data = new Map();
-    const n: any = { id: String(++sequence), type: 'FRAME', x: 0, y: 0, rotation: 0, width: size, height: size, locked: false, children: [], parent: page, removed: false, explicitVariableModes: {},
+    const n: any = { id: String(++sequence), type: 'FRAME', x: 0, y: 0, rotation: 0, width: size, height: size, locked: false, visible: true, layoutMode: 'NONE',
+      get absoluteTransform() { return [[1, 0, n.x], [0, 1, n.y]]; },
+      get absoluteBoundingBox() { return { x: n.x, y: n.y, width: n.width, height: n.height }; }, children: [], parent: page, removed: false, explicitVariableModes: {},
       setExplicitVariableModeForCollection(id: string, mode: string) { n.explicitVariableModes[id] = mode; },
       insertChild(index: number, child: any) { if (child.parent?.children) child.parent.children = child.parent.children.filter((c: any) => c !== child); child.parent = n; n.children.splice(index, 0, child); },
       appendChild(child: any) { if (child.parent?.children) child.parent.children = child.parent.children.filter((c: any) => c !== child); child.parent = n; n.children.push(child); },
@@ -182,3 +184,31 @@ test('published source color variables are reused without creating fallback toke
   assert.match(r.messages.find(m => m.type === 'success').text, /Library color tokens/);
   for (const part of r.page.selection[0].children) for (const paint of part.fills) assert.ok(r.variables.some(v => v.id === paint.boundVariables.color.id));
 });
+
+ test('new icons center inside selected frames without joining auto-layout', async () => {
+  const r = runtime(), frame = r.frame(200); frame.x = 50; frame.y = 80; frame.layoutMode = 'HORIZONTAL';
+  r.page.selection = [frame]; await r.send('insert'); const icon = r.page.selection[0];
+  assert.equal(icon.parent, frame); assert.equal(icon.layoutPositioning, 'ABSOLUTE');
+  assert.deepEqual([icon.x, icon.y], [88, 88]); assert.equal(frame.width, 200);
+ });
+ test('unselected insertion centers in the overall frame under the viewport center', async () => {
+  const r = runtime(), frame = r.frame(400); frame.x = 0; frame.y = 0;
+  await r.send('insert'); const icon = r.page.selection[0];
+  assert.equal(icon.parent, frame); assert.deepEqual([icon.x, icon.y], [188, 188]);
+ });
+ test('selected objects use their canvas center in a rotated containing frame', async () => {
+  const r = runtime(), frame = r.frame(200), object = r.frame(40);
+  Object.defineProperty(frame, 'absoluteTransform', { value: [[0, -1, 300], [1, 0, 100]] });
+  Object.defineProperty(object, 'absoluteBoundingBox', { value: { x: 220, y: 140, width: 40, height: 40 } });
+  object.type = 'RECTANGLE'; frame.appendChild(object); r.page.selection = [object];
+  await r.send('insert'); const icon = r.page.selection[0];
+  assert.equal(icon.parent, frame); assert.deepEqual([icon.x, icon.y], [48, 48]);
+ });
+ test('changing an unowned selection during token import cancels insertion', async () => {
+  const r = runtime(), first = r.frame(20), second = r.frame(30); r.page.selection = [first];
+  let release!: () => void, entered!: () => void;
+  const waiting = new Promise<void>(resolve => { entered = resolve; });
+  r.figma.variables.getLocalVariablesAsync = async () => { entered(); await new Promise<void>(resolve => { release = resolve; }); return []; };
+  const insert = r.send('insert'); await waiting; r.page.selection = [second]; release(); await insert;
+  assert.equal(r.page.children.length, 2); assert.equal(r.undoCommits, 0);
+ });

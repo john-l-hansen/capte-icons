@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.7
+
+Center insertion over selected objects, or in the overall frame beneath the viewport center when deselected. Preserve existing Capte icon replacement; support rotated and auto-layout containers without shifting layout. Cancel insertion if the selection changes during token import.
+
+
 ## 0.1.6 — Review build — 2026-10-16
 
 - Give preview cells enough room for full-size icons instead of clamping 40 and 48 dp to the same space.

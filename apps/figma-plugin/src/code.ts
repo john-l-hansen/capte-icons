@@ -2,6 +2,8 @@ import { DEFAULT_OPTIONS, formatName, normalizeOptions, readIconMetadata, render
 import type { IconOptions } from '../../../packages/icons/index.ts';
 import { bindColors, colorTokens, outlineArtwork } from './artwork.ts';
 
+import { placeIcon } from './placement.ts';
+
 const KEY = 'capte-icon';
 figma.showUI(__html__, { width: 360, height: 680, themeColors: true });
 const send = (message: object) => figma.ui.postMessage(message);
@@ -40,6 +42,8 @@ async function handleMessage(message: unknown) {
     const options: IconOptions = { ...normalizeOptions(msg.options), theme: 'light' };
     if (msg.type === 'preferences') { await figma.clientStorage.setAsync('preferences', options); return; }
     const target = selectedIcon();
+    const selection = [...figma.currentPage.selection];
+    const selectionUnchanged = () => selection.length === figma.currentPage.selection.length && selection.every((node, i) => !node.removed && node === figma.currentPage.selection[i]);
     if (msg.type === 'update' && !target) throw new Error('Select one icon inserted by Capte Icons.');
     // A queued live edit belongs to the icon that was selected when it was sent.
     const expectedId = msg.targetId ?? null;
@@ -52,11 +56,11 @@ async function handleMessage(message: unknown) {
     }
     const colors = await colorTokens();
     // Selection can move while library token imports are in progress.
-    if ((selectedIcon()?.id ?? null) !== expectedId || target?.removed) { selectionChanged(true); return; }
+    if (!selectionUnchanged() || (selectedIcon()?.id ?? null) !== expectedId || target?.removed) { selectionChanged(true); return; }
     const fresh = staged = figma.createNodeFromSvg(renderSvg(options));
     outlineArtwork(fresh);
     await bindColors(fresh, options, colors.tokens);
-    if ((selectedIcon()?.id ?? null) !== expectedId || target?.removed || target?.locked) { fresh.remove(); staged = null; selectionChanged(true); return; }
+    if (!selectionUnchanged() || (selectedIcon()?.id ?? null) !== expectedId || target?.removed || target?.locked) { fresh.remove(); staged = null; selectionChanged(true); return; }
     let node: FrameNode = fresh;
     if (target) {
       // Keep the root ID, parent, placement and rotation; only replace generated artwork.
@@ -68,9 +72,7 @@ async function handleMessage(message: unknown) {
       fresh.remove();
       node = target;
     } else {
-      const center = figma.viewport.center;
-      fresh.x = Math.round(center.x - options.size / 2);
-      fresh.y = Math.round(center.y - options.size / 2);
+      placeIcon(fresh, selection);
     }
     node.name = formatName(options);
     node.setPluginData(KEY, writeIconMetadata(options));

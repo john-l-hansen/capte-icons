@@ -4,9 +4,9 @@
 
 [![Checks](https://github.com/john-l-hansen/capte-icons/actions/workflows/check.yml/badge.svg)](https://github.com/john-l-hansen/capte-icons/actions/workflows/check.yml)
 
-**Review build: 0.1.6 · Three pilot icons**
+**Review build: 0.1.7 · Three pilot icons**
 
-Version 0.1.6 is prepared for the next review round. The latest published download below remains 0.1.3 until a new release is approved.
+Version 0.1.7 is prepared for the next review round. The latest published download below remains 0.1.3 until a new release is approved.
 
 [Download the Figma plugin](https://github.com/john-l-hansen/capte-icons/releases/download/v0.1.3/capte-icons-figma-plugin-0.1.3.zip) · [Release notes](https://github.com/john-l-hansen/capte-icons/releases/tag/v0.1.3) · [Installation guide](INSTALL.md) · [Usage guide](docs/usage.md) · [Roadmap](docs/roadmap.md)
 
@@ -29,6 +29,7 @@ This preview is for trying the workflow and collecting team feedback. It include
 
 - Choose an icon and settings, then click **Insert icon** to create an editable vector icon.
 - Select an inserted Capte icon—or a vector inside it—to load its settings. Controls and catalog choices update it **live**.
+- New icons center on selected objects, or the overall frame beneath the viewport center when deselected. Empty canvas uses the viewport center.
 - **Insert icon replaces the selected plugin-generated Capte icon**. Deselect it to insert another.
 - With no Capte icon selected, controls change the preview until you insert.
 
@@ -49,7 +50,7 @@ Inserted icons use editable filled vector paths with outlined strokes. Colors bi
 
 | Verified | Still to confirm |
 | --- | --- |
-| Earlier pilot launch and initial appearance confirmed by the project owner | Full 0.1.6 live-editing, token binding, and undo/redo pass inside Figma Desktop |
+| Earlier pilot launch and initial appearance confirmed by the project owner | Full 0.1.7 live-editing, token binding, and undo/redo pass inside Figma Desktop |
 | TypeScript, 17 renderer/controller tests, all 648 configurations, both builds | Detailed artwork comparison in the editor |
 | Chromium checks: controls, rapid edits, target switching, downloads, preferences, layouts | Full catalog expansion |
 | Light/Dark interfaces visually reviewed against exported tokens | Community distribution and production website |
@@ -62,7 +63,7 @@ Automated controller tests use a mocked Figma API. The [editor acceptance checkl
 | --- | --- |
 | Install or update the plugin | [Installation](INSTALL.md) |
 | Understand controls and live editing | [Usage](docs/usage.md) |
-| See what's changed | [Changelog](CHANGELOG.md) and [0.1.6 notes](releases/0.1.6.md) |
+| See what's changed | [Changelog](CHANGELOG.md) and [0.1.7 notes](releases/0.1.7.md) |
 | See what's next | [Roadmap](docs/roadmap.md) |
 | Build or contribute | [Contributing](CONTRIBUTING.md) |
 | Understand shared artwork and rendering | [Architecture](docs/architecture.md) |
