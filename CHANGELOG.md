@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.12
+
+Resolve live edits and Insert against the actual Figma selection, avoiding dependence on cached UI selection state. Include root metadata in success replies to restore UI tracking. Preserve the root layer during updates.
+
+
 ## 0.1.11
 
 Accept plugin replies from non-parent host windows so Developer VM feedback and selection tracking work. Bound parallel library token imports to 1.2 seconds and reuse existing local tokens without waiting for imports.

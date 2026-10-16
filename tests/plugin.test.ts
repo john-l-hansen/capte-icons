@@ -187,3 +187,16 @@ test('insert works when Figma returns fresh selection wrappers for the same node
   assert.equal(r.undoCommits, 2); assert.equal(calls, 5);
   assert.equal(r.variables.length, 5);
  });
+
+ test('live changes and Insert use actual selection when the UI has no selected ID', async () => {
+  const r = runtime(); await r.send('insert'); const icon = r.page.selection[0];
+  await r.figma.ui.onmessage({ type: 'apply', options: { ...DEFAULT_OPTIONS, weight: 'heavy', size: 40 }, targetId: null });
+  assert.equal(r.page.selection[0].id, icon.id);
+  assert.equal(readIconMetadata(icon.getPluginData('capte-icon'))?.weight, 'heavy');
+  assert.equal(icon.width, 40);
+  await r.figma.ui.onmessage({ type: 'insert', options: { ...DEFAULT_OPTIONS, iconId: 'shield-lock' }, targetId: null });
+  assert.equal(r.page.children.length, 1); assert.equal(r.page.selection[0].id, icon.id);
+  assert.equal(readIconMetadata(icon.getPluginData('capte-icon'))?.iconId, 'shield-lock');
+  r.page.selection = []; await r.figma.ui.onmessage({ type: 'apply', options: DEFAULT_OPTIONS });
+  assert.equal(r.page.children.length, 1);
+ });

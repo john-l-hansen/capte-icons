@@ -4,7 +4,7 @@ import { bindColors, colorTokens, outlineArtwork } from './artwork.ts';
 
 import { placeIcon } from './placement.ts';
 
-const VERSION = '0.1.11';
+const VERSION = '0.1.12';
 const KEY = 'capte-icon';
 console.log(`[Capte Icons ${VERSION}] Controller started.`);
 figma.showUI(__html__, { width: 360, height: 680, themeColors: true });
@@ -100,7 +100,7 @@ async function handleMessage(message: unknown) {
     figma.currentPage.selection = [node];
     figma.commitUndo();
     selectionChanged();
-    send({ type: 'success', text: `${target ? 'Icon replaced.' : 'Icon inserted.'}${colors.local ? ' Local color tokens attached.' : ' Library color tokens attached.'}` });
+    send({ type: 'success', nodeId: node.id, options, text: `${target ? 'Icon replaced.' : 'Icon inserted.'}${colors.local ? ' Local color tokens attached.' : ' Library color tokens attached.'}` });
     await figma.clientStorage.setAsync('preferences', options);
   } catch (error) {
     if (staged && !staged.removed) staged.remove();
@@ -112,5 +112,13 @@ async function handleMessage(message: unknown) {
 let pending = Promise.resolve();
 figma.ui.onmessage = (message: unknown) => {
   console.log(`[Capte Icons ${VERSION}] UI message`, (message as { type?: string })?.type);
+  const msg = message as { type?: string; options?: unknown; targetId?: string };
+  if (msg?.type === 'apply' || msg?.type === 'insert') {
+    // Resolve intent against the real selection at receipt, before queued work.
+    // The iframe may have missed a selection message; it cannot decide ownership.
+    const target = selectedIcon();
+    if (msg.type === 'apply' && !target) return Promise.resolve();
+    message = { ...msg, type: msg.type === 'apply' ? 'update' : 'insert', targetId: target?.id ?? null };
+  }
   return pending = pending.then(() => handleMessage(message));
 };
