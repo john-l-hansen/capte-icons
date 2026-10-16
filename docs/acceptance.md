@@ -2,7 +2,7 @@
 
 ## Verified
 
-- `npm run check`: TypeScript, 17 renderer/controller tests, all 648 renderer configurations, and both builds.
+- `npm run check`: TypeScript, 25 renderer/controller tests, all 648 renderer configurations, and both builds.
 - `npm run test:browser`: search/category combinations, preview-only controls, explicit update requests, guarded insertion/replacement requests, dp labels, absence of header/color controls, documentation placeholder with no href, preference restoration, SVG downloads, and compact layout.
 - Native Figma API probe: all three duotone pilot icons at 48 produced filled outlined geometry, no live strokes, and unchanged 48 × 48 roots. Temporary probe nodes were removed.
 
@@ -21,7 +21,7 @@ Controller tests use a mock Plugin API. The native probe verifies outline conver
 9. Check undo/redo for insertion/replacement. Re-select afterward to reload metadata. Confirm bindings recover if undo removes the local token collection.
 10. Reopen and check preferences. The plugin uses Light; the website explorer retains Color. Web SVG exports still use live strokes.
 
-Earlier pilot launch/appearance was confirmed by the owner on 2026-10-15. This 0.1.13 installed-plugin checklist remains pending.
+The project owner approved the current v0.1.13 build for matching GitHub release on 2026-10-16. This is release approval, not a claim that every item above has been individually documented. Retain this checklist for broader team verification. The supplied UI screenshot shows v0.1.12.
 
 - Select a non-icon object and insert: confirm the icon is centered over it. Repeat inside a rotated frame and an auto-layout frame; the layout must not shift.
 - Deselect with an overall frame beneath the viewport center: confirm insertion at the frame center. Pan to empty canvas and confirm viewport-center placement.

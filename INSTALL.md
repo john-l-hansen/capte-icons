@@ -2,12 +2,12 @@
 
 This is the **three-icon team preview**. It uses Figma's development-plugin installation flow. No Node.js, command line, API key, or source-file access is needed for the compiled ZIP.
 
-For the 0.1.13 review build, use the ZIP supplied with the review or the pull-request build artifact. The release link below remains the published 0.1.3 preview until 0.1.13 is approved.
+The approved team preview is **v0.1.13**. Download its compiled ZIP from the GitHub release below.
 
 ## First installation
 
 1. Use **Figma Desktop** and open a Figma Design file.
-2. [Download the compiled plugin ZIP](https://github.com/john-l-hansen/capte-icons/releases/download/v0.1.3/capte-icons-figma-plugin-0.1.3.zip). On the release page, choose the named plugin asset, not “Source code (zip)”.
+2. [Download the compiled plugin ZIP](https://github.com/john-l-hansen/capte-icons/releases/download/v0.1.13/capte-icons-figma-plugin-0.1.13.zip). On the release page, choose the named plugin asset, not “Source code (zip)”.
 3. Extract it to a permanent folder such as `Documents/Capte Icons`. You should see:
    - `manifest.json`
    - `code.js`
@@ -41,4 +41,4 @@ GitHub pushes and downloaded ZIPs do not update an installed copy by themselves.
 | Need a second icon | Click **Insert icon**. Deselect the current Capte icon, then click Insert icon. |
 | Controls differ after undo | Re-select the canvas icon to reload its stored settings. Editor undo/redo verification is part of team testing. |
 
-Report issues with the installed version (the current review build is **0.1.13**), your Figma Desktop/OS version, icon/settings, expected behavior, actual behavior, and reproduction steps. Use the repository's bug report form.
+Report issues with the installed version (the current team preview is **0.1.13**), your Figma Desktop/OS version, icon/settings, expected behavior, actual behavior, and reproduction steps. Use the repository's bug report form.

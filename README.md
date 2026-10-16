@@ -4,21 +4,23 @@
 
 [![Checks](https://github.com/john-l-hansen/capte-icons/actions/workflows/check.yml/badge.svg)](https://github.com/john-l-hansen/capte-icons/actions/workflows/check.yml)
 
-**Review build: 0.1.13 · Three pilot icons**
+**Team preview: v0.1.13 · Approved for team testing · Three pilot icons**
 
-Version 0.1.13 is prepared for the next review round. The latest published download below remains 0.1.3 until a new release is approved.
+The project owner approved this build for GitHub release on October 16, 2026. Community publication and full catalog expansion are separate milestones.
 
-[Download the Figma plugin](https://github.com/john-l-hansen/capte-icons/releases/download/v0.1.3/capte-icons-figma-plugin-0.1.3.zip) · [Release notes](https://github.com/john-l-hansen/capte-icons/releases/tag/v0.1.3) · [Installation guide](INSTALL.md) · [Usage guide](docs/usage.md) · [Roadmap](docs/roadmap.md)
+[Download the Figma plugin](https://github.com/john-l-hansen/capte-icons/releases/download/v0.1.13/capte-icons-figma-plugin-0.1.13.zip) · [Release notes](https://github.com/john-l-hansen/capte-icons/releases/tag/v0.1.13) · [Installation guide](INSTALL.md) · [Usage guide](docs/usage.md) · [Roadmap](docs/roadmap.md)
 
 This preview is for trying the workflow and collecting team feedback. It includes **Search, Shield Lock, and Location Check**. The rest of the approved icon library will follow in reviewed batches. It is a manually installed development plugin; a Figma Community installation link is a later milestone.
 
-<p align="center"><img src="docs/images/plugin-preview.png" width="480" alt="Capte Icons plugin with customization controls, Light/Dark palette, an Insert icon button, and the three pilot icons"></p>
+<p align="center"><img src="docs/images/plugin-preview.png" width="480" alt="Capte Icons plugin showing category and search, weight, style, grade, optical size, and three pilot icons"></p>
+
+*Owner-supplied Figma screenshot from v0.1.12. The v0.1.13 release uses the same layout and requires a button press to apply changes; the button reads Update icon for a selected Capte icon.*
 
 ## For the team: install and try it
 
 **You need Figma Desktop. You do not need Node.js, an API key, or access to the source design file.**
 
-1. Download the **capte-icons-figma-plugin-0.1.3.zip** asset from the release above. GitHub's automatic “Source code” downloads are for developers.
+1. Download the **capte-icons-figma-plugin-0.1.13.zip** asset from the release above. GitHub's automatic “Source code” downloads are for developers.
 2. Extract the ZIP into a permanent folder, such as `Documents/Capte Icons`. Keep `manifest.json`, `code.js`, and `ui.html` together.
 3. Open a Figma Design file in Figma Desktop. Choose **Plugins → Development → Import plugin from manifest…** and select that `manifest.json`.
 4. Run **Capte Icons — Pilot** from **Plugins → Development**.
@@ -50,9 +52,9 @@ Inserted icons use editable filled vector paths with outlined strokes. Colors bi
 
 | Verified | Still to confirm |
 | --- | --- |
-| Earlier pilot launch and initial appearance confirmed by the project owner | Full 0.1.13 button-driven editing, token binding, and undo/redo pass inside Figma Desktop |
-| TypeScript, 17 renderer/controller tests, all 648 configurations, both builds | Detailed artwork comparison in the editor |
-| Chromium checks: controls, rapid edits, target switching, downloads, preferences, layouts | Full catalog expansion |
+| v0.1.13 approved by the project owner for team release on October 16, 2026 | Broader team testing, including undo/redo and variable recovery |
+| TypeScript, 25 renderer/controller tests, all 648 configurations, both builds | Detailed artwork comparison in the editor |
+| Chromium checks: preview-only controls, explicit updates, label switching, host replies, downloads, and layouts | Full catalog expansion |
 | Light/Dark interfaces visually reviewed against exported tokens | Community distribution and production website |
 
 Automated controller tests use a mocked Figma API. The [editor acceptance checklist](docs/acceptance.md) records the remaining checks. Try the preview in a working copy of a design file and report the icon, settings, version, and what happened using [a bug report](https://github.com/john-l-hansen/capte-icons/issues/new?template=bug_report.yml).

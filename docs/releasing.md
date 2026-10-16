@@ -2,7 +2,7 @@
 
 ## Current release
 
-**v0.1.3 — Team preview** packages the existing three-icon pilot for team testing. It is not a production-readiness claim. Complete the editor checks in `docs/acceptance.md` before promoting to broader distribution.
+**v0.1.13 — Team preview** packages the existing three-icon pilot for team testing. It is not a production-readiness claim. Complete the editor checks in `docs/acceptance.md` before promoting to broader distribution.
 
 ## Package locally
 
@@ -18,7 +18,7 @@ npm run package:release
 
 `release-artifacts/` contains:
 
-- `capte-icons-figma-plugin-0.1.3.zip`: compiled plugin, INSTALL/USAGE/release notes, version metadata, and font notices.
+- `capte-icons-figma-plugin-0.1.13.zip`: compiled plugin, INSTALL/USAGE/release notes, version metadata, and font notices.
 - `SHA256SUMS`: checksum for the ZIP.
 - `VERSION.json`: application/catalog version, source commit, plugin ID, token export date, and included icons.
 
@@ -26,7 +26,7 @@ Do not commit generated artifacts or install from GitHub's automatic source arch
 
 ## Publish an authorized team preview
 
-The **Team preview release** workflow runs when an authorized change to `release-plan.json` or the workflow is pushed to `feat/icon-plugin-pilot` or `main`. The initial 0.1.3 team preview is authorized by the project owner's request to distribute this version through the repository. Future releases require project authorization; do not change the release plan solely to trigger publication.
+The **Team preview release** workflow runs when an authorized change to `release-plan.json` or the workflow is pushed to `feat/icon-plugin-pilot` or `main`. The v0.1.13 team preview is explicitly approved by the project owner on 2026-10-16. Future releases require project authorization; do not change the release plan solely to trigger publication.
 
 The workflow installs dependencies, runs checks and browser verification, builds/packages, and creates a GitHub **pre-release** tagged at the tested commit. It attaches the ZIP, checksum, and version metadata. It never merges a PR, publishes a Community plugin, or deploys a website. The job uses GitHub's repository-scoped Actions token with `contents: write`; no personal access token or new secret is required.
 
