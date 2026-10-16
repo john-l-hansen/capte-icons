@@ -97,6 +97,17 @@ try {
   assert.equal(await page.evaluate(() => window.__messages.filter(m => m.type === 'update').length), 0);
   await page.getByRole('button', { name: 'Insert icon', exact: true }).click();
   await page.waitForFunction(() => window.__messages.some(m => m.type === 'insert' && m.options.iconId === 'search'));
+  // Measure actual rendered previews: larger optical sizes must not be clamped by the grid.
+  const previewSizes = [];
+  for (const size of ['40', '48']) {
+    await page.getByLabel('Optical size').selectOption(size);
+    const bounds = await page.locator('.icon-card svg').first().boundingBox();
+    assert.equal(bounds.width, Number(size)); assert.equal(bounds.height, Number(size));
+    previewSizes.push(bounds.width);
+    await page.screenshot({ path: path.join(artifactDir, `plugin-size-${size}.png`), fullPage: true });
+  }
+  assert.equal(previewSizes[1] / previewSizes[0], 1.2);
+  assert.equal(await page.locator('.actions button').evaluate(el => getComputedStyle(el).borderRadius), '8px');
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
   await page.mouse.move(0, 0);
   await page.evaluate(() => document.fonts.ready);

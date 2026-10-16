@@ -137,17 +137,17 @@ footer { max-width: 1000px; margin: 0 auto; padding: var(--capte-spacer-small-pl
 .plugin .fields { margin: 0; gap: var(--capte-spacing-4); }
 .plugin .fields select { border-radius: var(--capte-radius-md); background: var(--capte-background-surface); height: 40px; padding: var(--capte-spacing-2) var(--capte-spacing-3); }
 .plugin .browser { flex: 1; min-height: 0; overflow-y: auto; padding: var(--capte-spacing-4); }
-.plugin .icon-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--capte-spacing-2); }
-.plugin .icon-card { min-height: 48px; height: 48px; padding: var(--capte-spacing-1); border-color: transparent; border-radius: var(--capte-radius-md); gap: 0; }
+.plugin .icon-grid { grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)); gap: var(--capte-spacing-2); }
+.plugin .icon-card { min-height: 72px; height: 72px; padding: var(--capte-spacing-2); border-color: transparent; border-radius: var(--capte-radius-md); gap: 0; }
 .plugin .icon-card:hover { background: var(--capte-background-subtle); }
 .plugin .icon-card[aria-pressed=true] { border-color: var(--capte-border-focus); }
 .plugin .card-art { height: 100%; background: transparent; }
-.plugin .card-art svg { max-width: 100%; max-height: 100%; }
+.plugin .card-art svg { max-width: none; max-height: none; }
 .plugin .icon-card strong, .plugin .icon-card small { display: none; }
 .plugin .plugin-actions { flex-shrink: 0; padding: 0 var(--capte-spacing-4) var(--capte-spacing-3); }
 .plugin .plugin-actions .status:empty { display: none; }
 .plugin .actions { margin: var(--capte-spacing-2) 0 0; }
-.plugin .actions button { padding: var(--capte-spacing-2); }
+.plugin .actions button { padding: var(--capte-spacing-2); border-radius: var(--capte-radius-md); }
 .plugin .documentation { flex-shrink: 0; width: 100%; margin: 0; padding: var(--capte-spacing-4); font-size: var(--capte-type-body-small-regular-font-size); }
 .plugin .documentation > span { display: flex; justify-content: space-between; align-items: center; gap: var(--capte-spacing-3); color: var(--capte-text-secondary); cursor: default; }
 .plugin .documentation svg { flex-shrink: 0; }

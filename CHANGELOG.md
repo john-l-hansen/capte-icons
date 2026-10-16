@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.6 — Review build — 2026-10-16
+
+- Give preview cells enough room for full-size icons instead of clamping 40 and 48 dp to the same space.
+- Render previews at their actual selected dimensions, with responsive grid columns.
+- Explicitly apply the 8px token to action-button corners.
+- Add a browser regression measuring actual 40/48 preview bounds and their 1.2 size ratio.
+
 ## 0.1.5 — Review build — 2026-10-16
 
 - Match category and search field typography at 14px with consistent weight and vertical alignment.
