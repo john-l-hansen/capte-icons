@@ -17,11 +17,26 @@ export async function colorTokens() {
   let fallback = collections.find(c => c.getPluginData(OWNER) === '1');
   const tokens: Record<string, Variable> = {};
   let local = false;
+  // Reuse existing fallback tokens immediately. Missing library roles are looked
+  // up together, with one bounded wait rather than five serial network waits.
+  const existing = (role: string, key: string) => locals.find(v => v.key === key)
+    ?? (fallback ? locals.find(v => v.variableCollectionId === fallback!.id && v.name === `icon/${role}`) : undefined);
+  const imported = new Map<string, Variable>();
+  await Promise.all(Object.entries(TOKEN_KEYS).map(async ([role, key]) => {
+    if (existing(role, key) || unavailableKeys.has(key)) return;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    try {
+      const variable = await Promise.race([
+        figma.variables.importVariableByKeyAsync(key),
+        new Promise<never>((_, reject) => { timer = setTimeout(() => reject(new Error('Library lookup timed out')), 1200); }),
+      ]);
+      imported.set(role, variable);
+    } catch { unavailableKeys.add(key); }
+    finally { clearTimeout(timer); }
+  }));
   for (const [role, key] of Object.entries(TOKEN_KEYS)) {
-    let variable = locals.find(v => v.key === key);
-    if (!variable && !unavailableKeys.has(key)) {
-      try { variable = await figma.variables.importVariableByKeyAsync(key); } catch { unavailableKeys.add(key); }
-    }
+    let variable = existing(role, key) ?? imported.get(role);
+    if (variable && variable.key !== key) local = true;
     if (!variable) {
       local = true;
       if (!fallback) {

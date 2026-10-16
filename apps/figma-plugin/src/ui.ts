@@ -1,5 +1,5 @@
 import { mountExplorer } from '../../../packages/ui/explorer.ts';
-const VERSION = '0.1.10';
+const VERSION = '0.1.11';
 let selectedId: string | null = null;
 let responseTimer: ReturnType<typeof setTimeout> | undefined;
 let awaitingAction = false;
@@ -16,10 +16,10 @@ const send = (type: string, options?: unknown) => parent.postMessage({ pluginMes
 const explorer = mountExplorer(document.getElementById('app')!, { plugin: true,
   onInsert: options => action('insert', options), onUpdate: options => action('update', options), onChange: options => send('preferences', options) });
 window.addEventListener('message', event => {
-  // Figma's native host can deliver messages without a Window source.
-  if (event.source && event.source !== parent) return;
+  // Figma's native host and Developer VM can use null or non-parent sources.
+  // Validate the plugin envelope rather than relying on browser window identity.
   const message = event.data?.pluginMessage;
-  if (!message) return;
+  if (!message || typeof message !== 'object' || !['progress', 'preferences', 'selection', 'success', 'error'].includes(message.type)) return;
   try {
     if (message.type === 'progress') {
       lastStage = message.text; explorer.status(message.text);

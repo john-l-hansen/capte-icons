@@ -53,6 +53,13 @@ try {
   await page.setViewportSize({ width: 360, height: 680 }); await page.goto(url + '/plugin');
   await page.evaluate(() => { window.__messages = []; addEventListener('message', e => { if (e.data?.pluginMessage) window.__messages.push(e.data.pluginMessage); }); });
   const options = { iconId: 'location-check', size: 24, weight: 'medium', grade: 'normal', style: 'duotone', theme: 'light' };
+  // Developer VM replies can arrive from a host window other than parent.
+  await page.evaluate(() => {
+    const hostWindow = document.createElement('iframe'); document.body.append(hostWindow);
+    dispatchEvent(new MessageEvent('message', { data: { pluginMessage: { type: 'progress', text: 'Host reply accepted' } }, source: hostWindow.contentWindow }));
+    hostWindow.remove();
+  });
+  assert.equal(await page.locator('.status').innerText(), 'Host reply accepted');
   // Native Figma messages may have source=null, unlike a browser parent window.
   await page.evaluate(o => dispatchEvent(new MessageEvent('message', { data: { pluginMessage: { type: 'selection', nodeId: 'icon-a', options: o } }, source: null })), options);
   await page.waitForFunction(() => document.querySelector('.status').textContent.includes('Insert icon replaces'));
@@ -124,11 +131,18 @@ try {
   host.page.selection = [frame];
   await page.exposeFunction('capteHost', async message => { await host.figma.ui.onmessage(message); });
   host.figma.ui.postMessage = message => {
-    void page.evaluate(m => dispatchEvent(new MessageEvent('message', { data: { pluginMessage: m }, source: null })), message);
+    void page.evaluate(m => {
+      const hostWindow = document.querySelector('#figma-host-window');
+      dispatchEvent(new MessageEvent('message', { data: { pluginMessage: m }, source: hostWindow?.contentWindow ?? null }));
+    }, message);
   };
-  await page.addInitScript(() => addEventListener('message', event => {
+  await page.addInitScript(() => {
+    if (window.top !== window) return;
+    addEventListener('DOMContentLoaded', () => { const frame = document.createElement('iframe'); frame.id = 'figma-host-window'; frame.hidden = true; document.body.append(frame); });
+    addEventListener('message', event => {
     if (event.source === window && event.data?.pluginMessage) void window.capteHost(event.data.pluginMessage);
-  }));
+    });
+  });
   await page.reload();
   await page.waitForFunction(() => document.querySelector('.status').textContent.includes('Ready.'));
   await page.getByRole('button', { name: 'Insert icon', exact: true }).click();

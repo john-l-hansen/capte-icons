@@ -61,7 +61,7 @@ export function runtime() {
       return n;
     } };
 
-  vm.runInNewContext(code, { figma, console: { log() {}, error() {} }, __html__: '<html></html>' });
+  vm.runInNewContext(code, { figma, setTimeout, clearTimeout, console: { log() {}, error() {} }, __html__: '<html></html>' });
   return { figma, page, frame, messages, events, variables, collections, get undoCommits() { return undoCommits; }, async send(type: string, options: unknown = DEFAULT_OPTIONS, targetId?: string) {
     let target = page.selection[0];
     while (target && target.type !== 'PAGE' && !(target.type === 'FRAME' && target.getPluginData('capte-icon'))) target = target.parent;

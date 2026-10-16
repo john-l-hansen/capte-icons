@@ -176,3 +176,14 @@ test('insert works when Figma returns fresh selection wrappers for the same node
   assert.equal(r.messages.filter(m => m.type === 'error').length, 0);
   assert.equal(readIconMetadata(icon.getPluginData('capte-icon'))?.iconId, 'location-check');
  });
+
+ test('unresponsive library imports are parallel and bounded, then existing local tokens avoid imports', async () => {
+  const r = runtime(); let calls = 0;
+  r.figma.variables.importVariableByKeyAsync = () => { calls++; return new Promise(() => {}); };
+  const start = Date.now(); await r.send('insert');
+  assert.equal(r.undoCommits, 1); assert.equal(calls, 5);
+  assert.ok(Date.now() - start < 2500, 'Imports must share one timeout window');
+  await r.send('insert', { ...DEFAULT_OPTIONS, iconId: 'shield-lock' });
+  assert.equal(r.undoCommits, 2); assert.equal(calls, 5);
+  assert.equal(r.variables.length, 5);
+ });

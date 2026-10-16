@@ -1,4 +1,4 @@
-# Using Capte Icons 0.1.10
+# Using Capte Icons 0.1.11
 
 Choose an icon and settings, then click **Insert icon**. If one plugin-generated Capte icon is selected, it is replaced in place. **Deselect it to insert another.** Selecting a vector inside an owned icon also works. Unrelated artwork, multiple selections, and locked roots or parents are not overwritten. Edit icons inside component instances through their main component.
 

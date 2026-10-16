@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.11
+
+Accept plugin replies from non-parent host windows so Developer VM feedback and selection tracking work. Bound parallel library token imports to 1.2 seconds and reuse existing local tokens without waiting for imports.
+
+
 ## 0.1.10
 
 Fix the confirmed Figma dynamic-page API error by passing VariableCollection objects to setExplicitVariableModeForCollection during insertion and replacement. Update the API harness to reject deprecated collection IDs.
