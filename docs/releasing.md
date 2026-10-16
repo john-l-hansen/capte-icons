@@ -26,7 +26,9 @@ Do not commit generated artifacts or install from GitHub's automatic source arch
 
 ## Publish an authorized team preview
 
-The **Team preview release** workflow runs when an authorized change to `release-plan.json` or the workflow is pushed to `feat/icon-plugin-pilot` or `main`. The v0.1.13 team preview is explicitly approved by the project owner on 2026-10-16. Future releases require project authorization; do not change the release plan solely to trigger publication.
+The **Team preview release** workflow runs when an authorized change to `release-plan.json` or the workflow is pushed to `feat/icon-plugin-pilot`, `feat/plugin-review-polish`, or `main`. The v0.1.13 team preview is explicitly approved by the project owner on 2026-10-16. Future releases require project authorization; do not change the release plan solely to trigger publication.
+
+A release from the reviewed `feat/plugin-review-polish` branch does not merge it into `main`; merging requires separate authorization.
 
 The workflow installs dependencies, runs checks and browser verification, builds/packages, and creates a GitHub **pre-release** tagged at the tested commit. It attaches the ZIP, checksum, and version metadata. It never merges a PR, publishes a Community plugin, or deploys a website. The job uses GitHub's repository-scoped Actions token with `contents: write`; no personal access token or new secret is required.
 

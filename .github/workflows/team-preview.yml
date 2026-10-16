@@ -1,7 +1,7 @@
 name: Team preview release
 on:
   push:
-    branches: [feat/icon-plugin-pilot, main]
+    branches: [feat/icon-plugin-pilot, feat/plugin-review-polish, main]
     paths:
       - release-plan.json
       - .github/workflows/team-preview.yml
@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   release:
-    if: github.repository == 'john-l-hansen/capte-icons' && (github.ref == 'refs/heads/feat/icon-plugin-pilot' || github.ref == 'refs/heads/main')
+    if: github.repository == 'john-l-hansen/capte-icons' && (github.ref == 'refs/heads/feat/icon-plugin-pilot' || github.ref == 'refs/heads/feat/plugin-review-polish' || github.ref == 'refs/heads/main')
     runs-on: ubuntu-latest
     permissions:
       contents: write
