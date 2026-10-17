@@ -53,7 +53,7 @@ Inserted icons use editable filled vector paths with outlined strokes. Colors bi
 | Verified | Still to confirm |
 | --- | --- |
 | v0.1.13 approved by the project owner for team release on October 16, 2026 | Broader team testing, including undo/redo and variable recovery |
-| TypeScript, 29 renderer/controller tests, all 12,960 configurations, both builds | Detailed artwork comparison and small-size refinements in the editor |
+| TypeScript, 32 renderer/controller tests, all 12,960 configurations, both builds | Detailed artwork comparison and small-size refinements in the editor |
 | Chromium checks: full catalog search/filter, preview-only controls, explicit updates, downloads, and layouts | Installed beta acceptance with the team |
 | 120 native Figma SVG import/outline/token probes, plus targeted checks after artwork fixes | Community distribution and production website |
 

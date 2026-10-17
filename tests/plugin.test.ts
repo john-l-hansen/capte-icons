@@ -217,3 +217,36 @@ test('every catalog icon can replace an owned root with token-bound outlined art
     }
   }
 });
+
+
+for (const phase of ['loading', 'binding'] as const) {
+  test(`a parent locked during token ${phase} cancels replacement and removes staged artwork`, async () => {
+    const r = runtime(), parent = r.frame(200);
+    r.page.selection = [parent]; await r.send('insert'); const root = r.page.selection[0];
+    const before = root.getPluginData('capte-icon'), children = [...root.children], commits = r.undoCommits;
+    let entered!: () => void, release!: () => void;
+    const waiting = new Promise<void>(resolve => { entered = resolve; });
+    const pause = async () => { entered(); await new Promise<void>(resolve => { release = resolve; }); };
+    if (phase === 'loading') r.figma.variables.getLocalVariablesAsync = async () => { await pause(); return r.variables; };
+    else r.figma.variables.getVariableCollectionByIdAsync = async (id: string) => { await pause(); return r.collections.find(c => c.id === id); };
+    const update = r.send('insert', { ...DEFAULT_OPTIONS, iconId: 'shield-lock', size: 48 });
+    await waiting; parent.locked = true; release(); await update;
+    assert.equal(root.getPluginData('capte-icon'), before);
+    assert.deepEqual(root.children, children); assert.equal(root.width, 24);
+    assert.equal(r.undoCommits, commits);
+    assert.deepEqual(r.page.children, [parent]); assert.deepEqual(parent.children, [root]);
+    assert.equal(r.messages.at(-1).type, 'error'); assert.match(r.messages.at(-1).text, /Unlock/);
+  });
+}
+
+test('moving the target into an instance during token work cancels replacement', async () => {
+  const r = runtime(); await r.send('insert'); const root = r.page.selection[0];
+  const before = root.getPluginData('capte-icon'), parent = r.frame(200); parent.type = 'INSTANCE';
+  let entered!: () => void, release!: () => void;
+  const waiting = new Promise<void>(resolve => { entered = resolve; });
+  r.figma.variables.getLocalVariablesAsync = async () => { entered(); await new Promise<void>(resolve => { release = resolve; }); return r.variables; };
+  const update = r.send('insert', { ...DEFAULT_OPTIONS, iconId: 'shield-lock' });
+  await waiting; parent.appendChild(root); release(); await update;
+  assert.equal(root.getPluginData('capte-icon'), before);
+  assert.equal(r.messages.at(-1).type, 'error'); assert.match(r.messages.at(-1).text, /main component/);
+});

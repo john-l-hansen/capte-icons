@@ -2,7 +2,7 @@
 
 ## Current automated and native verification
 
-See [catalog review](catalog-review.md) for the 60-icon inventory, proportional-size limitation, all 12,960 configurations, 29 tests, browser results and native Figma probes. The published 0.1.13 approval does not approve this new catalog beta.
+See [catalog review](catalog-review.md) for the 60-icon inventory, proportional-size limitation, all 12,960 configurations, 32 tests, browser results and native Figma probes. The published 0.1.13 approval does not approve this new catalog beta.
 
 ## Owner's Figma Desktop review
 

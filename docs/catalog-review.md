@@ -13,7 +13,7 @@
 ## Validation
 
 - 12,960 configurations render across both palettes; 6,480 are exposed by the Light-only plugin.
-- 29 tests cover rendering, pilot fingerprints, semantic colors, filled contrast, metadata, all-icon replacement, placement and error recovery.
+- 32 tests cover rendering, pilot fingerprints, semantic colors, filled contrast, metadata, all-icon replacement, placement and error recovery.
 - Chromium checks cover all 60 cards, category/keyword search, SVG downloads, layout and button-driven replacement through the bundled controller harness.
 - Native Figma checks cover 48 dp Duotone and 20 dp Filled for every icon at Heavy/Emphasis: successful SVG import, outlined filled paths, zero remaining live strokes, unchanged root dimensions and bound Capte color variables. Targeted checks followed the last four artwork fixes.
 - Full installed-plugin acceptance, undo/redo and design approval remain pending. Native probes do not establish an installed-plugin pass.
