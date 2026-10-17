@@ -4,6 +4,8 @@
 
 **v0.1.13 — Team preview** packages the existing three-icon pilot for team testing. It is not a production-readiness claim. Complete the editor checks in `docs/acceptance.md` before promoting to broader distribution.
 
+The current branch prepares **0.2.0-beta.1** as an unreleased full-catalog preview. Its release plan is staged for review. Merging the plan does not publish a release. Keep the beta in draft for artwork/editor review; publication requires a separate owner-approved manual workflow run on main.
+
 ## Package locally
 
 Requires Node.js 22.18+, npm, and Python 3.
@@ -18,7 +20,7 @@ npm run package:release
 
 `release-artifacts/` contains:
 
-- `capte-icons-figma-plugin-0.1.13.zip`: compiled plugin, INSTALL/USAGE/release notes, version metadata, and font notices.
+- `capte-icons-figma-plugin-0.2.0-beta.1.zip`: compiled plugin, INSTALL/USAGE/release notes, version metadata, and font notices.
 - `SHA256SUMS`: checksum for the ZIP.
 - `VERSION.json`: application/catalog version, source commit, plugin ID, token export date, and included icons.
 

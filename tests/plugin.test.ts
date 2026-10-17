@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { DEFAULT_OPTIONS, readIconMetadata } from '../packages/icons/index.ts';
+import { DEFAULT_OPTIONS, icons, readIconMetadata } from '../packages/icons/index.ts';
 import { runtime } from './helpers/plugin-runtime.ts';
 test('plugin inserts catalog artwork and stores editable configuration', async () => {
   const r = runtime(); await r.send('insert'); const node = r.page.selection[0];
@@ -200,6 +200,24 @@ test('insert works when Figma returns fresh selection wrappers for the same node
   r.page.selection = []; await r.figma.ui.onmessage({ type: 'apply', options: DEFAULT_OPTIONS });
   assert.equal(r.page.children.length, 1);
  });
+
+
+test('every catalog icon can replace an owned root with token-bound outlined artwork', async () => {
+  const r = runtime(); await r.send('insert'); const root = r.page.selection[0];
+  const id = root.id, parent = root.parent;
+  for (const icon of icons) for (const style of ['duotone', 'outline', 'filled'] as const) {
+    await r.send('insert', { ...DEFAULT_OPTIONS, iconId: icon.id, size: 20, weight: 'heavy', grade: 'emphasis', style });
+    assert.equal(r.page.selection[0].id, id, icon.id);
+    assert.equal(root.parent, parent);
+    assert.equal(root.width, 20); assert.equal(root.height, 20);
+    assert.equal(readIconMetadata(root.getPluginData('capte-icon'))?.iconId, icon.id);
+    for (const child of root.children) {
+      if ('strokes' in child) assert.equal(child.strokes.length, 0);
+      if ('fills' in child) for (const fill of child.fills) assert.ok(fill.boundVariables?.color);
+    }
+  }
+});
+
 
 for (const phase of ['loading', 'binding'] as const) {
   test(`a parent locked during token ${phase} cancels replacement and removes staged artwork`, async () => {

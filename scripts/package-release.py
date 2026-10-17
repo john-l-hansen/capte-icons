@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parent.parent
 plan = json.loads((ROOT / 'release-plan.json').read_text())
 package = json.loads((ROOT / 'package.json').read_text())
 version = package['version']
-if not re.fullmatch(r'\d+\.\d+\.\d+', version) or plan['version'] != version or plan['tag'] != 'v' + version:
+if not re.fullmatch(r'\d+\.\d+\.\d+(?:-beta\.[1-9]\d*)?', version) or plan['version'] != version or plan['tag'] != 'v' + version:
     raise SystemExit('Release plan and package version must match.')
 if plan['channel'] != 'team-preview':
     raise SystemExit('This packager is configured for authorized team previews only.')
@@ -29,7 +29,7 @@ metadata = {
     'pluginId': manifest['id'],
     'catalogVersion': json.loads((ROOT / 'packages/icons/catalog.json').read_text())['version'],
     'tokenExportDate': json.loads((ROOT / 'packages/ui/design-tokens.json').read_text())['source']['exportedAt'],
-    'icons': ['Search', 'Shield Lock', 'Location Check'],
+    'icons': [icon['name'] for icon in json.loads((ROOT / 'packages/icons/catalog.json').read_text())['icons']],
 }
 files = {name: (plugin / name).read_bytes() for name in ['manifest.json', 'code.js', 'ui.html']}
 files.update({

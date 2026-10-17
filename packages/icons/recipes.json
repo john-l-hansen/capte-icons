@@ -1,0 +1,504 @@
+{
+  "data-source": {
+    "sourceId": "3634:40",
+    "reverseParts": [],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "data-upload": {
+    "sourceId": "3634:71",
+    "reverseParts": [
+      "data-upload.04"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [
+      "upload.clearance"
+    ],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "fleet-charging": {
+    "sourceId": "3634:102",
+    "reverseParts": [
+      "fleet-charging.03"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "hardware-router": {
+    "sourceId": "3634:133",
+    "reverseParts": [
+      "hardware-router.04",
+      "hardware-router.05"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "target": {
+    "sourceId": "3634:162",
+    "reverseParts": [],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "arrow-outward": {
+    "sourceId": "3634:172",
+    "reverseParts": [],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "secure-connector": {
+    "sourceId": "3634:195",
+    "reverseParts": [],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "read-protect": {
+    "sourceId": "3634:217",
+    "reverseParts": [
+      "read-protect.03",
+      "read-protect.04",
+      "read-protect.05"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "cybersecurity": {
+    "sourceId": "3634:254",
+    "reverseParts": [
+      "cybersecurity.03",
+      "cybersecurity.04",
+      "cybersecurity.05",
+      "cybersecurity.06",
+      "cybersecurity.07"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "replay": {
+    "sourceId": "3634:277",
+    "reverseParts": [],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "preventive-intelligence": {
+    "sourceId": "3634:299",
+    "reverseParts": [],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "diagnoses": {
+    "sourceId": "3634:321",
+    "reverseParts": [
+      "diagnoses.05"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "entry-location": {
+    "sourceId": "3634:353",
+    "reverseParts": [
+      "entry-location.05",
+      "entry-location.06"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "entry-checklist": {
+    "sourceId": "3634:375",
+    "reverseParts": [
+      "entry-checklist.03"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "entry-document": {
+    "sourceId": "3634:397",
+    "reverseParts": [],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [
+      "percent.clearance"
+    ],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "streamlined-operations": {
+    "sourceId": "3634:429",
+    "reverseParts": [],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "enhanced-visibility": {
+    "sourceId": "3634:451",
+    "reverseParts": [],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "dependable-charging": {
+    "sourceId": "3634:476",
+    "reverseParts": [],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "measurable-performance": {
+    "sourceId": "3634:526",
+    "reverseParts": [],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "battery-connector": {
+    "sourceId": "3622:155",
+    "reverseParts": [
+      "battery.bolt",
+      "connector.detail"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "bell-routing": {
+    "sourceId": "3627:107",
+    "reverseParts": [],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "chart-clock": {
+    "sourceId": "3627:154",
+    "reverseParts": [
+      "chart.threshold",
+      "chart.trend",
+      "chart.point"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "circle-arrow-up": {
+    "sourceId": "3629:27",
+    "reverseParts": [
+      "arrow.up"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "clamp-check": {
+    "sourceId": "3629:164",
+    "reverseParts": [
+      "pipe.details",
+      "sensor.details"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "comprehensive-vehicle-data-access": {
+    "sourceId": "3623:16",
+    "reverseParts": [
+      "database.lines"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "control-panel-check": {
+    "sourceId": "3629:80",
+    "reverseParts": [
+      "panel.divider",
+      "panel.status"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "document-clock": {
+    "sourceId": "3622:130",
+    "reverseParts": [
+      "document.lines"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "field-case-weather": {
+    "sourceId": "3627:213",
+    "reverseParts": [
+      "case.detail.top-left",
+      "case.detail.top-right",
+      "case.detail.bottom-left",
+      "case.detail.bottom-right"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "fill-gauge": {
+    "sourceId": "3627:60",
+    "reverseParts": [
+      "level.gauge.details",
+      "level.signal.node",
+      "level.signal.active"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "gauge-chart": {
+    "sourceId": "3622:89",
+    "reverseParts": [
+      "gauge.ticks",
+      "gauge.needle"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "hardhat-wrench": {
+    "sourceId": "3629:227",
+    "reverseParts": [
+      "hardhat.detail"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "hexagon-plus": {
+    "sourceId": "3629:14",
+    "reverseParts": [
+      "plus"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "integrated-modules": {
+    "sourceId": "3622:199",
+    "reverseParts": [],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "map-pin": {
+    "sourceId": "3622:42",
+    "reverseParts": [
+      "map.fold"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "route-play": {
+    "sourceId": "3622:67",
+    "reverseParts": [
+      "route.path"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "shield-monitor": {
+    "sourceId": "3629:136",
+    "reverseParts": [
+      "shield.check"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "signal-checklist": {
+    "sourceId": "3629:114",
+    "reverseParts": [
+      "checklist.lines"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "signal-panel": {
+    "sourceId": "3627:35",
+    "reverseParts": [
+      "signal.active"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "target-check": {
+    "sourceId": "3629:49",
+    "reverseParts": [],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "truck-connector": {
+    "sourceId": "3625:32",
+    "reverseParts": [
+      "truck.seam"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "truck-minus": {
+    "sourceId": "3627:182",
+    "reverseParts": [],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "vehicle-trend": {
+    "sourceId": "3622:111",
+    "reverseParts": [],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "warning-bell": {
+    "sourceId": "3622:174",
+    "reverseParts": [
+      "warning.mark"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "warning-minus": {
+    "sourceId": "3627:82",
+    "reverseParts": [
+      "warning.stem",
+      "warning.dot"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "weather-shield": {
+    "sourceId": "3629:183",
+    "reverseParts": [
+      "shield.check"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "service-verification": {
+    "sourceId": "3632:27",
+    "reverseParts": [
+      "chart.trend"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "document-shield": {
+    "sourceId": "3632:49",
+    "reverseParts": [
+      "document.lines",
+      "document.fold"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "server-sync": {
+    "sourceId": "3632:86",
+    "reverseParts": [
+      "server.light.top",
+      "server.light.middle",
+      "server.light.bottom",
+      "server.lines"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "bus-wireless": {
+    "sourceId": "3632:114",
+    "reverseParts": [],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "chart-replay": {
+    "sourceId": "3632:136",
+    "reverseParts": [
+      "chart.trend",
+      "chart.cursor"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "dashboard-fault": {
+    "sourceId": "3632:164",
+    "reverseParts": [
+      "gauge.arc",
+      "gauge.needle"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "warning-filter": {
+    "sourceId": "3632:186",
+    "reverseParts": [
+      "warning.stem",
+      "warning.dot"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "gear-calendar": {
+    "sourceId": "3632:211",
+    "reverseParts": [
+      "gear.teeth"
+    ],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "status-check": {
+    "sourceId": "3632:236",
+    "reverseParts": [],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "battery-bolt": {
+    "sourceId": "3632:258",
+    "reverseParts": [],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "fuel-reduction": {
+    "sourceId": "3632:283",
+    "reverseParts": [],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  },
+  "chart-search": {
+    "sourceId": "3632:308",
+    "reverseParts": [],
+    "geometry": "proportional from 48; size-specific stroke profiles",
+    "clearanceParts": [],
+    "review": "catalog visual review; editor acceptance pending"
+  }
+}

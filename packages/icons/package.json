@@ -1,1 +1,7 @@
-{"name":"@capte/icons","version":"0.1.13","private":true,"type":"module","exports":"./index.ts"}
+{
+  "name": "@capte/icons",
+  "version": "0.2.0-beta.1",
+  "private": true,
+  "type": "module",
+  "exports": "./index.ts"
+}

@@ -14,7 +14,7 @@ The approved team preview is **v0.1.13**. Download its compiled ZIP from the Git
    - `ui.html`
    - these instructions, usage/release notes, version metadata, and font notices
 4. Choose **Plugins → Development → Import plugin from manifest…** and open the extracted `manifest.json`.
-5. Run **Capte Icons — Pilot** from **Plugins → Development**.
+5. Run **Capte Icons (older builds: Capte Icons — Pilot)** from **Plugins → Development**.
 6. Choose an icon and click **Insert icon**. Select it on the canvas and change Weight; its artwork should stay unchanged until you press **Update icon**.
 
 Keep the folder after installation. Figma reads these files when the development plugin runs. Moving, renaming, or deleting the folder breaks the registered path.
@@ -42,3 +42,7 @@ GitHub pushes and downloaded ZIPs do not update an installed copy by themselves.
 | Controls differ after undo | Re-select the canvas icon to reload its stored settings. Editor undo/redo verification is part of team testing. |
 
 Report issues with the installed version (the current team preview is **0.1.13**), your Figma Desktop/OS version, icon/settings, expected behavior, actual behavior, and reproduction steps. Use the repository's bug report form.
+
+## Full-catalog beta
+
+The 0.2.0-beta.1 preview contains 60 icons and is separate from the published three-icon 0.1.13 ZIP. Use the versioned beta package supplied for review. Its development menu entry is Capte Icons. Reopen the plugin after replacing all three plugin files; the build version appears in its status message.

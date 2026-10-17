@@ -1,4 +1,4 @@
-# Using Capte Icons 0.1.13
+# Using Capte Icons 0.2.0-beta.1
 
 Choose an icon and settings, then click **Insert icon**. When a Capte icon is selected, the button reads **Update icon**. If one plugin-generated Capte icon is selected, it is replaced in place. **Deselect it to insert another.** Selecting a vector inside an owned icon also works. Unrelated artwork, multiple selections, and locked roots or parents are not overwritten. Edit icons inside component instances through their main component.
 
@@ -28,7 +28,7 @@ Search accepts names and keywords. Category filtering works alongside search. Ic
 
 ## Review checklist
 
-Try all three icons at small and large sizes, inspect fills and variable bindings, replace a selection, deselect to insert another, change every control, and try undo/redo. See the [acceptance checklist](acceptance.md). Full end-to-end Figma Desktop acceptance remains pending.
+Try representative icons from every category at small and large sizes, inspect fills and variable bindings, replace a selection, deselect to insert another, change every control, and try undo/redo. See the [acceptance checklist](acceptance.md). Full end-to-end Figma Desktop acceptance remains pending.
 
 ## Placement
 
