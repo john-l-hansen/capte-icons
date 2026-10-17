@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-Recheck the selected icon and its full ancestor chain after asynchronous token work, preventing updates after a parent is locked or the icon moves into a component instance. Make GitHub release publication a manual workflow on main; routine merges and release-plan edits no longer publish downloads.
+Recheck the selected icon and its full ancestor chain after asynchronous token work, preventing updates after a parent is locked or the icon moves into a component instance. Make GitHub release publication a manual workflow on main; routine merges and release-plan edits no longer publish downloads. Run browser checks on normal PRs as well as before publication.
 
 ## 0.1.13
 
