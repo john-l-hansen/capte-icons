@@ -26,15 +26,22 @@ Do not commit generated artifacts or install from GitHub's automatic source arch
 
 ## Publish an authorized team preview
 
-The **Team preview release** workflow runs when an authorized change to `release-plan.json` or the workflow is pushed to `feat/icon-plugin-pilot`, `feat/plugin-review-polish`, or `main`. The v0.1.13 team preview is explicitly approved by the project owner on 2026-10-16. Future releases require project authorization; do not change the release plan solely to trigger publication.
+Publishing is a separate manual action. Merging a PR or changing `release-plan.json` does not publish a release.
 
-A release from the reviewed `feat/plugin-review-polish` branch does not merge it into `main`; merging requires separate authorization.
+After the project owner approves the specific version and reviewed commit:
+
+1. Merge the reviewed code, matching version metadata and release notes into `main`.
+2. Confirm the checks pass on that commit.
+3. Open **Actions → Team preview release → Run workflow** and select **main**.
+4. Run the workflow, then verify the release assets and source commit. The workflow rejects execution from feature branches.
+
+The v0.1.13 team preview was approved on 2026-10-16. Future releases require their own project authorization; a merge approval is not publication approval.
 
 The workflow installs dependencies, runs checks and browser verification, builds/packages, and creates a GitHub **pre-release** tagged at the tested commit. It attaches the ZIP, checksum, and version metadata. It never merges a PR, publishes a Community plugin, or deploys a website. The job uses GitHub's repository-scoped Actions token with `contents: write`; no personal access token or new secret is required.
 
 An existing release is left intact. Never move its tag or replace its assets to hide a correction; fix forward with a new version. Re-running a failed job can retry publication if no release exists. If creation succeeded but an asset upload failed, inspect the existing draft/release and complete the missing asset upload from that same tested commit rather than rebuilding a different commit under the same version.
 
-Once the workflow is on the default branch, it can also be run through Actions → Team preview release → Run workflow. Run it on the reviewed release branch, not an unreviewed contributor branch.
+Manual runs publish the main commit selected when the workflow starts. Confirm that commit is the one approved for release before running it.
 
 ## Next version
 

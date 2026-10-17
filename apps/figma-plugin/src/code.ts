@@ -25,6 +25,14 @@ function selectedIcon(): FrameNode | null {
   return null;
 }
 let lastSelectionId: string | null | undefined;
+function assertEditableTarget(target: FrameNode | null) {
+  let ancestor: BaseNode | null = target;
+  while (ancestor && ancestor.type !== 'PAGE') {
+    if ('locked' in ancestor && ancestor.locked) throw new Error('Unlock the selected icon and its parent before updating it.');
+    if (ancestor.type === 'INSTANCE') throw new Error('Edit this icon in its main component.');
+    ancestor = ancestor.parent;
+  }
+}
 function selectionChanged(force = false) {
   const selected = selectedIcon();
   const nodeId = selected?.id ?? null;
@@ -63,22 +71,21 @@ async function handleMessage(message: unknown) {
       if (msg.type === 'insert') send({ type: 'error', text: 'Selection changed. Click Insert icon again.' });
     };
     if (expectedId !== (target?.id ?? null)) { canceled(); return; }
-    let ancestor: BaseNode | null = target;
-    while (ancestor && ancestor.type !== 'PAGE') {
-      if ('locked' in ancestor && ancestor.locked) throw new Error('Unlock the selected icon and its parent before updating it.');
-      if (ancestor.type === 'INSTANCE') throw new Error('Edit this icon in its main component.');
-      ancestor = ancestor.parent;
-    }
+    assertEditableTarget(target);
     progress('Loading color tokens…');
     const colors = await colorTokens();
     // Selection can move while library token imports are in progress.
     if (!selectionUnchanged() || (selectedIcon()?.id ?? null) !== expectedId || target?.removed) { canceled(); return; }
+    assertEditableTarget(target);
     progress('Creating icon artwork…');
     const fresh = staged = figma.createNodeFromSvg(renderSvg(options));
     outlineArtwork(fresh);
     progress('Attaching color tokens…');
     const modes = await bindColors(fresh, options, colors.tokens);
-    if (!selectionUnchanged() || (selectedIcon()?.id ?? null) !== expectedId || target?.removed || target?.locked) { fresh.remove(); staged = null; canceled(); return; }
+    if (!selectionUnchanged() || (selectedIcon()?.id ?? null) !== expectedId || target?.removed) { fresh.remove(); staged = null; canceled(); return; }
+    // Locks and ancestry can change during either asynchronous token phase.
+    // Recheck immediately before changing the existing root or its children.
+    assertEditableTarget(target);
     progress('Placing icon…');
     let node: FrameNode = fresh;
     if (target) {
