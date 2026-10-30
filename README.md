@@ -4,6 +4,10 @@
 
 [![Checks](https://github.com/john-l-hansen/capte-icons/actions/workflows/check.yml/badge.svg)](https://github.com/john-l-hansen/capte-icons/actions/workflows/check.yml)
 
+<p align=center>
+  <img src="docs/images/capte-icons-showcase.png" width="100%" alt="Capte Icons Full 60-Icon Library Showcase — Web Explorer, Parametric Inspector, and Figma Plugin">
+</p>
+
 **Team preview: v0.1.13 · Approved for team testing · Three pilot icons**
 
 The project owner approved this build for GitHub release on October 16, 2026. Community publication and full catalog expansion are separate milestones.
