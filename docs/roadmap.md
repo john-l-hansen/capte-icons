@@ -24,7 +24,7 @@
 ## Later: broader distribution
 
 - Publish a Figma Community plugin after release readiness is confirmed.
-- Add a Capte brand assets page with an explorer, usage guidance, installation link, and SVG downloads.
+- [x] **Add a Capte brand assets page with an explorer, usage guidance, installation link, and SVG downloads** *(Completed: Deployed at [Capte Web Operations Icon Explorer](https://john-l-hansen.github.io/capte-web-operations/tools/icon-explorer/))*
 - Use one published release asset for manual downloads.
 - Consider linked library instances only after publication/access requirements are established.
 
