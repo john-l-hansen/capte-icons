@@ -8,13 +8,24 @@
 
 The project owner approved this build for GitHub release on October 16, 2026. Community publication and full catalog expansion are separate milestones.
 
-[Download the Figma plugin](https://github.com/john-l-hansen/capte-icons/releases/download/v0.1.13/capte-icons-figma-plugin-0.1.13.zip) · [Release notes](https://github.com/john-l-hansen/capte-icons/releases/tag/v0.1.13) · [Installation guide](INSTALL.md) · [Usage guide](docs/usage.md) · [Roadmap](docs/roadmap.md)
+[Download the Figma plugin](https://github.com/john-l-hansen/capte-icons/releases/download/v0.1.13/capte-icons-figma-plugin-0.1.13.zip) · [Launch Web Explorer](https://john-l-hansen.github.io/capte-web-operations/tools/icon-explorer/) · [Release notes](https://github.com/john-l-hansen/capte-icons/releases/tag/v0.1.13) · [Installation guide](INSTALL.md) · [Usage guide](docs/usage.md) · [Roadmap](docs/roadmap.md)
 
 This preview is for trying the workflow and collecting team feedback. It includes **Search, Shield Lock, and Location Check**. The rest of the approved icon library will follow in reviewed batches. It is a manually installed development plugin; a Figma Community installation link is a later milestone.
 
 <p align="center"><img src="docs/images/plugin-preview-v0.1.13.png" width="360" alt="Capte Icons plugin showing category and search, weight, style, grade, optical size, and three pilot icons"></p>
 
 *Current v0.1.13 interface, captured from the built plugin UI with an icon selected. Changes apply when Update icon is pressed.*
+
+## Companion Web Explorer
+
+In addition to the Figma desktop plugin, a live interactive web explorer modeled after Google Fonts / Material Symbols is hosted on GitHub Pages:
+
+👉 **[Launch Capte Icon Explorer →](https://john-l-hansen.github.io/capte-web-operations/tools/icon-explorer/)**
+
+* **Live Parameter Customization**: Real-time optical sizing (20, 24, 40, 48 dp), stroke weights (Thin, Medium, Heavy), grades (Dark, Normal, Emphasis), and styles (Outline, Filled, Duotone).
+* **Brand Theming**: Live palette switching across Capte Primary Blue, Accent Blue, Accent Orange, Dark Ink, and White (with high-contrast Primary Blue tile backgrounds).
+* **One-Click Exporting**: Instant SVG download and clipboard copy, high-DPI raster PNG exports (1x, 2x, 3x), and inline SVG code snippet extraction.
+* **Deep-Link State**: Share specific icon and parameter configurations directly via URL parameters.
 
 ## For the team: install and try it
 
@@ -82,7 +93,7 @@ npm run check
 npm run dev
 ```
 
-Open **http://127.0.0.1:4173** for the local icon explorer and documentation. It supports SVG download/copy. The preview server builds once; restart it after code changes. The website has not been deployed.
+Open **http://127.0.0.1:4173** for the local icon explorer and documentation. It supports SVG download/copy. The preview server builds once; restart it after code changes. The production web explorer is deployed at [**john-l-hansen.github.io/capte-web-operations/tools/icon-explorer/**](https://john-l-hansen.github.io/capte-web-operations/tools/icon-explorer/).
 
 ```sh
 npx playwright install chromium --only-shell
