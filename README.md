@@ -16,10 +16,6 @@ The project owner approved this build for GitHub release on October 16, 2026. Co
 
 This preview is for trying the workflow and collecting team feedback. It includes **Search, Shield Lock, and Location Check**. The rest of the approved icon library will follow in reviewed batches. It is a manually installed development plugin; a Figma Community installation link is a later milestone.
 
-<p align="center"><img src="docs/images/plugin-preview-v0.1.13.png" width="360" alt="Capte Icons plugin showing category and search, weight, style, grade, optical size, and three pilot icons"></p>
-
-*Current v0.1.13 interface, captured from the built plugin UI with an icon selected. Changes apply when Update icon is pressed.*
-
 ## Companion Web Explorer
 
 In addition to the Figma desktop plugin, a live interactive web explorer modeled after Google Fonts / Material Symbols is hosted on GitHub Pages:
